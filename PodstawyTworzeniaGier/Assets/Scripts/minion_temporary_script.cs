@@ -9,7 +9,6 @@ public class minion_temporary_script : MonoBehaviour
     public int maxProjectileCount;
     private Vector2 input;
     private Rigidbody2D rb2d;
-    private int maxBulletCount = 3;
     private int bulletCount;
     private List<Bullet> bullets;
 
