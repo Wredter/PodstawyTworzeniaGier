@@ -5,26 +5,30 @@ using UnityEngine;
 public class axe : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Vector2 initialVelocity;
-    private float step;
+    private static int initalStepValue = 40;
+    private int step;
 
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
-        initialVelocity = rb2d.velocity;
-        step = 1.01f;
+        step = initalStepValue + 1;
 	}
 
     private void FixedUpdate()
     {
-        if (step == 1)
+        if (step == initalStepValue)
         {
-            initialVelocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y);
+            initialVelocity = rb2d.velocity;
         }
-        if (step > 0)
+        if (step > 0 && step <= initalStepValue)
         {
-            rb2d.velocity = initialVelocity * step;
-            step -= 0.01f;
+            rb2d.velocity = initialVelocity * (4 + step/initalStepValue)/4;
         }
+        if (step == 0)
+        {
+            rb2d.velocity = new Vector2(0, 0);
+        }
+        step -= 1;
     }
 
     // Update is called once per frame
