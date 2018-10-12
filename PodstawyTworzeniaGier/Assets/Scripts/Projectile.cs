@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
- 
-    public GameObject gameObjectType;
     public int cooldown;
-    
+   
     protected PlayerTest player;
     protected Vector2 startingPosition;
     protected Vector2 startingVelocity;
 
 	// Use this for initialization
 	void Start () {
-        
 	}
 
     public void Initialise(string projectileID, PlayerTest player, Vector2 input)
@@ -29,7 +26,7 @@ public class Projectile : MonoBehaviour {
 
     public void UpdateCounter()
     {
-        cooldown++;
+        cooldown--;
     }
 
     public int GetCounter()
