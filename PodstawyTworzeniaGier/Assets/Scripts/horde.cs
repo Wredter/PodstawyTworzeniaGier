@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class horde : MonoBehaviour {
+public class horde : NetworkBehaviour {
     public GameObject hordeChief;
     public GameObject hordeMinion;
     public int minionsNumber = 10;
@@ -14,13 +15,14 @@ public class horde : MonoBehaviour {
     List<GameObject> minionsWithChief;
     GameObject chief;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         minions = new List<GameObject>();
         minionsWithChief = new List<GameObject>();
 
-        GameObject obj = Instantiate(hordeChief, new Vector3(0, 0, 0), Quaternion.identity);
-        //obj.transform.parent = GameObject.Find("Horde").transform;
+        GameObject obj = Instantiate(hordeChief, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
+
         chief = obj;
         minionsWithChief.Add(chief);
 
@@ -28,7 +30,7 @@ public class horde : MonoBehaviour {
         {
             float radius = Mathf.PI * 2 / minionsNumber * i;
             obj = Instantiate(hordeMinion, new Vector3(spawnRadius*Mathf.Cos(radius) + Random.value, spawnRadius * Mathf.Sin(radius) + Random.value, 0), Quaternion.identity);
-            //obj.transform.parent = GameObject.Find("Horde").transform;
+            obj.transform.parent = gameObject.transform;
             minions.Add(obj);
             minionsWithChief.Add(obj);
         }
