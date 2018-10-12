@@ -44,7 +44,7 @@ public class PlayerLocal : NetworkBehaviour {
         chief = obj;
         Debug.Log("liczba dziecków: " + chief.transform.childCount);
 
-        NetworkServer.SpawnWithClientAuthority(obj, connectionToClient);
+        //NetworkServer.SpawnWithClientAuthority(obj, connectionToClient);
         
     }
 }
