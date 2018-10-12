@@ -65,7 +65,6 @@ public class horde : MonoBehaviour {
             }
                 
         }
-        chief.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0));
 
     }
 }
