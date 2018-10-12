@@ -161,7 +161,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   projectile: {fileID: 1398342518803966, guid: 1273f9dd610838f4ca0694cd88f28f08, type: 2}
-  maxProjectileCount: 3
+  maxProjectileCount: 1000
 --- !u!58 &1199307579
 CircleCollider2D:
   m_ObjectHideFlags: 0
