@@ -22,18 +22,18 @@ public class minion_temporary_script : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb2d.velocity = new Vector2(input.x * moveSpeed, input.y * moveSpeed);
         bullets.ForEach(i => i.UpdateCounter());
     }
 
     // Update is called once per frame
     void Update()
-    {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
+    {        
         if (Input.GetKeyDown(KeyCode.Space) && bullets.Count < maxProjectileCount)
         {
-            bullets.Add(new Bullet(transform, input, bulletCount, projectile));
+            bullets.Add(new Bullet(rb2d, input, bulletCount, projectile));
             bulletCount++;
             
         }
@@ -58,10 +58,15 @@ public class minion_temporary_script : MonoBehaviour
         private GameObject gameObject;
         private int counter;
 
-        public Bullet(Transform transform, Vector2 input, int bulletCount, GameObject projectile)
+        public Bullet(Rigidbody2D rb2d, Vector2 input, int bulletCount, GameObject projectile)
         {
-            gameObject = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(input * 1000);
+            gameObject = Instantiate(projectile, rb2d.position, Quaternion.identity) as GameObject;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float projectileX = mousePosition.x - rb2d.position.x;
+            float projectileY = mousePosition.y - rb2d.position.y;
+            float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
+            Vector2 projectileThrow = new Vector2(projectileX/r, projectileY/r) + input;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(projectileThrow * 1000);
             gameObject.name = "bullet" + bulletCount;
         }
 
