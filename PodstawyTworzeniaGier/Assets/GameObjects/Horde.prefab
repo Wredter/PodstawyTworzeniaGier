@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4644464569100758}
   - component: {fileID: 114228811006499984}
+  - component: {fileID: 114808701267736088}
   m_Layer: 0
   m_Name: Horde
   m_TagString: Untagged
@@ -51,7 +52,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003eed8d0d6c49f46954b49e6f8a6fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hordeChief: {fileID: 0}
-  hordeMinion: {fileID: 0}
+  hordeChief: {fileID: 1995341452949066, guid: 7fab5ebe19802f948ab147b757218275, type: 2}
+  hordeMinion: {fileID: 1964803165583694, guid: a4fad2ed479306e43b3b8704997ef7ec,
+    type: 2}
   minionsNumber: 10
   spawnRadius: 3.09
+  minionsKS: 1
+  minionsK: 1
+--- !u!114 &114808701267736088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507970513812326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 52
+    i1: 165
+    i2: 217
+    i3: 62
+    i4: 141
+    i5: 4
+    i6: 62
+    i7: 148
+    i8: 123
+    i9: 181
+    i10: 205
+    i11: 152
+    i12: 138
+    i13: 182
+    i14: 79
+    i15: 68
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1

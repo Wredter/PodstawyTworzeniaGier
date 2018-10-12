@@ -20,7 +20,7 @@ public class horde : MonoBehaviour {
         minionsWithChief = new List<GameObject>();
 
         GameObject obj = Instantiate(hordeChief, new Vector3(0, 0, 0), Quaternion.identity);
-        obj.transform.parent = GameObject.Find("Horde").transform;
+        //obj.transform.parent = GameObject.Find("Horde").transform;
         chief = obj;
         minionsWithChief.Add(chief);
 
@@ -28,7 +28,7 @@ public class horde : MonoBehaviour {
         {
             float radius = Mathf.PI * 2 / minionsNumber * i;
             obj = Instantiate(hordeMinion, new Vector3(spawnRadius*Mathf.Cos(radius) + Random.value, spawnRadius * Mathf.Sin(radius) + Random.value, 0), Quaternion.identity);
-            obj.transform.parent = GameObject.Find("Horde").transform;
+            //obj.transform.parent = GameObject.Find("Horde").transform;
             minions.Add(obj);
             minionsWithChief.Add(obj);
         }
