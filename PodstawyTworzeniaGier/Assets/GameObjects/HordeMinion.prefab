@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 50821370907720322}
   - component: {fileID: 60614531382774780}
   - component: {fileID: 114262517155057064}
+  - component: {fileID: 114573205444969074}
   m_Layer: 0
   m_Name: HordeMinion
   m_TagString: Untagged
@@ -153,6 +154,27 @@ MonoBehaviour:
     i15: 236
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114573205444969074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964803165583694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212320908564214952
 SpriteRenderer:
   m_ObjectHideFlags: 1
