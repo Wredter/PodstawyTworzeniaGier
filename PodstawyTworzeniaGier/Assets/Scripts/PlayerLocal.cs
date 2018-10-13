@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerLocal : NetworkBehaviour {
-    public GameObject PlayerUnitPrefab;
+    public GameObject hordePrefab, minionPrefab, chiefPrefab;
+    public int minionsNumber = 5;
+    public float spawnRadius = 3;
 
-    GameObject chief;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        Debug.Log("is local Plaeyr: " + isLocalPlayer);
         if ( !isLocalPlayer )
         {
             return;
@@ -18,33 +20,52 @@ public class PlayerLocal : NetworkBehaviour {
 
 		
 	}
-    bool a = true;
     
 	// Update is called once per frame
 	void Update () {
-		if (chief != null && a && chief.transform.childCount > 0)
-        {
-            Debug.Log("dfagadsfsadfdsa: " + chief.transform.childCount);
-            a = false;
-            for (int i = 0; i < chief.transform.childCount; i++)
-            {
-                //if (chief.hasAuthority)
-                NetworkServer.SpawnWithClientAuthority(chief.transform.GetChild(i).gameObject, connectionToClient);
-            }
-            
-        }
-	}
 
+	}
 
     /////////////////// COMANDS ///////////////////
     [Command]
     void CmdSpawnMyUnit()
     {
-        GameObject obj = Instantiate(PlayerUnitPrefab);
-        chief = obj;
-        Debug.Log("liczba dziecków: " + chief.transform.childCount);
+        /*
 
-        //NetworkServer.SpawnWithClientAuthority(obj, connectionToClient);
-        
+        //chief
+        GameObject chief = Instantiate(chiefPrefab);
+
+        //minions
+        List<GameObject>  minions = new List<GameObject>();
+        for (int i = 0; i < minionsNumber; i++)
+        {
+            float radius = Mathf.PI * 2 / minionsNumber * i;
+            GameObject minion = Instantiate(minionPrefab, new Vector3(spawnRadius * Mathf.Cos(radius) + Random.value, spawnRadius * Mathf.Sin(radius) + Random.value, 0), Quaternion.identity);
+            minions.Add(minion);
+        }
+
+        //horde
+        GameObject horde = Instantiate(hordePrefab);
+
+        chief.transform.parent = horde.transform;
+
+        foreach (GameObject minion in minions)
+        {
+            minion.transform.parent = horde.transform;
+        }
+
+
+        //spawn
+        NetworkServer.SpawnWithClientAuthority(chief, connectionToClient);
+        foreach (GameObject minion in minions)
+        {
+            NetworkServer.SpawnWithClientAuthority(minion, connectionToClient);
+        }
+
+        NetworkServer.SpawnWithClientAuthority(horde, connectionToClient);
+
+    */
+        GameObject chief = Instantiate(chiefPrefab);
+        NetworkServer.SpawnWithClientAuthority(chief, connectionToClient);
     }
 }

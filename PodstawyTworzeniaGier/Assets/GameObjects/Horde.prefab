@@ -55,10 +55,11 @@ MonoBehaviour:
   hordeChief: {fileID: 1995341452949066, guid: 7fab5ebe19802f948ab147b757218275, type: 2}
   hordeMinion: {fileID: 1964803165583694, guid: a4fad2ed479306e43b3b8704997ef7ec,
     type: 2}
-  minionsNumber: 1
+  minionsNumber: 12
   spawnRadius: 3.09
-  minionsKS: 1
-  minionsK: 1
+  minionsKS: 300
+  minionsK: 2000
+  maxSpeed: 10
 --- !u!114 &114808701267736088
 MonoBehaviour:
   m_ObjectHideFlags: 1
