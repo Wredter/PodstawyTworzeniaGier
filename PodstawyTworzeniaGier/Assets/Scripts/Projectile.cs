@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals(player.tag))
+        if (collision.gameObject.GetComponent<PlayerTest>())
         {
             if (GetCounter() < 0)
             {
@@ -33,10 +33,6 @@ public class Projectile : MonoBehaviour {
         } 
         else
         {
-            if(collision.gameObject.GetComponent<PlayerTest>())
-            {
-                collision.gameObject.GetComponent<PlayerTest>().DealDamage(damage);
-            }
             //TODO dopisanie zadawania obrażeń wodzowi itp
         }
     }
