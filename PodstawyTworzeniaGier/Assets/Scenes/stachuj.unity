@@ -163,6 +163,11 @@ Prefab:
       propertyPath: minionsNumber
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114637555611147730, guid: 81b129c37528c4f4c9b6eb8d7656fffa,
+        type: 2}
+      propertyPath: dashCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
   m_IsPrefabAsset: 0
