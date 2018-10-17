@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
-    public float moveSpeed;
-    public float projectilePickupDistance;
     public GameObject projectile;
     public int maxProjectileCount;
     private Vector2 input;
@@ -26,7 +24,7 @@ public class PlayerTest : MonoBehaviour
     {
 
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb2d.velocity = new Vector2(input.x * moveSpeed, input.y * moveSpeed);
+        rb2d.velocity = new Vector2(input.x, input.y);
         foreach(Axe g in axee.Values)
         {
             g.UpdateCounter();
@@ -43,41 +41,16 @@ public class PlayerTest : MonoBehaviour
             axee[temp].Initialise("axe" + projectilesCount, this, input);
             projectilesCount++;
         }
-
-        Stack<GameObject> toReturn = new Stack<GameObject>();
-        foreach(var a in axee.Keys)
-        {
-            if (axee[a].GetCounter() < 0)
-            {
-                if (Vector2.Distance(axee[a].GetPosition(), rb2d.position) < projectilePickupDistance)
-                {
-                    toReturn.Push(a);
-                }
-            }
-        }
-        while(toReturn.Count > 0)
-        {
-            var c = toReturn.Pop();
-            Destroy(c);
-            axee.Remove(c);
-        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (axee.ContainsKey(collision.gameObject))
-        {
-            if (axee[collision.gameObject].GetCounter() < 0)
-            {
-                ReturnProjectile(collision.gameObject);
-                return;
-            }
-        }
-    }
     public void ReturnProjectile(GameObject p)
     {
-        Destroy(p);
         axee.Remove(p);
+    }
+
+    public GameObject GetGameObject()
+    {
+        return gameObject;
     }
 
     public Vector2 GetPosition()
