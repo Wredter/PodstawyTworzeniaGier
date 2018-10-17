@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
+    public float health;
     public GameObject projectile;
     public int maxProjectileCount;
+
     private Vector2 input;
     private Rigidbody2D rb2d;
     private Dictionary<GameObject, Axe> axee;
@@ -40,6 +42,16 @@ public class PlayerTest : MonoBehaviour
             axee.Add(temp, temp.GetComponent<Axe>());
             axee[temp].Initialise("axe" + projectilesCount, this, input);
             projectilesCount++;
+        }
+    }
+
+    public void DealDamage(float damage)
+    {
+        health -= damage;
+        if (health < 0)
+        {
+            //Death
+            health = 0;
         }
     }
 

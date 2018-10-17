@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     public int cooldown;
+    public float damage;
    
     protected PlayerTest player;
     protected Vector2 startingPosition;
@@ -21,7 +22,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals(player.tag))
+        if (collision.gameObject.GetComponent<PlayerTest>())
         {
             if (GetCounter() < 0)
             {
@@ -29,6 +30,10 @@ public class Projectile : MonoBehaviour {
                 Destroy(gameObject);
                 return;
             }
+        } 
+        else
+        {
+            //TODO dopisanie zadawania obrażeń wodzowi itp
         }
     }
 
