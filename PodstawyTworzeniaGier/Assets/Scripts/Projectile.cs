@@ -18,9 +18,22 @@ public class Projectile : MonoBehaviour {
         name = projectileID;
         this.player = player;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals(player.tag))
+        {
+            if (GetCounter() < 0)
+            {
+                player.ReturnProjectile(gameObject);
+                Destroy(gameObject);
+                return;
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
