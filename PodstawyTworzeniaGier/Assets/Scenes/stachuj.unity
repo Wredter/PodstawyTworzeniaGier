@@ -113,61 +113,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &190312303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1243639089875892, guid: 68605cc38a5c7fd4caccf1835aebc1fe,
-    type: 2}
-  m_PrefabInternal: {fileID: 1836418678}
---- !u!1001 &1836418678
+--- !u!1001 &1325688593
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.8372262
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.20805615
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4193716620644464, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+    - target: {fileID: 4562480983761988, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114631345473051670, guid: 68605cc38a5c7fd4caccf1835aebc1fe,
+    - target: {fileID: 114637555611147730, guid: 81b129c37528c4f4c9b6eb8d7656fffa,
         type: 2}
-      propertyPath: player
+      propertyPath: hordeMinion
       value: 
-      objectReference: {fileID: 190312303}
-    - target: {fileID: 1243639089875892, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
-      propertyPath: m_Name
-      value: minion
+      objectReference: {fileID: 1243639089875892, guid: 68605cc38a5c7fd4caccf1835aebc1fe,
+        type: 2}
+    - target: {fileID: 114637555611147730, guid: 81b129c37528c4f4c9b6eb8d7656fffa,
+        type: 2}
+      propertyPath: minionsNumber
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 68605cc38a5c7fd4caccf1835aebc1fe, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 81b129c37528c4f4c9b6eb8d7656fffa, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1866182536
 GameObject:
@@ -217,7 +214,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

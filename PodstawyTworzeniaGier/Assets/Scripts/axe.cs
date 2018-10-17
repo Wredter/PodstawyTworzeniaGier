@@ -47,4 +47,9 @@ public class Axe : Projectile {
     void Update () {
         
 	}
+
+    public Vector2 GetPosition()
+    {
+        return rb2d.position;
+    } 
 }

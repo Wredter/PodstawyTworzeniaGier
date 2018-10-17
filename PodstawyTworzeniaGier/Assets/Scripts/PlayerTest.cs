@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerTest : MonoBehaviour
 {
     public float moveSpeed;
+    public float projectilePickupDistance;
     public GameObject projectile;
     public int maxProjectileCount;
     private Vector2 input;
@@ -41,6 +42,24 @@ public class PlayerTest : MonoBehaviour
             axee.Add(temp, temp.GetComponent<Axe>());
             axee[temp].Initialise("axe" + projectilesCount, this, input);
             projectilesCount++;
+        }
+
+        Stack<GameObject> toReturn = new Stack<GameObject>();
+        foreach(var a in axee.Keys)
+        {
+            if (axee[a].GetCounter() < 0)
+            {
+                if (Vector2.Distance(axee[a].GetPosition(), rb2d.position) < projectilePickupDistance)
+                {
+                    toReturn.Push(a);
+                }
+            }
+        }
+        while(toReturn.Count > 0)
+        {
+            var c = toReturn.Pop();
+            Destroy(c);
+            axee.Remove(c);
         }
     }
 
