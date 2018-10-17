@@ -91,10 +91,53 @@ public class localHorde : MonoBehaviour
 
             }
 
+            foreach (GameObject obj in minionsWithChief)
+            {
+                Vector2 velocity = obj.GetComponent<Rigidbody2D>().velocity;
+                if (velocity.x * velocity.x + velocity.y * velocity.y > 16)
+                {
+                    obj.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, velocity));
+                }
+            }
+
             float moveX = Input.GetAxis("Horizontal");
             float moveY = Input.GetAxis("Vertical");
 
             chief.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * maxSpeed, moveY * maxSpeed);
+
+
+            dashCooldownTimer -= Time.deltaTime;
+            dashForce -= Time.deltaTime * 300;
+            if (dashForce < 0) dashForce = 0;
+
+            dash();
+
+            if (Input.GetKeyDown(KeyCode.F)) {
+                if (dashCooldownTimer <= 0)
+                {
+                    dashForce = 500;
+                    dashCooldownTimer = dashCooldown;
+                }
+                
+
+            }
+        }
+    }
+
+    public float dashCooldown = 1;
+    float dashCooldownTimer = 0;
+    float dashForce;
+    public void dash()
+    {
+        foreach (GameObject obj in minionsWithChief)
+        {
+            Rigidbody2D rb2d = obj.GetComponent<Rigidbody2D>();
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float projectileX = mousePosition.x - rb2d.position.x;
+            float projectileY = mousePosition.y - rb2d.position.y;
+            float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
+            Vector2 projectileThrow = new Vector2(projectileX / r, projectileY / r);
+            rb2d.AddForce(projectileThrow * dashForce);
         }
     }
 }
