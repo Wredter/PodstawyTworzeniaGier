@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 50
+  damage: 20
 --- !u!212 &212306432077399180
 SpriteRenderer:
   m_ObjectHideFlags: 1
