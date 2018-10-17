@@ -14,14 +14,11 @@ public class basicMovement : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!hasAuthority)
-        {
-            return;
-        }
 
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        minion.velocity = new Vector2(moveX*maxSpeed,moveY*maxSpeed);
+        if(isLocalPlayer)
+            minion.velocity = new Vector2(moveX*maxSpeed,moveY*maxSpeed);
 	}
 }
