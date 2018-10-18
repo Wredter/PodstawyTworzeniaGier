@@ -9,77 +9,57 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1640630809597660}
+  m_RootGameObject: {fileID: 1361421442129264}
   m_IsPrefabAsset: 1
---- !u!1 &1640630809597660
+--- !u!1 &1361421442129264
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4506029468852508}
-  - component: {fileID: 114194606664822998}
-  - component: {fileID: 50347046641436326}
-  - component: {fileID: 114422932034093106}
+  - component: {fileID: 4912649939174970}
+  - component: {fileID: 114017909959721032}
+  - component: {fileID: 114175959674832916}
   m_Layer: 0
-  m_Name: minionContainer
+  m_Name: LocalPlayerEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4506029468852508
+--- !u!4 &4912649939174970
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640630809597660}
+  m_GameObject: {fileID: 1361421442129264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8372262, y: -0.20805615, z: -10.049275}
+  m_LocalPosition: {x: 1.2267293, y: 4.1806, z: -9.941668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50347046641436326
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640630809597660}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 25.52
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &114194606664822998
+--- !u!114 &114017909959721032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640630809597660}
+  m_GameObject: {fileID: 1361421442129264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f313f733a489bbe4aaba3ac6b3dd328f, type: 3}
+  m_Script: {fileID: 11500000, guid: 01e5b4a0dbd764548a0e8178fef83110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1604622530028642, guid: 00bbed19ab7742c42855c6ee0b911136, type: 2}
---- !u!114 &114422932034093106
+  MyHordePrefab: {fileID: 1056291935462628, guid: 910fb09bd51bc514a803974a1105b760,
+    type: 2}
+--- !u!114 &114175959674832916
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640630809597660}
+  m_GameObject: {fileID: 1361421442129264}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
@@ -88,21 +68,21 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 233
-    i1: 14
-    i2: 54
-    i3: 166
-    i4: 26
-    i5: 145
-    i6: 255
-    i7: 244
-    i8: 249
-    i9: 174
-    i10: 156
-    i11: 20
-    i12: 16
-    i13: 242
-    i14: 240
-    i15: 95
+    i0: 244
+    i1: 89
+    i2: 211
+    i3: 69
+    i4: 77
+    i5: 141
+    i6: 3
+    i7: 196
+    i8: 217
+    i9: 17
+    i10: 228
+    i11: 28
+    i12: 129
+    i13: 113
+    i14: 45
+    i15: 161
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1

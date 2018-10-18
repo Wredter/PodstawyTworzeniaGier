@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class localHorde : MonoBehaviour
+public class localHorde : NetworkBehaviour
 {
     public GameObject hordeChief;
     public GameObject hordeMinion;
