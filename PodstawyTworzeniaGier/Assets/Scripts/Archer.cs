@@ -45,7 +45,7 @@ public class Archer : MinionBase
             {
                 GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
                 arrows.Add(temp, temp.GetComponent<Arrow>());
-                arrows[temp].Initialise("axe" + projectilesCount, this, power);
+                arrows[temp].Initialise("arrow" + projectilesCount, this, power);
                 projectilesCount++;
                 power = 0.5f;
                 cooldown = shootCooldown;

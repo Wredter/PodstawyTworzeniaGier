@@ -12,9 +12,9 @@ public class Arrow : Projectile {
         step = initialStepValue + 1;
 	}
 
-    public void Initialise(string axeID, Archer player, float power)
+    public void Initialise(string arrowID, Archer player, float power)
     {
-        name = axeID;
+        name = arrowID;
         this.player = player;
         rb2d = GetComponent<Rigidbody2D>();
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
