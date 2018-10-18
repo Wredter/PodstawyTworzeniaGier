@@ -6,27 +6,22 @@ public class Projectile : MonoBehaviour {
     public int cooldown;
     public float damage;
    
-    protected PlayerTest player;
+    protected MinionBase player;
     protected Vector2 startingPosition;
     protected Vector2 startingVelocity;
+    protected Rigidbody2D rb2d;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	}
-
-    public void Initialise(string projectileID, PlayerTest player, Vector2 input)
-    {
-        name = projectileID;
-        this.player = player;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerTest>())
+        if (collision.gameObject.GetComponent<Viking>())
         {
             if (GetCounter() < 0)
             {
-                player.ReturnProjectile(gameObject);
+                ((Viking)player).ReturnProjectile(gameObject);
                 Destroy(gameObject);
                 return;
             }
@@ -50,6 +45,11 @@ public class Projectile : MonoBehaviour {
     public int GetCounter()
     {
         return cooldown;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return rb2d.position;
     }
 
     public string GetProjectileID()

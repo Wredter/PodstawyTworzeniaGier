@@ -156,7 +156,7 @@ Prefab:
         type: 2}
       propertyPath: hordeMinion
       value: 
-      objectReference: {fileID: 1243639089875892, guid: 68605cc38a5c7fd4caccf1835aebc1fe,
+      objectReference: {fileID: 1808181229769308, guid: fef69cccaf9bc304a8c413d31a441f65,
         type: 2}
     - target: {fileID: 114637555611147730, guid: 81b129c37528c4f4c9b6eb8d7656fffa,
         type: 2}
