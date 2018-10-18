@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e35c89286625a4f8204e52f229ec88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomSpread: 0.161
   range: 40
   cooldown: 50
   damage: 20

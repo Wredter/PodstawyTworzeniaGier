@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour {
+    [Range(0.0f,0.5f)]
     public float randomSpread;
     public int range;
     public int cooldown;
