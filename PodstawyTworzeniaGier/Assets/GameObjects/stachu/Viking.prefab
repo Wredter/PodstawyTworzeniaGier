@@ -77,8 +77,13 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: -0.12}
   serializedVersion: 2
+<<<<<<< HEAD:PodstawyTworzeniaGier/Assets/GameObjects/stachu/Viking.prefab
   m_Radius: 0.67
 --- !u!114 &114818682253719350
+=======
+  m_Radius: 0.27
+--- !u!114 &114631345473051670
+>>>>>>> 9b4647e2192c9b0faea5cc52806dc1f5783dabcb:PodstawyTworzeniaGier/Assets/GameObjects/stachu/minion.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0aa6afb14f25e741ae76bbb1eef4f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   projectile: {fileID: 1970360740253080, guid: 1273f9dd610838f4ca0694cd88f28f08, type: 2}
   maxProjectileCount: 1
 --- !u!212 &212045540211807598
