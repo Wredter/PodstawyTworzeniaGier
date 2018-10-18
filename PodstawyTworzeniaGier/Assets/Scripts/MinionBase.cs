@@ -19,9 +19,15 @@ public class MinionBase : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         name = "player";
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void FixedUpdate()
+    {
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rb2d.velocity = new Vector2(input.x, input.y);
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -33,6 +39,11 @@ public class MinionBase : MonoBehaviour
             //Death
             health = 0;
         }
+    }
+
+    protected void callFixedUpdate()
+    {
+        FixedUpdate();
     }
 
     public GameObject GetGameObject()

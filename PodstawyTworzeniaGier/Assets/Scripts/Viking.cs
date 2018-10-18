@@ -20,8 +20,7 @@ public class Viking : MinionBase
 
     private void FixedUpdate()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb2d.velocity = new Vector2(input.x, input.y);
+        callFixedUpdate();
         foreach(Axe g in axes.Values)
         {
             g.UpdateCounter();

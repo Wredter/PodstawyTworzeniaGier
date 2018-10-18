@@ -22,8 +22,7 @@ public class Archer : MinionBase
 
     private void FixedUpdate()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb2d.velocity = new Vector2(input.x, input.y);
+        callFixedUpdate();
         foreach (Arrow g in arrows.Values)
         {
             g.UpdateCounter();
