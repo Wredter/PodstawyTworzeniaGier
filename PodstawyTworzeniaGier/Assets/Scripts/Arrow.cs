@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class Arrow : Projectile {
     private int step;
     private Vector2 initialVelocity;
-    private int initialStepValue = 40;
 
 	// Use this for initialization
 	void Start () {
-        step = initialStepValue + 1;
+        step = range + 1;
 	}
 
     public void Initialise(string arrowID, Archer player, float power)
@@ -22,18 +22,19 @@ public class Arrow : Projectile {
         float projectileY = mousePosition.y - rb2d.position.y;
         float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
         Vector2 projectileThrow = new Vector2(projectileX / r, projectileY / r);
+        projectileThrow += new Vector2(randomSpread*2*(Random.value-0.5f), randomSpread*2*(Random.value-0.5f));
         rb2d.AddForce(projectileThrow * 500 * power);
     }
 
     private void FixedUpdate()
     {
-        if (step == initialStepValue)
+        if (step == range)
         {
             initialVelocity = rb2d.velocity;
         }
-        if (step > 0 && step <= initialStepValue)
+        if (step > 0 && step <= range)
         {
-            rb2d.velocity = initialVelocity * (4 + step / initialStepValue) / 4;
+            rb2d.velocity = initialVelocity * (4 + step / range) / 4;
         }
         if (step == 0)
         {

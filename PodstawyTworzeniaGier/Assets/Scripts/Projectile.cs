@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
+    public float randomSpread;
+    public int range;
     public int cooldown;
     public float damage;
    

@@ -24,6 +24,7 @@ public class Axe : Projectile {
         float projectileY = mousePosition.y - rb2d.position.y;
         float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
         Vector2 projectileThrow = new Vector2(projectileX / r, projectileY / r) + input/3*2;
+        projectileThrow += new Vector2(randomSpread * 2 * (Random.value - 0.5f), randomSpread * 2 * (Random.value - 0.5f));
         rb2d.AddForce(projectileThrow * 500);
     }
 
