@@ -6,15 +6,19 @@ public class ShieldCover : MonoBehaviour {
 
     public float maximalShieldTime;
     public float totalCooldown;
+    public float preparationTime;
     private float currentCooldown;
     private float currentShieldTime;
-    private float currentRotation;
+    private float currentPreparationTime;
+    private float shieldPreparationAngleByTimeUnit;
     private bool doShield;
+    private bool isPreparingToShield;
 
 	// Use this for initialization
 	void Start () {
         doShield = false;
         currentCooldown = totalCooldown; //to enable it
+        shieldPreparationAngleByTimeUnit = 90 / preparationTime;
 	}
 	
 	// Update is called once per frame
@@ -23,11 +27,29 @@ public class ShieldCover : MonoBehaviour {
         {
             if (currentCooldown >= totalCooldown)
             {
-                doShield = true;
+                isPreparingToShield = true;
                 currentShieldTime = 0;
                 currentCooldown = 0;
-                this.transform.Rotate(0, 0, -90);
+                currentPreparationTime = 0;
             }
+        }
+
+
+        if(isPreparingToShield == true)
+        {
+            this.transform.Rotate(0, 0, -shieldPreparationAngleByTimeUnit * Time.deltaTime);
+            currentPreparationTime += Time.deltaTime;
+
+
+            if(currentPreparationTime >= preparationTime)
+            {
+                //fix additional rotation
+                transform.localEulerAngles = new Vector3(0, 0, -90);
+                isPreparingToShield = false;
+                doShield = true;
+            }
+
+
         }
 
         if(doShield == true)
@@ -36,7 +58,8 @@ public class ShieldCover : MonoBehaviour {
             if(currentShieldTime> maximalShieldTime)
             {
                 doShield = false;
-                this.transform.Rotate(0, 0, 90);
+                //this.transform.Rotate(0, 0, 90);
+                transform.localEulerAngles = new Vector3(0, 0, 0);
                 currentCooldown = 0;
             }
         }
