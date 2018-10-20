@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healthBarView: {fileID: 1482587473186044, guid: d63ce30da369294439caec6a2193c920,
+    type: 2}
   projectile: {fileID: 1970360740253080, guid: 1273f9dd610838f4ca0694cd88f28f08, type: 2}
   maxProjectileCount: 2
 --- !u!212 &212036525608130180
