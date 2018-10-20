@@ -20,7 +20,7 @@ public class Viking : MinionBase
 
     private void FixedUpdate()
     {
-        callFixedUpdate();
+        CallFixedUpdate();
         foreach(Axe g in axes.Values)
         {
             g.UpdateCounter();

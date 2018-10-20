@@ -22,7 +22,7 @@ public class Archer : MinionBase
 
     private void FixedUpdate()
     {
-        callFixedUpdate();
+        CallFixedUpdate();
         foreach (Arrow g in arrows.Values)
         {
             g.UpdateCounter();

@@ -21,18 +21,23 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Viking>())
+        if (collision.gameObject.name.Equals(gameObject.name))
         {
-            if (GetCounter() < 0)
+            if (collision.gameObject.GetComponent<Viking>())
             {
-                ((Viking)player).ReturnProjectile(gameObject);
-                Destroy(gameObject);
-                return;
+                if (GetCounter() < 0)
+                {
+                    ((Viking)player).ReturnProjectile(gameObject);
+                    Destroy(gameObject);
+                    return;
+                }
             }
-        } 
-        else
+        } else
         {
-            //TODO dopisanie zadawania obrażeń wodzowi itp
+            if (collision.gameObject.GetComponent<MinionBase>())
+            {
+                collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
+            }
         }
     }
 

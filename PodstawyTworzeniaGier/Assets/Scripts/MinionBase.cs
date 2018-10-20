@@ -5,9 +5,11 @@ using UnityEngine;
 public class MinionBase : MonoBehaviour
 {
     public float health;
+    public GameObject healthBarView;
 
     protected Vector2 input;
     protected Rigidbody2D rb2d;
+    protected GameObject healthBar;
 	// Use this for initialization
 	void Start ()
     {
@@ -18,6 +20,9 @@ public class MinionBase : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         name = "player";
+        healthBar = Instantiate(healthBarView);
+        healthBar.GetComponent<HealthBarScript>().Initialise(gameObject);
+        healthBar.transform.SetParent(transform, false);
     }
 
     private void FixedUpdate()
@@ -41,7 +46,7 @@ public class MinionBase : MonoBehaviour
         }
     }
 
-    protected void callFixedUpdate()
+    protected void CallFixedUpdate()
     {
         FixedUpdate();
     }
