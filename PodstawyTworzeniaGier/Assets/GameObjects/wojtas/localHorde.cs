@@ -31,6 +31,7 @@ public class localHorde : NetworkBehaviour
 
         chief = obj;
         minionsWithChief.Add(chief);
+        gameObject.AddComponent<NetworkTransformChild>();
 
         for (int i = 0; i < minionsNumber; i++)
         {
@@ -38,9 +39,21 @@ public class localHorde : NetworkBehaviour
             obj = Instantiate(hordeMinion, transform.position + new Vector3(spawnRadius*Mathf.Cos(radius) + Random.value * random, spawnRadius * Mathf.Sin(radius) + Random.value * random, 0), Quaternion.identity, gameObject.transform);
             minions.Add(obj);
             minionsWithChief.Add(obj);
+
+            gameObject.AddComponent<NetworkTransformChild>();
+
         }
         Debug.Log("horde dziecki: " + transform.childCount);
+        foreach (var NTC in GetComponents<NetworkTransformChild>())
+        {
+            int counter = 0;
+            NTC.target = minionsWithChief[counter].transform;
+            counter += 1;
+
+        }
+        //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
         
+
     }
 
     // Update is called once per frame
