@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals(gameObject.name))
+        if (collision.gameObject.name.Equals(player.name))
         {
             if (collision.gameObject.GetComponent<Viking>())
             {

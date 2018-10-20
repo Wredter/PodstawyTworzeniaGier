@@ -19,7 +19,6 @@ public class MinionBase : MonoBehaviour
     public void Initialise()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        name = "player";
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScript>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
