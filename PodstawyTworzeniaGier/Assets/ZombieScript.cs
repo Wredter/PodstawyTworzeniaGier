@@ -10,7 +10,6 @@ public class ZombieScript : MinionBase
     public float dmg;
     void Start()
     {
-        Initialise();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -24,10 +23,10 @@ public class ZombieScript : MinionBase
     {
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (collision.gameObject.name == "player")
+        if (collision.gameObject.GetComponent<MinionBase>())
         {
             Destroy(collision.gameObject);
             Debug.Log("OnCollisionEnter : zniszczyles mnie");
