@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour {
     protected Vector2 startingPosition;
     protected Vector2 startingVelocity;
     protected Rigidbody2D rb2d;
+    protected bool hasHit;
+    protected bool isReturnable;
 
     // Use this for initialization
     void Start () {
@@ -36,7 +38,20 @@ public class Projectile : MonoBehaviour {
         {
             if (collision.gameObject.GetComponent<MinionBase>())
             {
-                collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
+                if (isReturnable)
+                {
+                    if (!hasHit)
+                    {
+                        collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
+                        gameObject.GetComponent<Axe>().Stick(collision.gameObject);
+                        hasHit = true;
+                    }
+                } else
+                {
+                    collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
+                    ((Archer)player).ReturnProjectile(gameObject);
+                    Destroy(gameObject);
+                }
             }
         }
     }
