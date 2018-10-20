@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class localHorde : NetworkBehaviour
+public class localHorde : MonoBehaviour
 {
     public GameObject hordeChief;
     public GameObject hordeMinion;
@@ -31,7 +30,7 @@ public class localHorde : NetworkBehaviour
 
         chief = obj;
         minionsWithChief.Add(chief);
-        gameObject.AddComponent<NetworkTransformChild>();
+        //gameObject.AddComponent<NetworkTransformChild>();
 
         for (int i = 0; i < minionsNumber; i++)
         {
@@ -40,17 +39,17 @@ public class localHorde : NetworkBehaviour
             minions.Add(obj);
             minionsWithChief.Add(obj);
 
-            gameObject.AddComponent<NetworkTransformChild>();
+            //gameObject.AddComponent<NetworkTransformChild>();
 
         }
         Debug.Log("horde dziecki: " + transform.childCount);
-        foreach (var NTC in GetComponents<NetworkTransformChild>())
-        {
-            int counter = 0;
-            NTC.target = minionsWithChief[counter].transform;
-            counter += 1;
+        //foreach (var NTC in GetComponents<NetworkTransformChild>())
+        //{
+        //    int counter = 0;
+        //    NTC.target = minionsWithChief[counter].transform;
+        //    counter += 1;
 
-        }
+        //}
         //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
         
 
