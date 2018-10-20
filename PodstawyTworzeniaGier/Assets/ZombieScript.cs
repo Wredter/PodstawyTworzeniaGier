@@ -26,7 +26,7 @@ public class ZombieScript : MinionBase
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (collision.gameObject.GetComponent<MinionBase>() && collision.gameObject.name != "Zombie")
+        if (collision.gameObject.GetComponent<MinionBase>() && collision.gameObject.GetComponent<localHorde>().hordeName != gameObject.GetComponent<localHorde>().hordeName)
         {
             Destroy(collision.gameObject);
             Debug.Log("OnCollisionEnter : zniszczyles mnie");
