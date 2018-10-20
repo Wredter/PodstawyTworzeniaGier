@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healthBarView: {fileID: 1482587473186044, guid: d63ce30da369294439caec6a2193c920,
+    type: 2}
   projectile: {fileID: 1843499393828134, guid: 69e948ec7447d334884b9fe49505a252, type: 2}
   shootCooldown: 100
 --- !u!212 &212116909209371096

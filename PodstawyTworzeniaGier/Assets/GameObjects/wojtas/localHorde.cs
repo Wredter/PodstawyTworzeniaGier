@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class localHorde : NetworkBehaviour
 {
+    public string hordeName;
     public GameObject hordeChief;
     public GameObject hordeMinion;
     public int minionsNumber = 30;
@@ -52,8 +53,8 @@ public class localHorde : NetworkBehaviour
 
         }
         //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
-        
 
+        minionsWithChief.ForEach(m => m.name = hordeName);
     }
 
     // Update is called once per frame
