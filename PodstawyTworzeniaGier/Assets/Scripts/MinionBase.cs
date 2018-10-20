@@ -27,7 +27,7 @@ public class MinionBase : MonoBehaviour
     private void FixedUpdate()
     {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb2d.velocity = new Vector2(input.x, input.y);
+        rb2d.velocity = new Vector2();
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class MinionBase : MonoBehaviour
         if (health < 0)
         {
             //Death
-            health = 0;
+            Destroy(gameObject);
         }
     }
 
