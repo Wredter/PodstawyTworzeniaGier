@@ -10,6 +10,7 @@ public class Arrow : Projectile {
 	// Use this for initialization
 	void Start () {
         step = range + 1;
+        isReturnable = false;
 	}
 
     public void Initialise(string arrowID, Archer player, float power)
