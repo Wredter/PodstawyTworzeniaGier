@@ -9,65 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1111344517743508}
+  m_RootGameObject: {fileID: 1056291935462628}
   m_IsPrefabAsset: 1
---- !u!1 &1111344517743508
+--- !u!1 &1056291935462628
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4562480983761988}
-  - component: {fileID: 114637555611147730}
-  - component: {fileID: 114841784809282722}
-  - component: {fileID: 114906705592026610}
-  - component: {fileID: 114296791968044808}
+  - component: {fileID: 4592117850906632}
+  - component: {fileID: 114688149170827764}
+  - component: {fileID: 114965949439755422}
+  - component: {fileID: 114912531791835510}
   m_Layer: 0
-  m_Name: localHorde
+  m_Name: NetworkHordeW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4562480983761988
+--- !u!4 &4592117850906632
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111344517743508}
+  m_GameObject: {fileID: 1056291935462628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8372262, y: -0.20805615, z: -10.049275}
+  m_LocalPosition: {x: -0.18966882, y: -0.047417123, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114296791968044808
+--- !u!114 &114688149170827764
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111344517743508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1267208747, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_ChildIndex: 0
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
---- !u!114 &114637555611147730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111344517743508}
+  m_GameObject: {fileID: 1056291935462628}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae1be0e741768f74c9bc49ac32831857, type: 3}
@@ -84,44 +64,12 @@ MonoBehaviour:
   random: 0.01
   dashCooldown: 1
   divideCooldown: 1
---- !u!114 &114841784809282722
+--- !u!114 &114912531791835510
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111344517743508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 129
-    i1: 177
-    i2: 41
-    i3: 195
-    i4: 117
-    i5: 40
-    i6: 196
-    i7: 244
-    i8: 201
-    i9: 182
-    i10: 235
-    i11: 141
-    i12: 118
-    i13: 86
-    i14: 255
-    i15: 250
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!114 &114906705592026610
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111344517743508}
+  m_GameObject: {fileID: 1056291935462628}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
@@ -137,3 +85,35 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114965949439755422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056291935462628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 145
+    i1: 15
+    i2: 176
+    i3: 155
+    i4: 213
+    i5: 27
+    i6: 197
+    i7: 20
+    i8: 168
+    i9: 3
+    i10: 151
+    i11: 74
+    i12: 17
+    i13: 5
+    i14: 183
+    i15: 96
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
