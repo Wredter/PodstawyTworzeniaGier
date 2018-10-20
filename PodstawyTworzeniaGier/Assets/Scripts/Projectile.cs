@@ -51,6 +51,7 @@ public class Projectile : MonoBehaviour {
                     collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
                     ((Archer)player).ReturnProjectile(gameObject);
                     Destroy(gameObject);
+                    return;
                 }
             }
         }
