@@ -119,8 +119,8 @@ public class HordeXbox : MonoBehaviour
                 }
             }
 
-            float moveX = Input.GetAxis(controller + "Horizontal");
-            float moveY = Input.GetAxis(controller + "Vertical");
+            float moveX = Input.GetAxis(controller + "LeftHorizontal");
+            float moveY = Input.GetAxis(controller + "LeftVertical");
 
             if (divide <= 0)
                 chief.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * maxSpeed, moveY * maxSpeed);

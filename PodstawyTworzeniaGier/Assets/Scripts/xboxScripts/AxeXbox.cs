@@ -19,18 +19,16 @@ public class AxeXbox : ProjectileXbox
         isSticked = false;
     }
 
-    public void Initialise(string axeID, VikingXbox player, Vector2 input)
+    public void Initialise(string axeID, VikingXbox player, string controller)
     {
         name = axeID;
         this.player = player;
         rb2d = GetComponent<Rigidbody2D>();
 
-
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float projectileX = mousePosition.x - rb2d.position.x;
-        float projectileY = mousePosition.y - rb2d.position.y;
-        float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
-        Vector2 projectileThrow = new Vector2(projectileX / r, projectileY / r) + input / 3 * 2;
+        float projectileX = Input.GetAxis(controller + "RightHorizontal");
+        float projectileY = Input.GetAxis(controller + "RightVertical");
+        Vector2 projectileThrow = new Vector2(projectileX, projectileY);
+        projectileThrow += new Vector2(Input.GetAxis(controller + "LeftHorizontal"), Input.GetAxis(controller + "LeftVertical")) / 3 * 2;
         projectileThrow += new Vector2(randomSpread * 2 * (Random.value - 0.5f), randomSpread * 2 * (Random.value - 0.5f));
         rb2d.AddForce(projectileThrow * 500);
     }

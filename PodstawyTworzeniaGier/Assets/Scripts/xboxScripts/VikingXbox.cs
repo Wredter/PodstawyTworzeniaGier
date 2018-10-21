@@ -9,6 +9,7 @@ public class VikingXbox : MinionBaseXbox
 
     private Dictionary<GameObject, AxeXbox> axes;
     private int projectilesCount;
+    private bool hasShot;
 
     // Use this for initialization
     void Start()
@@ -16,6 +17,7 @@ public class VikingXbox : MinionBaseXbox
         Initialise();
         axes = new Dictionary<GameObject, AxeXbox>();
         projectilesCount = 0;
+        hasShot = false;
     }
 
     private void FixedUpdate()
@@ -30,12 +32,17 @@ public class VikingXbox : MinionBaseXbox
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(controller + "X") && axes.Count < maxProjectileCount)
+        if (Input.GetAxis(controller + "T") > 0 && axes.Count < maxProjectileCount && !hasShot)
         {
             GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
             axes.Add(temp, temp.GetComponent<AxeXbox>());
-            axes[temp].Initialise("axe" + projectilesCount, this, input);
+            axes[temp].Initialise("axe" + projectilesCount, this, controller);
             projectilesCount++;
+            hasShot = true;
+        }
+        if(Input.GetAxis(controller + "T") == 0 && hasShot)
+        {
+            hasShot = false;
         }
     }
 

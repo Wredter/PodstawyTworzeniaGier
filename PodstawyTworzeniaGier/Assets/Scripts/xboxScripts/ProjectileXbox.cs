@@ -17,6 +17,7 @@ public class ProjectileXbox : MonoBehaviour
     protected Rigidbody2D rb2d;
     protected bool hasHit;
     protected bool isReturnable;
+    protected string controller;
 
     // Use this for initialization
     void Start()

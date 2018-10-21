@@ -15,16 +15,15 @@ public class ArrowXbox : ProjectileXbox
         isReturnable = false;
     }
 
-    public void Initialise(string arrowID, ArcherXbox player, float power)
+    public void Initialise(string arrowID, ArcherXbox player, float power, string controller)
     {
         name = arrowID;
         this.player = player;
         rb2d = GetComponent<Rigidbody2D>();
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float projectileX = mousePosition.x - rb2d.position.x;
-        float projectileY = mousePosition.y - rb2d.position.y;
-        float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
-        Vector2 projectileThrow = new Vector2(projectileX / r, projectileY / r);
+
+        float projectileX = Input.GetAxis(controller + "RightHorizontal");
+        float projectileY = Input.GetAxis(controller + "RightVertical");
+        Vector2 projectileThrow = new Vector2(projectileX, projectileY);
         projectileThrow += new Vector2(randomSpread * 2 * (Random.value - 0.5f), randomSpread * 2 * (Random.value - 0.5f));
         rb2d.AddForce(projectileThrow * 500 * power);
     }
