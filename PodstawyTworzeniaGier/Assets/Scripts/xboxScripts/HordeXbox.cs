@@ -88,7 +88,7 @@ public class HordeXbox : MonoBehaviour
                     dx = chief.transform.position.x - obj.transform.position.x;
                     dy = chief.transform.position.y - obj.transform.position.y;
                     r2 = dx * dx + dy * dy;
-                    r = Mathf.Sqrt(r2);
+                    r = Mathf.Sqrt(r2 + 2);
                     force.Set(dx * minionsKS, dy * minionsKS);
                     obj.GetComponent<Rigidbody2D>().AddForce(force);
                 }
