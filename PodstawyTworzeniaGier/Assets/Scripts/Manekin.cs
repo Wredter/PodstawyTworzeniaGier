@@ -6,7 +6,7 @@ public class Manekin : MinionBase {
 
     // Use this for initialization
     void Start() {
-        Initialise();
+        
     }
     private void FixedUpdate()
     {
@@ -15,6 +15,6 @@ public class Manekin : MinionBase {
 
     // Update is called once per frame
     void Update () {
-		
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 	}
 }

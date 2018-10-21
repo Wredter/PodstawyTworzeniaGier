@@ -14,23 +14,23 @@ public class ZombieScript : MinionBase
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
-    {
-        input = new Vector2(Input.GetAxis("Horizontal") * speedMultipalyer, Input.GetAxis("Vertical") * speedMultipalyer);
-        rb2d.velocity = new Vector2(input.x, input.y);
-    }
+    //private void FixedUpdate()
+    //{
+    //    input = new Vector2(Input.GetAxis("Horizontal") * speedMultipalyer, Input.GetAxis("Vertical") * speedMultipalyer);
+    //    rb2d.velocity = new Vector2(input.x, input.y);
+    //}
     void Update()
     {
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (collision.gameObject.GetComponent<MinionBase>() && collision.gameObject.GetComponent<localHorde>().hordeName != gameObject.GetComponent<localHorde>().hordeName)
+        //Debug.Log("OnCollisionEnter : czy jestem playerem");
+        if (collision.gameObject.GetComponent<MinionBase>() && collision.gameObject.GetComponentInParent<localHorde>().hordeName != gameObject.GetComponentInParent<localHorde>().hordeName)
         {
             Destroy(collision.gameObject);
             Debug.Log("OnCollisionEnter : zniszczyles mnie");
-            Instantiate(gameObject,collision.transform.position,collision.transform.rotation);
+            //Instantiate(gameObject,collision.transform.position,collision.transform.rotation);
         }
     }
 }
