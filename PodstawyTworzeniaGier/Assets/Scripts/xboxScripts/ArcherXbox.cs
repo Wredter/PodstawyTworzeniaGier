@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcherXbox : MinionBase
+public class ArcherXbox : MinionBaseXbox
 {
     public GameObject projectile;
     public int shootCooldown;

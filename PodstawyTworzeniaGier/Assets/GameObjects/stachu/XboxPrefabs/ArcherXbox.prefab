@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healthBarView: {fileID: 1482587473186044, guid: d63ce30da369294439caec6a2193c920,
+  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   projectile: {fileID: 1476513989013696, guid: 6e916f0da4ed7924baa469a59ea3c6ef, type: 2}
   shootCooldown: 50

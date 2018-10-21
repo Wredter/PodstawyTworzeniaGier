@@ -55,7 +55,7 @@ public class HordeXbox : MonoBehaviour
         //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
 
         minionsWithChief.ForEach(m => m.name = hordeName);
-        minions.ForEach(m => m.GetComponent<MinionBase>().SetController(controller));
+        minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
     }
 
     // Update is called once per frame

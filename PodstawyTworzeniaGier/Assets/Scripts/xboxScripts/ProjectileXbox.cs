@@ -11,7 +11,7 @@ public class ProjectileXbox : MonoBehaviour
     public int cooldown;
     public float damage;
 
-    protected MinionBase player;
+    protected MinionBaseXbox player;
     protected Vector2 startingPosition;
     protected Vector2 startingVelocity;
     protected Rigidbody2D rb2d;
@@ -39,20 +39,20 @@ public class ProjectileXbox : MonoBehaviour
         }
         else
         {
-            if (collision.gameObject.GetComponent<MinionBase>())
+            if (collision.gameObject.GetComponent<MinionBaseXbox>())
             {
                 if (isReturnable)
                 {
                     if (!hasHit)
                     {
-                        collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
+                        collision.gameObject.GetComponent<MinionBaseXbox>().DealDamage(damage);
                         ((AxeXbox)this).Stick(collision.gameObject);
                         hasHit = true;
                     }
                 }
                 else
                 {
-                    collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
+                    collision.gameObject.GetComponent<MinionBaseXbox>().DealDamage(damage);
                     ((ArcherXbox)player).ReturnProjectile(gameObject);
                     Destroy(gameObject);
                     return;

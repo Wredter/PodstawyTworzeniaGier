@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VikingXbox : MinionBase
+public class VikingXbox : MinionBaseXbox
 {
     public GameObject projectile;
     public int maxProjectileCount;
