@@ -35,6 +35,10 @@ public class AxeXbox : ProjectileXbox
 
     private void FixedUpdate()
     {
+        if(objectToStick == null)
+        {
+            Unstick();
+        }
         if (isSticked)
         {
             gameObject.transform.position = objectToStick.transform.position;

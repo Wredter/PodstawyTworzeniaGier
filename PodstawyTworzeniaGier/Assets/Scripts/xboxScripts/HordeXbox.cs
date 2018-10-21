@@ -61,6 +61,8 @@ public class HordeXbox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        minionsWithChief = minionsWithChief.FindAll(m => m != null);
+        minions = minions.FindAll(m => m != null);
 
         if (chief == null)
         {
@@ -134,7 +136,7 @@ public class HordeXbox : MonoBehaviour
             if (dashForce < 0) dashForce = 0;
 
             dash();
-            if (Input.GetButtonDown(controller + "Y"))
+            if (Input.GetButtonDown(controller + "RB"))
             {
                 if (dashCooldownTimer <= 0)
                 {
@@ -150,7 +152,7 @@ public class HordeXbox : MonoBehaviour
 
             if (divide > 0) divideHorde();
 
-            if (Input.GetButtonDown(controller + "A"))
+            if (Input.GetButtonDown(controller + "LB"))
             {
                 if (divideCooldownTimer <= 0)
                 {
@@ -172,11 +174,9 @@ public class HordeXbox : MonoBehaviour
         foreach (GameObject obj in minionsWithChief)
         {
             Rigidbody2D rb2d = obj.GetComponent<Rigidbody2D>();
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float projectileX = mousePosition.x - rb2d.position.x;
-            float projectileY = mousePosition.y - rb2d.position.y;
-            float r = Mathf.Sqrt(projectileX * projectileX + projectileY * projectileY);
-            Vector2 projectileThrow = new Vector2(projectileX / r, projectileY / r);
+            float projectileX = Input.GetAxis(controller + "RightHorizontal");
+            float projectileY = Input.GetAxis(controller + "RightVertical");
+            Vector2 projectileThrow = new Vector2(projectileX, projectileY);
             rb2d.AddForce(projectileThrow * dashForce);
         }
     }
@@ -187,8 +187,8 @@ public class HordeXbox : MonoBehaviour
     public void divideHorde()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float projectileX = mousePosition.x - center.x;
-        float projectileY = mousePosition.y - center.y;
+        float projectileX = Input.GetAxis(controller + "RightHorizontal");
+        float projectileY = Input.GetAxis(controller + "RightVertical");
         float angle = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.up, new Vector2(projectileX, projectileY));
 
 
