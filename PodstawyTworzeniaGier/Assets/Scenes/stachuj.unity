@@ -158,6 +158,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
         type: 2}
+    - target: {fileID: 114738777671676748, guid: 9d4446d29f4831344845c3aa92044a8d,
+        type: 2}
+      propertyPath: minionsK
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4446d29f4831344845c3aa92044a8d, type: 2}
   m_IsPrefabAsset: 0
@@ -228,6 +233,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
         type: 2}
+    - target: {fileID: 114651549806560104, guid: 8ea0f9c8db017434e8c9ef5c03f97d5f,
+        type: 2}
+      propertyPath: minionsK
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ea0f9c8db017434e8c9ef5c03f97d5f, type: 2}
   m_IsPrefabAsset: 0
