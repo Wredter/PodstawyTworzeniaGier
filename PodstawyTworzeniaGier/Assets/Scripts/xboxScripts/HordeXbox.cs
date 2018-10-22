@@ -124,6 +124,7 @@ public class HordeXbox : MonoBehaviour
 
             foreach (GameObject obj in minionsWithChief)
             {
+                obj.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 Vector2 velocity = obj.GetComponent<Rigidbody2D>().velocity;
                 if (velocity.x * velocity.x + velocity.y * velocity.y > 16)
                 {
