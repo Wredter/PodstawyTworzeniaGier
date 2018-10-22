@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1317254794017252}
+  m_RootGameObject: {fileID: 1124983726019428}
   m_IsPrefabAsset: 1
---- !u!1 &1317254794017252
+--- !u!1 &1124983726019428
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4667866381034674}
-  - component: {fileID: 212706390654024424}
-  - component: {fileID: 50942686009106722}
-  - component: {fileID: 114693734440614216}
+  - component: {fileID: 4857890306535202}
+  - component: {fileID: 212697673034951480}
+  - component: {fileID: 50324076054098300}
+  - component: {fileID: 114036360544023272}
   m_Layer: 0
   m_Name: ChargeBarXbox
   m_TagString: Untagged
@@ -29,12 +29,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4667866381034674
+--- !u!4 &4857890306535202
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317254794017252}
+  m_GameObject: {fileID: 1124983726019428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
@@ -42,13 +42,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50942686009106722
+--- !u!50 &50324076054098300
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317254794017252}
+  m_GameObject: {fileID: 1124983726019428}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -62,23 +62,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &114693734440614216
+--- !u!114 &114036360544023272
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317254794017252}
+  m_GameObject: {fileID: 1124983726019428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ba61c48206d864e8af06c4a38f040b, type: 3}
+  m_Script: {fileID: 11500000, guid: a3afbf6f47df0324cab40867ffa6cf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212706390654024424
+  horde: {fileID: 0}
+--- !u!212 &212697673034951480
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317254794017252}
+  m_GameObject: {fileID: 1124983726019428}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
