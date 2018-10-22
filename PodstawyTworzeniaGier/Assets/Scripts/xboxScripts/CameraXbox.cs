@@ -10,7 +10,7 @@ public class CameraXbox : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        GetComponent<Rigidbody2D>().position = parent.GetChiefPosition();
+	void LateUpdate () {
+        GetComponent<Rigidbody2D>().position = parent.GetHordeCenter();
 	}
 }

@@ -269,8 +269,21 @@ public class HordeXbox : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().AddForce(force);
         }
     }
-    public Vector2 GetChiefPosition()
+
+    public float GetChargeCooldown()
     {
-        return chief.GetComponent<Rigidbody2D>().position;
+        return 1;
+    }
+
+    public float GetChargeActualValue()
+    {
+        return dashCooldownTimer;
+    }
+    public Vector2 GetHordeCenter()
+    {
+        Vector2 average = new Vector2();
+        minionsWithChief.ForEach(m => average += m.GetComponent<Rigidbody2D>().position);
+        average /= minionsWithChief.Count;
+        return average;
     }
 }
