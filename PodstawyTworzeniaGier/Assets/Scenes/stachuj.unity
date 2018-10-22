@@ -54977,7 +54977,7 @@ Prefab:
         type: 2}
       propertyPath: hordeChief
       value: 
-      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+      objectReference: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866,
         type: 2}
     - target: {fileID: 114738777671676748, guid: 9d4446d29f4831344845c3aa92044a8d,
         type: 2}
@@ -55093,7 +55093,7 @@ Prefab:
         type: 2}
       propertyPath: hordeChief
       value: 
-      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+      objectReference: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866,
         type: 2}
     - target: {fileID: 114651549806560104, guid: 8ea0f9c8db017434e8c9ef5c03f97d5f,
         type: 2}
@@ -55471,7 +55471,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1926735992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.033, y: -0.073, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
