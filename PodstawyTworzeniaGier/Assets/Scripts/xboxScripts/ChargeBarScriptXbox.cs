@@ -16,7 +16,7 @@ public class ChargeBarScriptXbox : MonoBehaviour {
         float scale = 1-horde.GetChargeActualValue();
         if (scale <= 1)
         {
-            transform.localScale = new Vector3(scale*50, 5);
+            transform.localScale = new Vector3(scale*50, 2);
         }
         
 	}

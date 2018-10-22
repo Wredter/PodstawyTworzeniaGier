@@ -9,20 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1497202455009570}
+  m_RootGameObject: {fileID: 1674326469137654}
   m_IsPrefabAsset: 1
---- !u!1 &1497202455009570
+--- !u!1 &1674326469137654
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4339616270954924}
-  - component: {fileID: 20343927861127670}
-  - component: {fileID: 81673376676068370}
-  - component: {fileID: 114831889092281664}
-  - component: {fileID: 50702599059127980}
+  - component: {fileID: 4763714811343178}
+  - component: {fileID: 20096100798314348}
+  - component: {fileID: 81600140373726132}
+  - component: {fileID: 114747228495502014}
+  - component: {fileID: 50024322370452770}
   m_Layer: 0
   m_Name: ArchersCamera
   m_TagString: MainCamera
@@ -30,12 +30,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4339616270954924
+--- !u!4 &4763714811343178
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497202455009570}
+  m_GameObject: {fileID: 1674326469137654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -43,12 +43,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20343927861127670
+--- !u!20 &20096100798314348
 Camera:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497202455009570}
+  m_GameObject: {fileID: 1674326469137654}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -83,13 +83,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!50 &50702599059127980
+--- !u!50 &50024322370452770
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497202455009570}
+  m_GameObject: {fileID: 1674326469137654}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -103,19 +103,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!81 &81673376676068370
+--- !u!81 &81600140373726132
 AudioListener:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497202455009570}
+  m_GameObject: {fileID: 1674326469137654}
   m_Enabled: 1
---- !u!114 &114831889092281664
+--- !u!114 &114747228495502014
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497202455009570}
+  m_GameObject: {fileID: 1674326469137654}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6a3a6f56c7473418b2d300e80efd79, type: 3}
