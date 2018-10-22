@@ -54973,6 +54973,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114626425607919626, guid: e86f3b263cd2f4f4cb1d20f6e3f23056,
+        type: 2}
+      propertyPath: minionsK
+      value: 1600
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86f3b263cd2f4f4cb1d20f6e3f23056, type: 2}
   m_IsPrefabAsset: 0
@@ -55042,7 +55047,7 @@ MonoBehaviour:
   minionsNumber: 30
   spawnRadius: 5
   minionsKS: 500
-  minionsK: 400
+  minionsK: 1600
   maxSpeed: 10
   random: 0.01
   dashCooldown: 1
