@@ -39,8 +39,15 @@ public class ChiefXbox : MonoBehaviour {
         float projectileX = Input.GetAxis(controller + "RightHorizontal");
         float projectileY = Input.GetAxis(controller + "RightVertical");
         float scale = (Mathf.Abs(projectileX) > Mathf.Abs(projectileY)) ? Mathf.Abs(projectileX) : Mathf.Abs(projectileY);
-        scale *= 3;
-        cone.transform.localScale = new Vector3(scale, scale);
+        if (scale > 0.5)
+        {
+            scale *= 3;
+            cone.transform.localScale = new Vector3(scale, scale);
+        }
+        else
+        {
+            cone.transform.localScale = new Vector3(0, 0);
+        }
     }
 
     public void SetController(string controller)

@@ -213,8 +213,11 @@ public class HordeXbox : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().AddForce(force);
         }
     }
-    public Vector2 GetChiefPosition()
+    public Vector2 GetHordeCenter()
     {
-        return chief.GetComponent<Rigidbody2D>().position;
+        Vector2 average = new Vector2();
+        minionsWithChief.ForEach(m => average += m.GetComponent<Rigidbody2D>().position);
+        average /= minionsWithChief.Count;
+        return average;
     }
 }
