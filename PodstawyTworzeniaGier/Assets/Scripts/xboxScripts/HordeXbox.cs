@@ -55,6 +55,7 @@ public class HordeXbox : MonoBehaviour
         //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
 
         minionsWithChief.ForEach(m => m.name = hordeName);
+        chief.GetComponent<ChiefXbox>().SetController(controller);
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
     }
 
@@ -211,5 +212,9 @@ public class HordeXbox : MonoBehaviour
             force.Set(dx * minionsKS, dy * minionsKS);
             obj.GetComponent<Rigidbody2D>().AddForce(force);
         }
+    }
+    public Vector2 GetChiefPosition()
+    {
+        return chief.GetComponent<Rigidbody2D>().position;
     }
 }

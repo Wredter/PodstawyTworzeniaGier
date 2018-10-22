@@ -26,6 +26,11 @@ public class ProjectileXbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (player == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         if (collision.gameObject.name.Equals(player.name))
         {
             if (collision.gameObject.GetComponent<VikingXbox>())
