@@ -186,7 +186,7 @@ public class HordeXbox : MonoBehaviour
             {
                 if (divideCooldownTimer <= 0)
                 {
-                    divide = 10;
+                    divide = 8;
                     center = chief.transform.position;
                     divideCooldownTimer = divideCooldown;
                 }
@@ -245,10 +245,10 @@ public class HordeXbox : MonoBehaviour
 
 
         Vector2 d;
-        divide1 *= 6;
-        divide2 *= 6;
-        divide1 += new Vector2(divide * Mathf.Cos(angle) + center.x, divide * Mathf.Sin(angle) + center.y)*4;
-        divide2 += new Vector2(-divide * Mathf.Cos(angle) + center.x, -divide * Mathf.Sin(angle) + center.y)*4;
+        divide1 *= 7;
+        divide2 *= 7;
+        divide1 += new Vector2(divide * Mathf.Cos(angle) + center.x, divide * Mathf.Sin(angle) + center.y)*3;
+        divide2 += new Vector2(-divide * Mathf.Cos(angle) + center.x, -divide * Mathf.Sin(angle) + center.y)*3;
         divide1 /= 10;
         divide2 /= 10;
         float dx, dy, r, r2;
