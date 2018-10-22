@@ -213,6 +213,16 @@ public class HordeXbox : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().AddForce(force);
         }
     }
+
+    public float GetChargeCooldown()
+    {
+        return 1;
+    }
+
+    public float GetChargeActualValue()
+    {
+        return dashCooldownTimer;
+    }
     public Vector2 GetHordeCenter()
     {
         Vector2 average = new Vector2();
