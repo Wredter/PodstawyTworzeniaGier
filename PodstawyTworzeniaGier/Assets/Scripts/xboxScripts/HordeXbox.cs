@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HordeXbox : MonoBehaviour
 {
+    [Range(0.01f, 0.99f)]
+    public float viewSmoothness;
     public string hordeName;
     public string controller;
     public GameObject hordeChief;
@@ -18,6 +20,8 @@ public class HordeXbox : MonoBehaviour
     List<GameObject> minions;
     List<GameObject> minionsWithChief;
     GameObject chief;
+
+    private Vector2 rightAxisPrevious;
 
     //divideHorde
     Vector2 divide1, divide2, center;
@@ -287,6 +291,9 @@ public class HordeXbox : MonoBehaviour
         Vector2 average = new Vector2();
         minionsWithChief.ForEach(m => average += m.GetComponent<Rigidbody2D>().position);
         average /= minionsWithChief.Count;
-        return average;
+        Vector2 pom = new Vector2(Input.GetAxis(controller + "RightHorizontal"), Input.GetAxis(controller + "RightVertical")) * 3;
+        Vector2 next = pom * (1 - viewSmoothness) + rightAxisPrevious * viewSmoothness;
+        rightAxisPrevious = next;
+        return next + average;
     }
 }

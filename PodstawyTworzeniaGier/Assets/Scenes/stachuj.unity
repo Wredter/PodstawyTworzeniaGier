@@ -60384,6 +60384,11 @@ Prefab:
       propertyPath: minionsK
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 114626425607919626, guid: e86f3b263cd2f4f4cb1d20f6e3f23056,
+        type: 2}
+      propertyPath: viewSmoothness
+      value: 0.79
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86f3b263cd2f4f4cb1d20f6e3f23056, type: 2}
   m_IsPrefabAsset: 0
@@ -60445,6 +60450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d3b1e42557efc409ff7dc32be1ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewSmoothness: 0.79
   hordeName: archers
   controller: Joystick1
   hordeChief: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866, type: 2}
