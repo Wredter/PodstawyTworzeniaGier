@@ -87,6 +87,7 @@ public class HordeXbox : MonoBehaviour
 
             Vector2 force = new Vector2();
             float dx, dy, r2, r;
+            float maxForce = 1500;
             if (divide <= 0)
                 foreach (GameObject obj in minions)
                 {
@@ -95,6 +96,11 @@ public class HordeXbox : MonoBehaviour
                     r2 = dx * dx + dy * dy;
                     r = Mathf.Sqrt(r2 + 10);
                     force.Set(dx * minionsKS, dy * minionsKS);
+                    float forceR = Mathf.Sqrt(force.x * force.x + force.y * force.y);
+                    if (forceR > maxForce)
+                    {
+                        force.Set(force.x/ forceR * maxForce, force.y / forceR * maxForce);
+                    }
                     obj.GetComponent<Rigidbody2D>().AddForce(force);
                 }
 
@@ -109,6 +115,7 @@ public class HordeXbox : MonoBehaviour
                         r2 = dx * dx + dy * dy;
                         r = Mathf.Sqrt(r2 + 10);
                         force.Set(-dx / r * minionsK / r2, -dy / r * minionsK / r2);
+
                         obj.GetComponent<Rigidbody2D>().AddForce(force);
                     }
                 }
@@ -179,7 +186,7 @@ public class HordeXbox : MonoBehaviour
             {
                 if (divideCooldownTimer <= 0)
                 {
-                    divide = 10;
+                    divide = 8;
                     center = chief.transform.position;
                     divideCooldownTimer = divideCooldown;
                 }
@@ -238,10 +245,10 @@ public class HordeXbox : MonoBehaviour
 
 
         Vector2 d;
-        divide1 *= 6;
-        divide2 *= 6;
-        divide1 += new Vector2(divide * Mathf.Cos(angle) + center.x, divide * Mathf.Sin(angle) + center.y)*4;
-        divide2 += new Vector2(-divide * Mathf.Cos(angle) + center.x, -divide * Mathf.Sin(angle) + center.y)*4;
+        divide1 *= 7;
+        divide2 *= 7;
+        divide1 += new Vector2(divide * Mathf.Cos(angle) + center.x, divide * Mathf.Sin(angle) + center.y)*3;
+        divide2 += new Vector2(-divide * Mathf.Cos(angle) + center.x, -divide * Mathf.Sin(angle) + center.y)*3;
         divide1 /= 10;
         divide2 /= 10;
         float dx, dy, r, r2;
