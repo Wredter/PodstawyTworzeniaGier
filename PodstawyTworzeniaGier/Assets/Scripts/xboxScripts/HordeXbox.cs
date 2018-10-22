@@ -101,7 +101,8 @@ public class HordeXbox : MonoBehaviour
                     {
                         force.Set(force.x/ forceR * maxForce, force.y / forceR * maxForce);
                     }
-                    obj.GetComponent<Rigidbody2D>().AddForce(force);
+                    if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
+                        obj.GetComponent<Rigidbody2D>().AddForce(force);
                 }
 
             foreach (GameObject obj in minions)
@@ -115,8 +116,8 @@ public class HordeXbox : MonoBehaviour
                         r2 = dx * dx + dy * dy;
                         r = Mathf.Sqrt(r2 + 10);
                         force.Set(-dx / r * minionsK / r2, -dy / r * minionsK / r2);
-
-                        obj.GetComponent<Rigidbody2D>().AddForce(force);
+                        if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
+                            obj.GetComponent<Rigidbody2D>().AddForce(force);
                     }
                 }
 
@@ -220,7 +221,8 @@ public class HordeXbox : MonoBehaviour
             dashY /= 1000;
             float r = Mathf.Sqrt(dashX * dashX + dashY * dashY);
             Vector2 projectileThrow = new Vector2(dashX/r, dashY/r);
-            rb2d.AddForce(projectileThrow * dashForce);
+            if (!float.IsNaN(projectileThrow.x) && !float.IsNaN(projectileThrow.y))
+                rb2d.AddForce(projectileThrow * dashForce);
         }
     }
 
@@ -266,7 +268,8 @@ public class HordeXbox : MonoBehaviour
             r2 = dx * dx + dy * dy;
             r = Mathf.Sqrt(r2 + 5);
             force.Set(dx * minionsKS * 1f, dy * minionsKS * 1f);
-            obj.GetComponent<Rigidbody2D>().AddForce(force);
+            if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
+                obj.GetComponent<Rigidbody2D>().AddForce(force);
         }
     }
 
