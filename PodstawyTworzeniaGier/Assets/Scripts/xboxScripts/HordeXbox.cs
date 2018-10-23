@@ -296,4 +296,22 @@ public class HordeXbox : MonoBehaviour
         rightAxisPrevious = next;
         return next + average;
     }
+
+    public float GetCooldown()
+    {
+        if (minions[0].GetComponent<ArcherXbox>())
+        {
+            return minions[0].GetComponent<ArcherXbox>().GetCooldown();
+        }
+        else return 0;
+    }
+
+    public float GetPower()
+    {
+        if (minions[0].GetComponent<ArcherXbox>())
+        {
+            return minions[0].GetComponent<ArcherXbox>().GetPower();
+        }
+        else return 0;
+    }
 }

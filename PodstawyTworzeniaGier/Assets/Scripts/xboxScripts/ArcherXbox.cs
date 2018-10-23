@@ -12,6 +12,7 @@ public class ArcherXbox : MinionBaseXbox
     private float power;
     private int cooldown;
     private bool charging;
+    private static float maxPower = 3;
 
     // Use this for initialization
     void Start()
@@ -40,7 +41,7 @@ public class ArcherXbox : MinionBaseXbox
         }
         else
         {
-            if (Input.GetAxis(controller + "T") > 0 && power < 3)
+            if (Input.GetAxis(controller + "T") > 0 && power < maxPower)
             {
                 power += 0.05f;
                 charging = true;
@@ -56,6 +57,16 @@ public class ArcherXbox : MinionBaseXbox
                 charging = false;
             }
         }
+    }
+
+    public float GetCooldown()
+    {
+        return ((float)cooldown) / ((float)shootCooldown);
+    }
+
+    public float GetPower()
+    {
+        return power / maxPower;
     }
 
     public void ReturnProjectile(GameObject p)
