@@ -64,6 +64,20 @@ public class ProjectileXbox : MonoBehaviour
                     return;
                 }
             }
+            else
+            {
+                if(GetComponent<AxeXbox>())
+                {
+                    rb2d.velocity = new Vector2(0, 0);
+                    ((AxeXbox)this).Stick(gameObject);
+                }
+                else
+                {
+                    ((ArcherXbox)player).ReturnProjectile(gameObject);
+                    Destroy(gameObject);
+                    return;
+                }
+            }
         }
     }
 
