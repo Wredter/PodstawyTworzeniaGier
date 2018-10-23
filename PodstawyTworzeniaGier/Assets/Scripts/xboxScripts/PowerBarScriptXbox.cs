@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerBarScriptXbox : MonoBehaviour {
-    public HordeXbox horde;
+    public HUDScriptXbox script;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +13,7 @@ public class PowerBarScriptXbox : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float scale = horde.GetPower();
+        float scale = script.GetHorde().GetPower();
         if (scale <= 1)
         {
             transform.localScale = new Vector3(scale * 50, 2);
