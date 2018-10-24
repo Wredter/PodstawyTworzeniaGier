@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3afbf6f47df0324cab40867ffa6cf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horde: {fileID: 0}
+  script: {fileID: 0}
 --- !u!212 &212981020106732742
 SpriteRenderer:
   m_ObjectHideFlags: 1

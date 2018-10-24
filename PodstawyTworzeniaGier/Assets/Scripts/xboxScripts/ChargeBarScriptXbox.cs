@@ -14,7 +14,6 @@ public class ChargeBarScriptXbox : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float scale = 1-script.GetHorde().GetChargeActualValue();
-        Debug.Log(scale);
         if (scale <= 1)
         {
             transform.localScale = new Vector3(scale*50, 2);
