@@ -20,7 +20,7 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
             activeHUD = Instantiate(vikingHUD);
         }
         activeHUD.GetComponent<HUDScriptXbox>().SetHorde(horde);
-        activeHUD.transform.parent = gameObject.transform;
+        activeHUD.transform.SetParent(gameObject.transform);
         if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
     }
 	

@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d3b1e42557efc409ff7dc32be1ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewSmoothness: 0.795
   hordeName: vikings
   controller: Joystick2
   hordeChief: {fileID: 1642397786633894, guid: 27aa785d1d6ef5546aa47a6b398ee024, type: 2}
