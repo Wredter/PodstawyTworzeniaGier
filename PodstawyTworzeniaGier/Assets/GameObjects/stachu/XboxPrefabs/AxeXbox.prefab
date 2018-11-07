@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomSpread: 0.2
-  range: 40
+  range: 60
   cooldown: 30
-  damage: 20
+  damage: 100
 --- !u!212 &212866255754526306
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b9380f90944bdc4c843124655d7106f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ffd95a86d599634f9a7546a44528917, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

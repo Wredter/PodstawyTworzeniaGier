@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58846756547763976}
   - component: {fileID: 212058399159637456}
   - component: {fileID: 114526101238968496}
+  - component: {fileID: 114015580910274894}
   m_Layer: 0
   m_Name: ChiefPlaceHolder
   m_TagString: Untagged
@@ -61,7 +62,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &58846756547763976
 CircleCollider2D:
@@ -78,6 +79,22 @@ CircleCollider2D:
   m_Offset: {x: -0.24386485, y: 0}
   serializedVersion: 2
   m_Radius: 3.3642313
+--- !u!114 &114015580910274894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811357375295614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5d7c8ef867e2e478a178f3578486d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
+    type: 2}
+  archersWon: {fileID: 1515654492871444, guid: fb87e18f9e09cea489371e798315f324, type: 2}
+  vikingsWon: {fileID: 1483572897636356, guid: 6f2e74ee73b4a5b4f9b56c8040d9e7df, type: 2}
 --- !u!114 &114526101238968496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointer: {fileID: 1410623383194340, guid: cbc60a8156706a044992460f43b9f7b7, type: 2}
-  pointerSmoothness: 0
+  pointerSmoothness: 0.97
 --- !u!212 &212058399159637456
 SpriteRenderer:
   m_ObjectHideFlags: 1

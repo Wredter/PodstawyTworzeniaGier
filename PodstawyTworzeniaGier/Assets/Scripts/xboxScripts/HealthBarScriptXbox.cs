@@ -37,7 +37,15 @@ public class HealthBarScriptXbox : MonoBehaviour
     private void LateUpdate()
     {
         transform.rotation = rotation;
-        transform.position = parent.GetComponent<Rigidbody2D>().position + new Vector2(-0.3f, 0.3f);
-        transform.localScale = new Vector2((parent.GetComponent<MinionBaseXbox>()).health / 100f, 0.1f);
+        if (parent.GetComponent<MinionBaseXbox>())
+        {
+            transform.position = parent.GetComponent<Rigidbody2D>().position + new Vector2(-0.3f, 0.3f);
+            transform.localScale = new Vector2(parent.GetComponent<MinionBaseXbox>().GetActualHealth() / parent.GetComponent<MinionBaseXbox>().health, 0.1f);
+        }
+        else
+        {
+            transform.position = parent.GetComponent<Rigidbody2D>().position + new Vector2(-1f, 0.5f);
+            transform.localScale = new Vector2(parent.GetComponent<ChiefBaseXbox>().GetActualHealth() / parent.GetComponent<ChiefBaseXbox>().health, 0.15f)*6;
+        }
     }
 }

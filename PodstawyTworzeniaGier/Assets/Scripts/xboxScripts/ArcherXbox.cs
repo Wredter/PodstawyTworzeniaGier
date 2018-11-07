@@ -57,6 +57,10 @@ public class ArcherXbox : MinionBaseXbox
                 charging = false;
             }
         }
+        if(power > maxPower)
+        {
+            power = maxPower;
+        }
     }
 
     public float GetCooldown()

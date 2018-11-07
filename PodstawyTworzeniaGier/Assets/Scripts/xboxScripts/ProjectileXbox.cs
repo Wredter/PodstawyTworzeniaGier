@@ -45,7 +45,26 @@ public class ProjectileXbox : MonoBehaviour
         }
         else
         {
-            if (collision.gameObject.GetComponent<MinionBaseXbox>())
+            if(collision.gameObject.GetComponent<ChiefBaseXbox>())
+            {
+                if (isReturnable)
+                {
+                    if (!hasHit)
+                    {
+                        collision.gameObject.GetComponent<ChiefBaseXbox>().DealDamage(damage);
+                        ((AxeXbox)this).Stick(collision.gameObject);
+                        hasHit = true;
+                    }
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<ChiefBaseXbox>().DealDamage(damage);
+                    ((ArcherXbox)player).ReturnProjectile(gameObject);
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+            else if (collision.gameObject.GetComponent<MinionBaseXbox>())
             {
                 if (isReturnable)
                 {

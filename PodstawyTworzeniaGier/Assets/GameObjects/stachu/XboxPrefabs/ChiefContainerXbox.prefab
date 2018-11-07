@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114791052185490768}
   - component: {fileID: 50178832060431048}
   - component: {fileID: 114338551124643120}
+  - component: {fileID: 114092800372514028}
   m_Layer: 0
   m_Name: ChiefContainerXbox
   m_TagString: Untagged
@@ -62,6 +63,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &114092800372514028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260408443149178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5d7c8ef867e2e478a178f3578486d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
+    type: 2}
 --- !u!114 &114338551124643120
 MonoBehaviour:
   m_ObjectHideFlags: 1

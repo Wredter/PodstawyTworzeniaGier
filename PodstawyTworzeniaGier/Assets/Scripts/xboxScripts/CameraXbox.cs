@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraXbox : MonoBehaviour {
     public HordeXbox parent;
+    public bool isPlayer2;
     public GameObject map;
     private Rigidbody2D rb2d;
     private SpriteRenderer mapRenderer;
@@ -19,25 +20,47 @@ public class CameraXbox : MonoBehaviour {
         newPosition = parent.GetHordeCenter();
         GetComponent<Rigidbody2D>().position = newPosition;
         cam.transform.position = new Vector3(newPosition.x,newPosition.y,-10);
-
+        
         float pomX = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane)).x - cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth / 2, 0, cam.nearClipPlane)).x;
         float pomY = cam.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, cam.nearClipPlane)).y - cam.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight/2, cam.nearClipPlane)).y;
-
-        if (cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane)).x > mapRenderer.bounds.size.x / 2)
+        
+        if (isPlayer2)
         {
-            newPosition.x = mapRenderer.bounds.size.x / 2 - pomX;
+            if (cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane)).x > mapRenderer.bounds.size.x / 2 - pomX*2)
+            {
+                newPosition.x = mapRenderer.bounds.size.x / 2 - pomX;
+            }
+            if (cam.ScreenToWorldPoint(new Vector3(0, 0, cam.nearClipPlane)).x < -mapRenderer.bounds.size.x / 2 - pomX*2)
+            {
+                newPosition.x = -mapRenderer.bounds.size.x / 2 + pomX;
+            }
+            if (cam.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, cam.nearClipPlane)).y > mapRenderer.bounds.size.y / 2)
+            {
+                newPosition.y = mapRenderer.bounds.size.y / 2 - pomY;
+            }
+            if (cam.ScreenToWorldPoint(new Vector3(0, 0, cam.nearClipPlane)).y < -mapRenderer.bounds.size.y / 2)
+            {
+                newPosition.y = -mapRenderer.bounds.size.y / 2 + pomY;
+            }
         }
-        if(cam.ScreenToWorldPoint(new Vector3(0, 0, cam.nearClipPlane)).x < -mapRenderer.bounds.size.x / 2)
+        else
         {
-            newPosition.x = -mapRenderer.bounds.size.x / 2 + pomX;
-        }
-        if(cam.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, cam.nearClipPlane)).y > mapRenderer.bounds.size.y / 2)
-        {
-            newPosition.y = mapRenderer.bounds.size.y / 2 - pomY;
-        }
-        if (cam.ScreenToWorldPoint(new Vector3(0, 0, cam.nearClipPlane)).y < -mapRenderer.bounds.size.y / 2)
-        {
-            newPosition.y = -mapRenderer.bounds.size.y / 2 + pomY;
+            if (cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane)).x > mapRenderer.bounds.size.x / 2)
+            {
+                newPosition.x = mapRenderer.bounds.size.x / 2 - pomX;
+            }
+            if (cam.ScreenToWorldPoint(new Vector3(0, 0, cam.nearClipPlane)).x < -mapRenderer.bounds.size.x / 2)
+            {
+                newPosition.x = -mapRenderer.bounds.size.x / 2 + pomX;
+            }
+            if (cam.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, cam.nearClipPlane)).y > mapRenderer.bounds.size.y / 2)
+            {
+                newPosition.y = mapRenderer.bounds.size.y / 2 - pomY;
+            }
+            if (cam.ScreenToWorldPoint(new Vector3(0, 0, cam.nearClipPlane)).y < -mapRenderer.bounds.size.y / 2)
+            {
+                newPosition.y = -mapRenderer.bounds.size.y / 2 + pomY;
+            }
         }
         cam.transform.position = new Vector3(newPosition.x, newPosition.y, -10);
         GetComponent<Rigidbody2D>().position = newPosition;
