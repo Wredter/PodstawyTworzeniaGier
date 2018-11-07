@@ -23,8 +23,8 @@ public class ChiefBaseXbox : MonoBehaviour {
 
     public void DealDamage(float damage)
     {
-        health -= damage;
-        if (health < 0)
+        actualHealth -= damage;
+        if (actualHealth < 0)
         {
             if (gameObject.name == "archers")
             {

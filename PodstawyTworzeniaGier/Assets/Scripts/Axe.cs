@@ -68,10 +68,5 @@ public class Axe : Projectile {
     public void Unstick()
     {
         isSticked = false;
-    }
-
-        // Update is called once per frame
-        void Update () {
-        
-	} 
+    } 
 }

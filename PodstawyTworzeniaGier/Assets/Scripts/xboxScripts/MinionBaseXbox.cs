@@ -22,16 +22,10 @@ public class MinionBaseXbox : MonoBehaviour
         healthBar.transform.SetParent(transform, false);
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb2d.velocity = new Vector2();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void DealDamage(float damage)

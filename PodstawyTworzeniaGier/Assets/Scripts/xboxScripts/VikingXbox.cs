@@ -20,9 +20,9 @@ public class VikingXbox : MinionBaseXbox
         hasShot = false;
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-        CallFixedUpdate();
+        base.FixedUpdate();
         foreach (AxeXbox g in axes.Values)
         {
             g.UpdateCounter();

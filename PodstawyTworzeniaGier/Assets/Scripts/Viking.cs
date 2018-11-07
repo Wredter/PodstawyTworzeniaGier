@@ -18,24 +18,22 @@ public class Viking : MinionBase
         projectilesCount = 0;
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-        CallFixedUpdate();
+        base.FixedUpdate();
         foreach(Axe g in axes.Values)
         {
             g.UpdateCounter();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {        
-        if (Input.GetKeyDown(KeyCode.Space) && axes.Count < maxProjectileCount)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
-            axes.Add(temp, temp.GetComponent<Axe>());
-            axes[temp].Initialise("axe" + projectilesCount, this, input);
-            projectilesCount++;
+            if (axes.Count < maxProjectileCount)
+            {
+                GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
+                axes.Add(temp, temp.GetComponent<Axe>());
+                axes[temp].Initialise("axe" + projectilesCount, this, input);
+                projectilesCount++;
+            }
         }
     }
 

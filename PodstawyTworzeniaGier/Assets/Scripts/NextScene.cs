@@ -4,14 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if(Input.GetButton("Joystick1X") || Input.GetButton("Joystick2X"))
         {
             SceneManager.LoadScene("stachuj");

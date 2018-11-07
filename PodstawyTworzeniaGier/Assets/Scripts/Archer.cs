@@ -20,17 +20,13 @@ public class Archer : MinionBase
         power = 0.5f;
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-        CallFixedUpdate();
+        base.FixedUpdate();
         foreach (Arrow g in arrows.Values)
         {
             g.UpdateCounter();
         }
-    }
-
-    // Update is called once per frame
-    void Update () {
         if (cooldown > 0)
         {
             cooldown--;

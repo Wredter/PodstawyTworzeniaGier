@@ -21,11 +21,6 @@ public class HealthBarScript : MonoBehaviour {
         rotation = transform.rotation;
     }
 
-    // Update is called once per frame
-    void Update () {
-        
-	}
-
     private void FixedUpdate()
     {
         rb2d.rotation = 0;
