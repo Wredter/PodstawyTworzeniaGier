@@ -11,36 +11,27 @@ public class MinionBaseXbox : MonoBehaviour
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
     protected string controller;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    protected float actualHealth;
 
     public void Initialise()
     {
+        actualHealth = health;
         rb2d = GetComponent<Rigidbody2D>();
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScriptXbox>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb2d.velocity = new Vector2();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void DealDamage(float damage)
     {
-        health -= damage;
-        if (health < 0)
+        actualHealth -= damage;
+        if (actualHealth <= 0)
         {
             //Death
             Destroy(gameObject);
@@ -50,6 +41,11 @@ public class MinionBaseXbox : MonoBehaviour
     protected void CallFixedUpdate()
     {
         FixedUpdate();
+    }
+
+    public float GetActualHealth()
+    {
+        return actualHealth;
     }
 
     public GameObject GetGameObject()

@@ -5,13 +5,7 @@ using UnityEngine;
 public class PowerBarScriptXbox : MonoBehaviour {
     public HUDScriptXbox script;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float scale = script.GetHorde().GetPower();
         if (scale <= 1)

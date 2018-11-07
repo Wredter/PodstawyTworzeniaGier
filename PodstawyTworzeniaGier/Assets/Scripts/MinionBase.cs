@@ -10,11 +10,6 @@ public class MinionBase : MonoBehaviour
     protected Vector2 input;
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
-	// Use this for initialization
-	void Start ()
-    {
-        
-    }
 
     public void Initialise()
     {
@@ -24,16 +19,11 @@ public class MinionBase : MonoBehaviour
         healthBar.transform.SetParent(transform, false);
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb2d.velocity = new Vector2();
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 
     public void DealDamage(float damage)
     {
@@ -43,11 +33,6 @@ public class MinionBase : MonoBehaviour
             //Death
             Destroy(gameObject);
         }
-    }
-
-    protected void CallFixedUpdate()
-    {
-        FixedUpdate();
     }
 
     public GameObject GetGameObject()

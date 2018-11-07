@@ -28313,6 +28313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1669635160}
+  isPlayer2: 1
   map: {fileID: 1926735992}
 --- !u!81 &679400377
 AudioListener:

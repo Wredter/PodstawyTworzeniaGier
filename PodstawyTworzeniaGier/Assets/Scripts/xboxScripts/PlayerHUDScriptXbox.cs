@@ -7,9 +7,8 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
     [Space(1)]
     public GameObject archerHUD;
     public GameObject vikingHUD;
-
     private GameObject activeHUD;
-	// Use this for initialization
+	
 	void Start () {
 		if(horde.hordeMinion.GetComponent<ArcherXbox>())
         {
@@ -23,9 +22,4 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
         activeHUD.transform.SetParent(gameObject.transform);
         if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

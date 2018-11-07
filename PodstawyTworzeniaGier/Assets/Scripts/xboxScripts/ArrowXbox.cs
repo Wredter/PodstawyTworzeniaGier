@@ -8,7 +8,6 @@ public class ArrowXbox : ProjectileXbox
     private int step;
     private Vector2 initialVelocity;
 
-    // Use this for initialization
     void Start()
     {
         step = range + 1;
@@ -45,11 +44,5 @@ public class ArrowXbox : ProjectileXbox
             Destroy(gameObject);
         }
         step -= 1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

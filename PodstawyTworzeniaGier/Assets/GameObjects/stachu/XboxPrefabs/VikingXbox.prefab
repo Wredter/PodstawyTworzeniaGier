@@ -93,7 +93,7 @@ MonoBehaviour:
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   projectile: {fileID: 1250299044601244, guid: cffbc2193c42d8443b069441298db45b, type: 2}
-  maxProjectileCount: 3
+  maxProjectileCount: 2
 --- !u!212 &212530899622333988
 SpriteRenderer:
   m_ObjectHideFlags: 1

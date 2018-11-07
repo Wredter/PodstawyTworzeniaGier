@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stachuj.unity
     guid: 8a341f34ece128444841c13f646217f8
+  - enabled: 1
+    path: Assets/Scenes/ArchersWon.unity
+    guid: 4aa6a0363f46c164487e921814c5e335
+  - enabled: 1
+    path: Assets/Scenes/VikingsWon.unity
+    guid: e5846a7d0b48e6542b0b92153c14d9ce
   m_configObjects: {}

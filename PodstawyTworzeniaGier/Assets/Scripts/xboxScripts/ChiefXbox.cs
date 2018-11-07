@@ -18,11 +18,6 @@ public class ChiefXbox : MonoBehaviour {
         cone = Instantiate(pointer);
         pointers = new Stack<float>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 
     private void FixedUpdate()
     {

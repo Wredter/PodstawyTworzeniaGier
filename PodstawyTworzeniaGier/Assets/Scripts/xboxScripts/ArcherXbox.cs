@@ -30,11 +30,6 @@ public class ArcherXbox : MinionBaseXbox
         {
             g.UpdateCounter();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (cooldown > 0)
         {
             cooldown--;
@@ -56,6 +51,10 @@ public class ArcherXbox : MinionBaseXbox
                 cooldown = shootCooldown;
                 charging = false;
             }
+        }
+        if (power > maxPower)
+        {
+            power = maxPower;
         }
     }
 

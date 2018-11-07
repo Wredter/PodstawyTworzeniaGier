@@ -299,19 +299,25 @@ public class HordeXbox : MonoBehaviour
 
     public float GetCooldown()
     {
-        if (minions[0].GetComponent<ArcherXbox>())
+        if (minions.FindAll(m => m != null).Count > 0)
         {
-            return minions[0].GetComponent<ArcherXbox>().GetCooldown();
+            if (minions[0].GetComponent<ArcherXbox>())
+            {
+                return minions[0].GetComponent<ArcherXbox>().GetCooldown();
+            }
         }
-        else return 0;
+        return 0;
     }
 
     public float GetPower()
     {
-        if (minions[0].GetComponent<ArcherXbox>())
+        if (minions.FindAll(m => m != null).Count > 0)
         {
-            return minions[0].GetComponent<ArcherXbox>().GetPower();
+            if (minions[0].GetComponent<ArcherXbox>())
+            {
+                return minions[0].GetComponent<ArcherXbox>().GetPower();
+            }
         }
-        else return 0;
+        return 0;
     }
 }

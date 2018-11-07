@@ -17,10 +17,6 @@ public class Projectile : MonoBehaviour {
     protected bool hasHit;
     protected bool isReturnable;
 
-    // Use this for initialization
-    void Start () {
-	}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals(player.name))
@@ -56,11 +52,6 @@ public class Projectile : MonoBehaviour {
             }
         }
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 
     public void UpdateCounter()
     {

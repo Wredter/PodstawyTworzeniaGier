@@ -6,12 +6,6 @@ public class ChargeBarScriptXbox : MonoBehaviour {
 
     public HUDScriptXbox script;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
         float scale = 1-script.GetHorde().GetChargeActualValue();
         if (scale <= 1)
