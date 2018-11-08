@@ -29543,7 +29543,7 @@ MonoBehaviour:
   spawnRadius: 5
   minionsKS: 500
   minionsK: 1600
-  maxSpeed: 10
+  maxSpeed: 15
   random: 0.01
   dashCooldown: 1
   divideCooldown: 1
@@ -29675,7 +29675,7 @@ MonoBehaviour:
   spawnRadius: 5
   minionsKS: 500
   minionsK: 1600
-  maxSpeed: 10
+  maxSpeed: 15
   random: 0.01
   dashCooldown: 1
   divideCooldown: 1
@@ -29687,7 +29687,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669635159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: -30, z: 0}
+  m_LocalPosition: {x: -28, y: -30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 679400378}

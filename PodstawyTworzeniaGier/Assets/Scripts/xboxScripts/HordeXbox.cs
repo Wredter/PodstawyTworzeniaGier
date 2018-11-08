@@ -192,7 +192,7 @@ public class HordeXbox : MonoBehaviour
             {
                 if (divideCooldownTimer <= 0)
                 {
-                    divide = 8;
+                    divide = 12;
                     center = chief.transform.position;
                     divideCooldownTimer = divideCooldown;
                 }
