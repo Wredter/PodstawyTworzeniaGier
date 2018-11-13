@@ -1,17 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ChargeBarScriptXbox : MonoBehaviour {
-
     public HUDScriptXbox script;
+    private Slider slider;
 
-	void Update () {
+    public void Start()
+    {
+        slider = GetComponent<Slider>();
+    }
+
+    void Update () {
         float scale = 1-script.GetHorde().GetChargeActualValue();
         if (scale <= 1)
         {
-            transform.localScale = new Vector3(scale*50, 2);
-        }
-        
+            slider.value = scale;
+        }         
 	}
 }

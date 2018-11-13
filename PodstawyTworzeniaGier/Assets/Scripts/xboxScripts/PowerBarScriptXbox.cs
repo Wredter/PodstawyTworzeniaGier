@@ -1,17 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerBarScriptXbox : MonoBehaviour {
     public HUDScriptXbox script;
+    private Slider slider;
+
+    public void Start()
+    {
+        slider = GetComponent<Slider>();
+    }
 
     void FixedUpdate()
     {
         float scale = script.GetHorde().GetPower();
         if (scale <= 1)
         {
-            transform.localScale = new Vector3(scale * 50, 2);
+            slider.value = scale;
         }
-
     }
 }
