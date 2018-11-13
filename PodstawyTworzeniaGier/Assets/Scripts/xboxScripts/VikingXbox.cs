@@ -32,7 +32,7 @@ public class VikingXbox : MinionBaseXbox
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis(controller + "T") > 0 && axes.Count < maxProjectileCount && !hasShot)
+        if (controller.Shoot() && axes.Count < maxProjectileCount && !hasShot)
         {
             GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
             axes.Add(temp, temp.GetComponent<AxeXbox>());
@@ -40,7 +40,7 @@ public class VikingXbox : MinionBaseXbox
             projectilesCount++;
             hasShot = true;
         }
-        if(Input.GetAxis(controller + "T") == 0 && hasShot)
+        if(!controller.Shoot() && hasShot)
         {
             hasShot = false;
         }

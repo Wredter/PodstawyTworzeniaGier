@@ -63,6 +63,7 @@ public class HordeXbox : MonoBehaviour
         minionsWithChief.ForEach(m => m.name = hordeName);
         chief.GetComponent<ChiefXbox>().SetController(controller);
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
+        minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetChief(chief));
     }
 
     // Update is called once per frame

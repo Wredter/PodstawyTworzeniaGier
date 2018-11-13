@@ -23,9 +23,9 @@ public class ArcherXbox : MinionBaseXbox
         power = 0.5f;
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-        CallFixedUpdate();
+        base.FixedUpdate();
         foreach (ArrowXbox g in arrows.Values)
         {
             g.UpdateCounter();
@@ -36,16 +36,16 @@ public class ArcherXbox : MinionBaseXbox
         }
         else
         {
-            if (Input.GetAxis(controller + "T") > 0 && power < maxPower)
+            if (controller.Shoot() && power < maxPower)
             {
                 power += 0.05f;
                 charging = true;
             }
-            if (Input.GetAxis(controller + "T") == 0 && charging)
+            if (!controller.Shoot() && charging)
             {
                 GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
                 arrows.Add(temp, temp.GetComponent<ArrowXbox>());
-                arrows[temp].Initialise("arrow" + projectilesCount, this, power, controller);
+                arrows[temp].Initialise("arrow" + projectilesCount, this, power);
                 projectilesCount++;
                 power = 0.5f;
                 cooldown = shootCooldown;

@@ -14,14 +14,14 @@ public class ArrowXbox : ProjectileXbox
         isReturnable = false;
     }
 
-    public void Initialise(string arrowID, ArcherXbox player, float power, string controller)
+    public void Initialise(string arrowID, ArcherXbox player, float power)
     {
         name = arrowID;
         this.player = player;
         rb2d = GetComponent<Rigidbody2D>();
 
-        float projectileX = Input.GetAxis(controller + "RightHorizontal");
-        float projectileY = Input.GetAxis(controller + "RightVertical");
+        float projectileX = player.GetChief().GetComponent<ChiefXbox>().GetPrevious().x;
+        float projectileY = player.GetChief().GetComponent<ChiefXbox>().GetPrevious().y;
         Vector2 projectileThrow = new Vector2(projectileX, projectileY);
         projectileThrow += new Vector2(randomSpread * 2 * (Random.value - 0.5f), randomSpread * 2 * (Random.value - 0.5f));
         rb2d.AddForce(projectileThrow * 500 * power);
