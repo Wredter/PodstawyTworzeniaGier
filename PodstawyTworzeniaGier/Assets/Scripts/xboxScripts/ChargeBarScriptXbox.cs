@@ -8,6 +8,7 @@ public class ChargeBarScriptXbox : MonoBehaviour {
     public void Start()
     {
         slider = GetComponent<Slider>();
+        slider.value = 1;
     }
 
     void Update () {
