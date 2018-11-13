@@ -1,46 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
+
 public class ControllerXbox : MonoBehaviour, IController {
-    string deviceSigneture;
-    public void SetDeviceSignature(string deviceSigneture)
+    string deviceSignature;
+    public void SetDeviceSignature(string deviceSignature)
     {
-        this.deviceSigneture = deviceSigneture;
+        this.deviceSignature = deviceSignature;
     }
 
     public float MoveHorizontal()
     {
-        return Input.GetAxis(deviceSigneture + "LeftHorizontal");
+        return Input.GetAxis(deviceSignature + "LeftHorizontal");
     }
 
     public bool Shoot()
     {
-        return (Input.GetAxis(deviceSigneture + "T") > 0);
+        return (Input.GetAxis(deviceSignature + "T") > 0);
     }
 
     public bool Special1()
     {
-        throw new System.NotImplementedException();
+        return Input.GetButton(deviceSignature + "LB");
     }
 
     public bool Special2()
     {
-        throw new System.NotImplementedException();
+        return Input.GetButton(deviceSignature + "RB");
     }
 
     public float MoveVertical()
     {
-        return Input.GetAxis(deviceSigneture + "LeftVertical");
-    }
-
-    public float LookHorizontal()
-    {
-        return Input.GetAxis(deviceSigneture + "RightHorizontal");
+        return Input.GetAxis(deviceSignature + "LeftVertical");
     }
 
     public float LookVertical()
     {
-        return Input.GetAxis(deviceSigneture + "RightVertical");
+        return Input.GetAxis(deviceSignature + "RightVertical");
+    }
+
+    public float LookHorizontal()
+    {
+        return Input.GetAxis(deviceSignature + "RightHorizontal");
     }
 }

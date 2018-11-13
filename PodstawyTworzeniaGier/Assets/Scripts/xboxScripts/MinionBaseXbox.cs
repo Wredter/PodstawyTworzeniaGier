@@ -64,9 +64,8 @@ public class MinionBaseXbox : MonoBehaviour
         this.chief = chief;
     }
 
-    public void SetController(string controller)
+    public void SetController(IController controller)
     {
-        this.controller = gameObject.AddComponent(typeof(ControllerXbox)) as IController;
-        this.controller.SetDeviceSignature(controller);
+        this.controller = controller;
     }
 }

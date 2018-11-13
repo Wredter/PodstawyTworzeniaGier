@@ -44,10 +44,9 @@ public class ChiefXbox : MonoBehaviour {
         }
     }
 
-    public void SetController(string controller)
+    public void SetController(IController controller)
     {
-        this.controller = gameObject.AddComponent(typeof(ControllerXbox)) as IController;
-        this.controller.SetDeviceSignature(controller);
+        this.controller = controller;
     }
 
     public Vector2 GetPrevious()
