@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerMouseAndKeyboard : IController
+public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 {
     private string deviceSignature;
 

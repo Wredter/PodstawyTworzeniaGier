@@ -17,6 +17,7 @@ public class HordeXbox : MonoBehaviour
     public float random = 0.01f;
     public string deviceSignature;
     protected IController controller;
+    public ControllerEnum inputDevice = ControllerEnum.XBOX_CONTROLLER;
 
     List<GameObject> minions;
     List<GameObject> minionsWithChief;
@@ -30,7 +31,16 @@ public class HordeXbox : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
+        switch(inputDevice)
+        {
+            case ControllerEnum.XBOX_CONTROLLER:
+                controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
+                break;
+            case ControllerEnum.MOUSE_KEYBOARD_CONTROLLER:
+                controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
+                break;
+        }
+        
         controller.SetDeviceSignature(deviceSignature);
         divide1 = new Vector2();
         divide2 = new Vector2();
