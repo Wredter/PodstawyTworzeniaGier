@@ -6,23 +6,22 @@ public class ChiefXbox : MonoBehaviour {
     public GameObject pointer;
     [Range(0.1f,0.99f)]
     public float pointerSmoothness;
-    private string controller;
+    private IController controller;
     private GameObject cone;
     private float scale;
-    private Stack<float> pointers;
     private Vector2 previous;
     private Vector2 next;
 
 	// Use this for initialization
 	void Start () {
         cone = Instantiate(pointer);
-        pointers = new Stack<float>();
 	}
 
     private void FixedUpdate()
     {
-        float projectileX = Input.GetAxis(controller + "RightHorizontal") * (1.0f-pointerSmoothness) + previous.x * pointerSmoothness;
-        float projectileY = Input.GetAxis(controller + "RightVertical") * (1.0f-pointerSmoothness) + previous.y * pointerSmoothness;
+        float projectileX = controller.LookHorizontal() * (1.0f-pointerSmoothness) + previous.x * pointerSmoothness;
+        float projectileY = controller.LookVertical() * (1.0f-pointerSmoothness) + previous.y * pointerSmoothness;
+
         float angle = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.up, new Vector2(projectileX, projectileY));
         previous = new Vector2(projectileX, projectileY);
         cone.GetComponent<Rigidbody2D>().rotation = angle * Mathf.Rad2Deg;
@@ -31,8 +30,8 @@ public class ChiefXbox : MonoBehaviour {
     private void LateUpdate()
     {
         cone.GetComponent<Rigidbody2D>().position = GetComponent<Rigidbody2D>().position;
-        float projectileX = Input.GetAxis(controller + "RightHorizontal");
-        float projectileY = Input.GetAxis(controller + "RightVertical");
+        float projectileX = controller.LookHorizontal();
+        float projectileY = controller.LookVertical();
         float scale = (Mathf.Abs(projectileX) > Mathf.Abs(projectileY)) ? Mathf.Abs(projectileX) : Mathf.Abs(projectileY);
         if (scale > 0.5)
         {
@@ -45,8 +44,13 @@ public class ChiefXbox : MonoBehaviour {
         }
     }
 
-    public void SetController(string controller)
+    public void SetController(IController controller)
     {
         this.controller = controller;
+    }
+
+    public Vector2 GetPrevious()
+    {
+        return previous;
     }
 }

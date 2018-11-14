@@ -10,9 +10,10 @@ public class MinionBaseXbox : MonoBehaviour
     protected Vector2 input;
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
-    protected string controller;
     protected float actualHealth;
     public bool isZombie;
+    protected GameObject chief;
+    protected IController controller;
 
     public void Initialise()
     {
@@ -26,7 +27,7 @@ public class MinionBaseXbox : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        input = new Vector2(controller.MoveHorizontal(), controller.MoveVertical());
         rb2d.velocity = new Vector2();
     }
 
@@ -40,19 +41,9 @@ public class MinionBaseXbox : MonoBehaviour
         }
     }
 
-    protected void CallFixedUpdate()
-    {
-        FixedUpdate();
-    }
-
     public float GetActualHealth()
     {
         return actualHealth;
-    }
-
-    public GameObject GetGameObject()
-    {
-        return gameObject;
     }
 
     public Vector2 GetPosition()
@@ -65,7 +56,17 @@ public class MinionBaseXbox : MonoBehaviour
         return rb2d.velocity;
     }
 
-    public void SetController(string controller)
+    public GameObject GetChief()
+    {
+        return chief;
+    }
+
+    public void SetChief(GameObject chief)
+    {
+        this.chief = chief;
+    }
+
+    public void SetController(IController controller)
     {
         this.controller = controller;
     }

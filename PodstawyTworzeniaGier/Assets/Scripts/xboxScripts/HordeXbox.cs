@@ -7,7 +7,6 @@ public class HordeXbox : MonoBehaviour
     [Range(0.01f, 0.99f)]
     public float viewSmoothness;
     public string hordeName;
-    public string controller;
     public GameObject hordeChief;
     public GameObject hordeMinion;
     public int minionsNumber = 30;
@@ -16,6 +15,9 @@ public class HordeXbox : MonoBehaviour
     public float minionsK = 100;
     public float maxSpeed = 10;
     public float random = 0.01f;
+    public string deviceSignature;
+    protected IController controller;
+    public ControllerEnum inputDevice = ControllerEnum.XBOX_CONTROLLER;
 
     public List<GameObject> minions;
     public List<GameObject> minionsWithChief;
@@ -29,6 +31,17 @@ public class HordeXbox : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        switch(inputDevice)
+        {
+            case ControllerEnum.XBOX_CONTROLLER:
+                controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
+                break;
+            case ControllerEnum.MOUSE_KEYBOARD_CONTROLLER:
+                controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
+                break;
+        }
+        
+        controller.SetDeviceSignature(deviceSignature);
         divide1 = new Vector2();
         divide2 = new Vector2();
         minions = new List<GameObject>();
@@ -63,6 +76,7 @@ public class HordeXbox : MonoBehaviour
         minionsWithChief.ForEach(m => m.name = hordeName);
         chief.GetComponent<ChiefXbox>().SetController(controller);
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
+        minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetChief(chief));
     }
 
     // Update is called once per frame
@@ -137,8 +151,8 @@ public class HordeXbox : MonoBehaviour
                 }
             }
 
-            float moveX = Input.GetAxis(controller + "LeftHorizontal");
-            float moveY = Input.GetAxis(controller + "LeftVertical");
+            float moveX = controller.MoveHorizontal();
+            float moveY = controller.MoveVertical();
 
             bool a, d, w, s;
             a = Input.GetKey(KeyCode.A);
@@ -171,7 +185,7 @@ public class HordeXbox : MonoBehaviour
                 dashY = 0;
             }
             dash();
-            if (Input.GetButtonDown(controller + "RB") || Input.GetKeyDown(KeyCode.F))
+            if (controller.Special2() || Input.GetKeyDown(KeyCode.F))
             {
                 if (dashCooldownTimer <= 0)
                 {
@@ -188,11 +202,11 @@ public class HordeXbox : MonoBehaviour
             if (divide > 0) divideHorde();
             else { divideX = 0; divideY = 0; }
 
-            if (Input.GetButtonDown(controller + "LB") || Input.GetKeyDown(KeyCode.E))
+            if (controller.Special1() || Input.GetKeyDown(KeyCode.E))
             {
                 if (divideCooldownTimer <= 0)
                 {
-                    divide = 8;
+                    divide = 12;
                     center = chief.transform.position;
                     divideCooldownTimer = divideCooldown;
                 }
@@ -215,8 +229,8 @@ public class HordeXbox : MonoBehaviour
             dashX *= 999;
             dashY *= 999;
 
-            dashX += Input.GetAxis(controller + "RightHorizontal");
-            dashY += Input.GetAxis(controller + "RightVertical");
+            dashX += controller.LookHorizontal();
+            dashY += controller.LookVertical();
 
             //dashX += (mousePosition.x - chief.transform.position.x)*1;
             //dashY += (mousePosition.y - chief.transform.position.y)*1;
@@ -241,8 +255,8 @@ public class HordeXbox : MonoBehaviour
         divideX *= 29;
         divideY *= 29;
 
-        divideX += Input.GetAxis(controller + "RightHorizontal");
-        divideY += Input.GetAxis(controller + "RightVertical");
+        divideX += controller.LookHorizontal();
+        divideY += controller.LookVertical();
         //divideX += mousePosition.x - chief.transform.position.x;
         //divideY += mousePosition.y - chief.transform.position.y;
 
@@ -291,7 +305,7 @@ public class HordeXbox : MonoBehaviour
         Vector2 average = new Vector2();
         minionsWithChief.ForEach(m => average += m.GetComponent<Rigidbody2D>().position);
         average /= minionsWithChief.Count;
-        Vector2 pom = new Vector2(Input.GetAxis(controller + "RightHorizontal"), Input.GetAxis(controller + "RightVertical")) * 3;
+        Vector2 pom = new Vector2(controller.LookHorizontal(), controller.LookVertical()) * 3;
         Vector2 next = pom * (1 - viewSmoothness) + rightAxisPrevious * viewSmoothness;
         rightAxisPrevious = next;
         return next + average;

@@ -6,12 +6,10 @@ public class CameraXbox : MonoBehaviour {
     public HordeXbox parent;
     public bool isPlayer2;
     public GameObject map;
-    private Rigidbody2D rb2d;
     private SpriteRenderer mapRenderer;
     private Vector2 newPosition;
     private Camera cam;
 	void Start () {
-        rb2d = GetComponent<Rigidbody2D>();
         mapRenderer = map.GetComponent<SpriteRenderer>();
         cam = GetComponent<Camera>();
 	}
