@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manekin : MinionBase {
+public class Manekin : MinionBaseXbox {
 
     // Use this for initialization
     void Start() {
         
     }
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
         
     }

@@ -17,8 +17,8 @@ public class HordeXbox : MonoBehaviour
     public float maxSpeed = 10;
     public float random = 0.01f;
 
-    List<GameObject> minions;
-    List<GameObject> minionsWithChief;
+    public List<GameObject> minions;
+    public List<GameObject> minionsWithChief;
     GameObject chief;
 
     private Vector2 rightAxisPrevious;

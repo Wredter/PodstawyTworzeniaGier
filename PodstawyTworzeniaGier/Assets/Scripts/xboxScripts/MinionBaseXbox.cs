@@ -12,6 +12,7 @@ public class MinionBaseXbox : MonoBehaviour
     protected GameObject healthBar;
     protected string controller;
     protected float actualHealth;
+    public bool isZombie;
 
     public void Initialise()
     {
@@ -20,6 +21,7 @@ public class MinionBaseXbox : MonoBehaviour
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScriptXbox>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
+        isZombie = false;
     }
 
     protected void FixedUpdate()
