@@ -61,7 +61,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &60879626974102762
 PolygonCollider2D:
@@ -139,6 +139,7 @@ MonoBehaviour:
   health: 100
   healthBarView: {fileID: 1482587473186044, guid: d63ce30da369294439caec6a2193c920,
     type: 2}
+  isZombie: 0
   speedMultipalyer: 10
   dmg: 0
 --- !u!212 &212840790939558360

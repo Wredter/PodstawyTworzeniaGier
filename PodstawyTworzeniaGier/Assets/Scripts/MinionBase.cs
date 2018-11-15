@@ -10,6 +10,7 @@ public class MinionBase : MonoBehaviour
     protected Vector2 input;
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
+    public bool isZombie;
 
     public void Initialise()
     {
@@ -17,6 +18,8 @@ public class MinionBase : MonoBehaviour
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScript>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
+        isZombie = false;
+        
     }
 
     protected void FixedUpdate()

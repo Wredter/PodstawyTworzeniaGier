@@ -61,7 +61,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &60940161667164666
 PolygonCollider2D:
@@ -77,7 +77,7 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 3, z: 3, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4, y: 4}
     newSize: {x: 4, y: 4}
@@ -159,6 +159,7 @@ MonoBehaviour:
   health: 100
   healthBarView: {fileID: 1482587473186044, guid: d63ce30da369294439caec6a2193c920,
     type: 2}
+  isZombie: 0
 --- !u!212 &212677936890574708
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -19,8 +19,8 @@ public class HordeXbox : MonoBehaviour
     protected IController controller;
     public ControllerEnum inputDevice = ControllerEnum.XBOX_CONTROLLER;
 
-    List<GameObject> minions;
-    List<GameObject> minionsWithChief;
+    public List<GameObject> minions;
+    public List<GameObject> minionsWithChief;
     GameObject chief;
 
     private Vector2 rightAxisPrevious;
