@@ -45,4 +45,9 @@ public class ControllerXbox : MonoBehaviour, IController {
     {
         return Input.GetAxis(deviceSignature + "RightHorizontal");
     }
+
+    public bool Select()
+    {
+        return Input.GetButton(deviceSignature + "X");
+    }
 }

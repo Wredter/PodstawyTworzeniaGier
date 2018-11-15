@@ -26,6 +26,11 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
         return Input.GetAxis(deviceSignature + "Vertical");
     }
 
+    public bool Select()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void SetDeviceSignature(string deviceSignature)
     {
         this.deviceSignature = deviceSignature;

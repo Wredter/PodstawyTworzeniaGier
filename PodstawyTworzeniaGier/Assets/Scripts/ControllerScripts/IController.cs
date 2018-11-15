@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IController {
     void SetDeviceSignature(string deviseSignature);
     bool Shoot();
+    bool Select();
     bool Special1();
     bool Special2();
     float MoveHorizontal();
