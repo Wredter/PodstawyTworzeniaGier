@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class PlayerChoosing : MonoBehaviour {
     public string deviceSignatue;
     public Image archers;
+    public Image archersSelection;
     public Image vikings;
+    public Image vikingsSelection;
     public Image zombies;
+    public Image zombiesSelection;
     public Image spartans;
+    public Image spartansSelection;
     public Text pressX;
     private IController controller;
     private List<Image> selections;
@@ -16,6 +20,7 @@ public class PlayerChoosing : MonoBehaviour {
     private bool movedThisTime;
     private int selected;
     private float scale;
+    private Image selectedCharacter;
 
 	void Start () {
 		switch(deviceSignatue)
@@ -53,6 +58,10 @@ public class PlayerChoosing : MonoBehaviour {
             selections.Add(Instantiate(spartans) as Image);
             selections[selections.Count - 1].transform.SetParent(transform);
             selections[selections.Count - 1].transform.localPosition = new Vector3(-100, -150, 0);
+
+            selectedCharacter = Instantiate(archersSelection) as Image;
+            selectedCharacter.transform.SetParent(transform);
+            selectedCharacter.transform.localPosition = new Vector3(50, 0, 0);
         }
         if (pressedStart && Mathf.Abs(controller.MoveVertical()) > 0.5 && !movedThisTime)
         {
@@ -72,6 +81,25 @@ public class PlayerChoosing : MonoBehaviour {
             selections[next].transform.localScale = new Vector3(scale * 1.25f, scale * 1.25f, scale * 1.25f);
             selections[selected].transform.localScale = new Vector3(scale * 0.8f, scale * 0.8f, scale * 0.8f);
             selected = next;
+
+            Destroy(selectedCharacter);
+            switch(selected)
+            {
+                case 0:
+                    selectedCharacter = Instantiate(archersSelection) as Image;
+                    break;
+                case 1:
+                    selectedCharacter = Instantiate(vikingsSelection) as Image;
+                    break;
+                case 2:
+                    selectedCharacter = Instantiate(zombiesSelection) as Image;
+                    break;
+                case 3:
+                    selectedCharacter = Instantiate(spartansSelection) as Image;
+                    break;
+            }
+            selectedCharacter.transform.SetParent(transform);
+            selectedCharacter.transform.localPosition = new Vector3(50, 0, 0);
         } else if(Mathf.Abs(controller.MoveVertical()) <= 0.5)
         {
             movedThisTime = false;

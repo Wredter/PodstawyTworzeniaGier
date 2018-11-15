@@ -86,9 +86,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deviceSignatue: Joystick1
   archers: {fileID: 114417599372706102, guid: b83c52bb79b1195418b1d7bee2e7a68f, type: 2}
-  vikings: {fileID: 114326622763431372, guid: 2294302edca9e8e459a30953935265b4, type: 2}
-  zombies: {fileID: 114023763583596658, guid: f2e728cf6b880ec40acd877f5db41595, type: 2}
-  spartans: {fileID: 114856424272210568, guid: 04f8e6547af41434f851b1673ecce8cf, type: 2}
+  archersSelection: {fileID: 114607497790596646, guid: c282ca5cf199d9448b4f2a66720bf5cb,
+    type: 2}
+  vikings: {fileID: 114023763583596658, guid: f2e728cf6b880ec40acd877f5db41595, type: 2}
+  vikingsSelection: {fileID: 114025218564421416, guid: 89fcaeffba3144549aaa2178a769bb7b,
+    type: 2}
+  zombies: {fileID: 114856424272210568, guid: 04f8e6547af41434f851b1673ecce8cf, type: 2}
+  zombiesSelection: {fileID: 114995584897245372, guid: b1bfcc59de794944a83d5892773a8b7b,
+    type: 2}
+  spartans: {fileID: 114326622763431372, guid: 2294302edca9e8e459a30953935265b4, type: 2}
+  spartansSelection: {fileID: 114795000032956736, guid: 602d5a941563b5d4e94728d9dc262824,
+    type: 2}
   pressX: {fileID: 114832551891247060}
 --- !u!114 &114832551891247060
 MonoBehaviour:
