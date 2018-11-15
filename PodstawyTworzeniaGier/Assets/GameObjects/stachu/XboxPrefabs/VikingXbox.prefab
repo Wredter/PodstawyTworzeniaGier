@@ -92,6 +92,7 @@ MonoBehaviour:
   health: 100
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
+  isZombie: 0
   projectile: {fileID: 1250299044601244, guid: cffbc2193c42d8443b069441298db45b, type: 2}
   maxProjectileCount: 2
 --- !u!212 &212530899622333988
@@ -129,7 +130,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f2b9057369f62e14b8b7c4a7d91405c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6adae78862b6c941af218b04b795307, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
