@@ -3,37 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHUDScriptXbox : MonoBehaviour {
-    public HordeXbox horde;
+    private GameObject horde;
     [Space(1)]
+    public GameObject archerHorde;
+    public GameObject vikingHorde;
     public GameObject archerHUD;
     public GameObject vikingHUD;
     private GameObject activeHUD;
+    private string deviceName;
 	
 	void Start () {
         if(PlayerPrefs.HasKey(name))
         {
+            Debug.Log(PlayerPrefs.GetString(name));
             switch(PlayerPrefs.GetString(name))
             {
-                case "archer":
+                case "archers":
+                    horde = Instantiate(archerHorde) as GameObject;
+                    activeHUD = Instantiate(archerHUD) as GameObject;
                     break;
-                case "viking":
+                case "vikings":
+                    horde = Instantiate(vikingHorde) as GameObject;
+                    activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
-                case "zombie":
+                case "zombies":
                     break;
-                case "spartan":
+                case "spartans":
                     break;
             }
         }
-		if(horde.hordeMinion.GetComponent<ArcherXbox>())
+        if(PlayerPrefs.HasKey(name + "device"))
         {
-            activeHUD = Instantiate(archerHUD);
+            deviceName = PlayerPrefs.GetString(name + "device");
         }
-        else if(horde.hordeMinion.GetComponent<VikingXbox>())
-        {
-            activeHUD = Instantiate(vikingHUD);
-        }
-        activeHUD.GetComponent<HUDScriptXbox>().SetHorde(horde);
+        horde.GetComponent<HordeXbox>().SetDeviceSignature(deviceName);
+        activeHUD.GetComponent<HUDScriptXbox>().SetHorde(horde.GetComponent<HordeXbox>());
         activeHUD.transform.SetParent(gameObject.transform);
         if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
+    }
+
+    public Vector2 GetHordeCenter()
+    {
+        return horde.GetComponent<HordeXbox>().GetHordeCenter();
     }
 }

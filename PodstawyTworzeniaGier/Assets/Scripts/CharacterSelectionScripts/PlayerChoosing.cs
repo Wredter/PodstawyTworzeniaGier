@@ -166,12 +166,14 @@ public class PlayerChoosing : MonoBehaviour {
     private void Ready()
     {
         PlayerPrefs.SetString(name, HordeNameFromNumber());
+        PlayerPrefs.SetString(name + "device", deviceSignatue);
         choice.GetComponent<ChoiceControll>().NotifyThatChose(gameObject);
     }
 
     private void NotReady()
     {
         PlayerPrefs.DeleteKey(name);
+        PlayerPrefs.DeleteKey(name + "device");
         choice.GetComponent<ChoiceControll>().NotifyThatHadntChose(gameObject);
     }
 

@@ -15,9 +15,8 @@ public class HordeXbox : MonoBehaviour
     public float minionsK = 100;
     public float maxSpeed = 10;
     public float random = 0.01f;
-    public string deviceSignature;
+    protected string deviceSignature;
     protected IController controller;
-    public ControllerEnum inputDevice = ControllerEnum.XBOX_CONTROLLER;
 
     List<GameObject> minions;
     List<GameObject> minionsWithChief;
@@ -31,12 +30,13 @@ public class HordeXbox : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        switch(inputDevice)
+        switch(deviceSignature)
         {
-            case ControllerEnum.XBOX_CONTROLLER:
+            case "Joystick1":
+            case "Joystick2":
                 controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
                 break;
-            case ControllerEnum.MOUSE_KEYBOARD_CONTROLLER:
+            case "":
                 controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
                 break;
         }
@@ -333,5 +333,10 @@ public class HordeXbox : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    public void SetDeviceSignature(string deviceSignature)
+    {
+        this.deviceSignature = deviceSignature;
     }
 }
