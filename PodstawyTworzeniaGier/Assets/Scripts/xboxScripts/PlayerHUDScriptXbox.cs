@@ -10,6 +10,20 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
     private GameObject activeHUD;
 	
 	void Start () {
+        if(PlayerPrefs.HasKey(name))
+        {
+            switch(PlayerPrefs.GetString(name))
+            {
+                case "archer":
+                    break;
+                case "viking":
+                    break;
+                case "zombie":
+                    break;
+                case "spartan":
+                    break;
+            }
+        }
 		if(horde.hordeMinion.GetComponent<ArcherXbox>())
         {
             activeHUD = Instantiate(archerHUD);

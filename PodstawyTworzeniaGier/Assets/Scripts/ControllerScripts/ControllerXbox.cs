@@ -48,6 +48,11 @@ public class ControllerXbox : MonoBehaviour, IController {
 
     public bool Select()
     {
-        return Input.GetButton(deviceSignature + "X");
+        return Input.GetButton(deviceSignature + "A");
+    }
+
+    public bool Back()
+    {
+        return Input.GetButton(deviceSignature + "B");
     }
 }

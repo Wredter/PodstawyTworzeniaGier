@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222248582448514352}
   - component: {fileID: 114607497790596646}
   m_Layer: 5
-  m_Name: ArcherSelection
+  m_Name: ArcherImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
