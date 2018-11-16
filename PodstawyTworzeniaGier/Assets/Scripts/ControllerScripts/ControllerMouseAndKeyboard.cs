@@ -6,6 +6,11 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 {
     private string deviceSignature;
 
+    public bool Back()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public float LookHorizontal()
     {
         throw new System.NotImplementedException();
@@ -24,6 +29,11 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
     public float MoveVertical()
     {
         return Input.GetAxis(deviceSignature + "Vertical");
+    }
+
+    public bool Select()
+    {
+        throw new System.NotImplementedException();
     }
 
     public void SetDeviceSignature(string deviceSignature)

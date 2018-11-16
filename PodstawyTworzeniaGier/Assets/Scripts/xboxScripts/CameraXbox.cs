@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraXbox : MonoBehaviour {
-    public HordeXbox parent;
+    public GameObject parent;
     public bool isPlayer2;
     public GameObject map;
     private SpriteRenderer mapRenderer;
@@ -15,7 +15,7 @@ public class CameraXbox : MonoBehaviour {
 	}
 	
 	void LateUpdate () {
-        newPosition = parent.GetHordeCenter();
+        newPosition = parent.GetComponent<PlayerHUDScriptXbox>().GetHordeCenter();
         GetComponent<Rigidbody2D>().position = newPosition;
         cam.transform.position = new Vector3(newPosition.x,newPosition.y,-10);
         
