@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HordeXbox : MonoBehaviour
+public class HordeXbox : MonoBehaviour, IPlayerIntegration
 {
     [Range(0.01f, 0.99f)]
     public float viewSmoothness;
@@ -17,6 +17,7 @@ public class HordeXbox : MonoBehaviour
     public float random = 0.01f;
     protected string deviceSignature;
     protected IController controller;
+    protected string playerName;
 
     public List<GameObject> minions;
     public List<GameObject> minionsWithChief;
@@ -27,7 +28,6 @@ public class HordeXbox : MonoBehaviour
     //divideHorde
     Vector2 divide1, divide2, center;
 
-    // Use this for initialization
     void Start()
     {
         switch(deviceSignature)
@@ -77,6 +77,7 @@ public class HordeXbox : MonoBehaviour
         chief.GetComponent<ChiefXbox>().SetController(controller);
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetChief(chief));
+        minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetPlayerName(playerName));
     }
 
     // Update is called once per frame
@@ -338,5 +339,15 @@ public class HordeXbox : MonoBehaviour
     public void SetDeviceSignature(string deviceSignature)
     {
         this.deviceSignature = deviceSignature;
+    }
+
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
+
+    public void SetPlayerName(string playerName)
+    {
+        this.playerName = playerName;
     }
 }

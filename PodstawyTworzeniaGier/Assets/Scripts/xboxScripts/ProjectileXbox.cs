@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProjectileXbox : MonoBehaviour
+public class ProjectileXbox : MonoBehaviour, IPlayerIntegration
 {
     [Range(0.0f, 0.5f)]
     public float randomSpread;
@@ -18,30 +18,18 @@ public class ProjectileXbox : MonoBehaviour
     protected bool hasHit;
     protected bool isReturnable;
     protected string controller;
+    protected string playerName;
 
     // Use this for initialization
     void Start()
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (player == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
         if (collision.gameObject.name.Equals(player.name))
         {
-            if (collision.gameObject.GetComponent<VikingXbox>())
-            {
-                if (GetCounter() < 0)
-                {
-                    ((VikingXbox)player).ReturnProjectile(gameObject);
-                    Destroy(gameObject);
-                    return;
-                }
-            }
+            
         }
         else
         {
@@ -64,41 +52,8 @@ public class ProjectileXbox : MonoBehaviour
                     return;
                 }
             }
-            else if (collision.gameObject.GetComponent<MinionBaseXbox>())
-            {
-                if (isReturnable)
-                {
-                    if (!hasHit)
-                    {
-                        collision.gameObject.GetComponent<MinionBaseXbox>().DealDamage(damage);
-                        ((AxeXbox)this).Stick(collision.gameObject);
-                        hasHit = true;
-                    }
-                }
-                else
-                {
-                    collision.gameObject.GetComponent<MinionBaseXbox>().DealDamage(damage);
-                    ((ArcherXbox)player).ReturnProjectile(gameObject);
-                    Destroy(gameObject);
-                    return;
-                }
-            }
-            else
-            {
-                if(GetComponent<AxeXbox>())
-                {
-                    rb2d.velocity = new Vector2(0, 0);
-                    ((AxeXbox)this).Stick(gameObject);
-                }
-                else
-                {
-                    ((ArcherXbox)player).ReturnProjectile(gameObject);
-                    Destroy(gameObject);
-                    return;
-                }
-            }
         }
-    }
+    }*/
 
     public void UpdateCounter()
     {
@@ -110,6 +65,11 @@ public class ProjectileXbox : MonoBehaviour
         return cooldown;
     }
 
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
+
     public Vector2 GetPosition()
     {
         return rb2d.position;
@@ -118,5 +78,15 @@ public class ProjectileXbox : MonoBehaviour
     public string GetProjectileID()
     {
         return name;
+    }
+
+    public MinionBaseXbox GetPlayer()
+    {
+        return player;
+    }
+
+    public void SetPlayerName(string playerName)
+    {
+        this.playerName = playerName;
     }
 }

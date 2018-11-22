@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerHUDScriptXbox : MonoBehaviour {
     private GameObject horde;
@@ -35,6 +33,16 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
         if(PlayerPrefs.HasKey(name + "device"))
         {
             deviceName = PlayerPrefs.GetString(name + "device");
+        }
+        horde.GetComponent<HordeXbox>().SetPlayerName(name);
+        switch(name)
+        {
+            case "Player1":
+                horde.gameObject.transform.position = new Vector2(-28, -30);
+                break;
+            case "Player2":
+                horde.gameObject.transform.position = new Vector2(45, 45);
+                break;
         }
         horde.GetComponent<HordeXbox>().SetDeviceSignature(deviceName);
         activeHUD.GetComponent<HUDScriptXbox>().SetHorde(horde.GetComponent<HordeXbox>());
