@@ -75,6 +75,7 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
 
         minionsWithChief.ForEach(m => m.name = hordeName);
         chief.GetComponent<ChiefXbox>().SetController(controller);
+        chief.GetComponent<ChiefBaseXbox>().SetPlayerName(playerName);
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetChief(chief));
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetPlayerName(playerName));
