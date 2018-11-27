@@ -5,6 +5,7 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
     [Space(1)]
     public GameObject archerHorde;
     public GameObject vikingHorde;
+    public GameObject zombieHorde;
     public GameObject archerHUD;
     public GameObject vikingHUD;
     private GameObject activeHUD;
@@ -25,6 +26,8 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
                     activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "zombies":
+                    horde = Instantiate(zombieHorde) as GameObject;
+                    activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "spartans":
                     break;
