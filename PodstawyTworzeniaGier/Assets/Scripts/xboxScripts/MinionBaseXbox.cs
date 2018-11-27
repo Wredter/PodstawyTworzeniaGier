@@ -12,7 +12,7 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
     protected GameObject healthBar;
     protected string playerName;
     protected float actualHealth;
-    public bool isZombie;
+    public bool isInfected;
     protected GameObject chief;
     protected IController controller;
 
@@ -23,12 +23,12 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScriptXbox>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
-        isZombie = false;
+        isInfected = false;
     }
 
     protected void FixedUpdate()
     {
-        input = new Vector2(controller.MoveHorizontal(), controller.MoveVertical());
+        //input = new Vector2(controller.MoveHorizontal(), controller.MoveVertical());
         rb2d.velocity = new Vector2();
     }
 

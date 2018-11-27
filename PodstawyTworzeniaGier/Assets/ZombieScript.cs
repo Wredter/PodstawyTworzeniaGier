@@ -11,18 +11,16 @@ public class ZombieScript : MinionBaseXbox
     HordeXbox myHorde;
     void Start()
     {
+        Initialise();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        isZombie = true;
+        //isInfected = true;
         myHorde = GameObject.Find("ZombieXbox").GetComponent<HordeXbox>();
         
     }
-
-    // Update is called once per frame
-    //private void FixedUpdate()
-    //{
-    //    input = new Vector2(Input.GetAxis("Horizontal") * speedMultipalyer, Input.GetAxis("Vertical") * speedMultipalyer);
-    //    rb2d.velocity = new Vector2(input.x, input.y);
-    //}
+    private new void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
     void Update()
     {
 
@@ -30,7 +28,7 @@ public class ZombieScript : MinionBaseXbox
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (collision.gameObject.GetComponent<MinionBaseXbox>().isZombie == false)
+        if (!collision.gameObject.GetComponent<ZombieScript>()&&collision.gameObject.GetComponent<MinionBaseXbox>())
         {
             Destroy(collision.gameObject);
             Debug.Log("OnCollisionEnter : zniszczyles mnie");

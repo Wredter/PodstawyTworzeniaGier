@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4974141885131326}
   - component: {fileID: 50659526889731832}
-  - component: {fileID: 114288046320583788}
   - component: {fileID: 212840790939558360}
   - component: {fileID: 60879626974102762}
+  - component: {fileID: 114288046320583788}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healthBarView: {fileID: 1482587473186044, guid: d63ce30da369294439caec6a2193c920,
+  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
-  isZombie: 0
+  isInfected: 0
   speedMultipalyer: 10
   dmg: 0
 --- !u!212 &212840790939558360

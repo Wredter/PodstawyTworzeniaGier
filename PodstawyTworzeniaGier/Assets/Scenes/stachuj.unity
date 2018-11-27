@@ -29337,6 +29337,18 @@ Prefab:
       value: 
       objectReference: {fileID: 1734571864241024, guid: e86f3b263cd2f4f4cb1d20f6e3f23056,
         type: 2}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: zombieHorde
+      value: 
+      objectReference: {fileID: 1025767411471744, guid: d33ba27ba418959468304429a33da723,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: zombieHorde
+      value: 
+      objectReference: {fileID: 1025767411471744, guid: d33ba27ba418959468304429a33da723,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a7125993813b54ca50d1509723cb73, type: 2}
   m_IsPrefabAsset: 0
