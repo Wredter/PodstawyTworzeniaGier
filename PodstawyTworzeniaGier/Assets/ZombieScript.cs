@@ -30,11 +30,12 @@ public class ZombieScript : MinionBaseXbox
         //Debug.Log("OnCollisionEnter : czy jestem playerem");
         if (!collision.gameObject.GetComponent<ZombieScript>()&&collision.gameObject.GetComponent<MinionBaseXbox>())
         {
-            Destroy(collision.gameObject);
+            
             Debug.Log("OnCollisionEnter : zniszczyles mnie");
-            GameObject pom = Instantiate(gameObject, collision.transform.position, collision.transform.rotation);
-            myHorde.minions.Add(pom);
-            myHorde.minionsWithChief.Add(pom);
+            //GameObject pom = Instantiate(gameObject, collision.transform.position, collision.transform.rotation);
+            //myHorde.minions.Add(pom);
+            //myHorde.minionsWithChief.Add(pom);
+            Destroy(collision.gameObject);
             //Instantiate(gameObject,collision.transform.position,collision.transform.rotation);
         }
     }

@@ -232,6 +232,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1270989268
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353413605168848, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120828999536898, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+      propertyPath: m_Name
+      value: Zombie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c55bd54efb7dc742b6a5e495849db63, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &2108444738
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewSmoothness: 0
   hordeName: manekins
-  controller: Joystick2
   hordeChief: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1, type: 2}
   hordeMinion: {fileID: 1799923940068438, guid: b986f3f6c06fbb84eb23623af3347d90,
     type: 2}
@@ -286,5 +331,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
