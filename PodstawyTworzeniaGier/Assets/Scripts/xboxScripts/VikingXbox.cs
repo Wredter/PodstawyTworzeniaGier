@@ -29,13 +29,13 @@ public class VikingXbox : MinionBaseXbox
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (controller.Shoot() && axes.Count < maxProjectileCount && !hasShot)
         {
             GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
             axes.Add(temp, temp.GetComponent<AxeXbox>());
+            axes[temp].SetPlayerName(playerName);
             axes[temp].Initialise("axe" + projectilesCount, this, controller);
             projectilesCount++;
             hasShot = true;
@@ -44,6 +44,22 @@ public class VikingXbox : MinionBaseXbox
         {
             hasShot = false;
         }
+    }
+
+    public new void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if(collision.gameObject.GetComponent<AxeXbox>())
+        {
+            if(collision.gameObject.GetComponent<AxeXbox>().GetPlayerName().Equals(playerName) 
+                && collision.gameObject.GetComponent<AxeXbox>().GetCounter() < 0)
+            {
+                ((VikingXbox)(collision.gameObject.GetComponent<ProjectileXbox>().GetPlayer())).ReturnProjectile(collision.gameObject);
+                Destroy(collision.gameObject);
+                return;
+            }
+        }
+        //Return to avaiable axes if player tag matches
     }
 
     public void ReturnProjectile(GameObject p)

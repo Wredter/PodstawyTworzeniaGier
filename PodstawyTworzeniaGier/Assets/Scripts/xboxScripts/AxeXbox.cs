@@ -63,6 +63,28 @@ public class AxeXbox : ProjectileXbox
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (player == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        if (collision.gameObject.GetComponent<MinionBaseXbox>())
+        {
+            if (!collision.gameObject.GetComponent<MinionBaseXbox>().GetPlayerName().Equals(playerName))
+            {
+                Stick(collision.gameObject);
+                hasHit = true;
+            }
+        }
+        else
+        {
+            Stick(gameObject);
+            hasHit = true;
+        }
+    }
+
     public void Stick(GameObject objectToStick)
     {
         this.objectToStick = objectToStick;

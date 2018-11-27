@@ -45,4 +45,18 @@ public class ArrowXbox : ProjectileXbox
         }
         step -= 1;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(player == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        if (!collision.gameObject.GetComponent<MinionBaseXbox>() && !collision.gameObject.GetComponent<ChiefBaseXbox>())
+        {
+            ((ArcherXbox)player).ReturnProjectile(gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
