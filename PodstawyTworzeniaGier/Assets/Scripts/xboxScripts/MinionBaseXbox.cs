@@ -11,7 +11,7 @@ public class MinionBaseXbox : MonoBehaviour
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
     protected float actualHealth;
-    public bool isZombie;
+    public bool isInfected;
     protected GameObject chief;
     protected IController controller;
 
@@ -22,7 +22,7 @@ public class MinionBaseXbox : MonoBehaviour
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScriptXbox>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
-        isZombie = false;
+        isInfected = false;
     }
 
     protected void FixedUpdate()
