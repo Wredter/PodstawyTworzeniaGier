@@ -28,7 +28,7 @@ public class ZombieScript : MinionBaseXbox
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (!collision.gameObject.GetComponent<ZombieScript>())
+        if (!collision.gameObject.GetComponent<ZombieScript>()&&collision.gameObject.GetComponent<MinionBaseXbox>())
         {
             Destroy(collision.gameObject);
             Debug.Log("OnCollisionEnter : zniszczyles mnie");
