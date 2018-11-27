@@ -12,7 +12,7 @@ public class ZombieScript : MinionBaseXbox
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        isZombie = true;
+        //isInfected = true;
         myHorde = GameObject.Find("ZombieXbox").GetComponent<HordeXbox>();
         
     }
@@ -30,7 +30,7 @@ public class ZombieScript : MinionBaseXbox
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (collision.gameObject.GetComponent<MinionBaseXbox>().isZombie == false)
+        if (!collision.gameObject.GetComponent<ZombieScript>())
         {
             Destroy(collision.gameObject);
             Debug.Log("OnCollisionEnter : zniszczyles mnie");
