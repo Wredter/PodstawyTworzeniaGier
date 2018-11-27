@@ -28,7 +28,7 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
 
     protected void FixedUpdate()
     {
-        input = new Vector2(controller.MoveHorizontal(), controller.MoveVertical());
+        //input = new Vector2(controller.MoveHorizontal(), controller.MoveVertical());
         rb2d.velocity = new Vector2();
     }
 
