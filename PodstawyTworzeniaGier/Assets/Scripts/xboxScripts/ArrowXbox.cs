@@ -23,6 +23,9 @@ public class ArrowXbox : ProjectileXbox
         float projectileX = player.GetChief().GetComponent<ChiefXbox>().GetPrevious().x;
         float projectileY = player.GetChief().GetComponent<ChiefXbox>().GetPrevious().y;
         Vector2 projectileThrow = new Vector2(projectileX, projectileY);
+        Vector2 pom = new Vector2(player.GetChief().GetComponent<ChiefXbox>().GetController().LookHorizontal(), player.GetChief().GetComponent<ChiefXbox>().GetController().LookVertical());
+        var rad = Mathf.Atan2(pom.y, pom.x);
+        rb2d.rotation = rad * Mathf.Rad2Deg - 90;
         projectileThrow += new Vector2(randomSpread * 2 * (Random.value - 0.5f), randomSpread * 2 * (Random.value - 0.5f));
         rb2d.AddForce(projectileThrow * 500 * power);
     }
