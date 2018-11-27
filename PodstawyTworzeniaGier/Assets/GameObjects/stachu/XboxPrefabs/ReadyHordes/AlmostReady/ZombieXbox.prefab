@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1025767411471744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,10 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d3b1e42557efc409ff7dc32be1ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewSmoothness: 0
+  viewSmoothness: 0.51
   hordeName: Zombies
-  controller: Joystick1
-  hordeChief: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1, type: 2}
+  hordeChief: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866, type: 2}
   hordeMinion: {fileID: 1997622528301950, guid: 25f20f43c37a5f942a8cda05688cda3d,
     type: 2}
   minionsNumber: 30
