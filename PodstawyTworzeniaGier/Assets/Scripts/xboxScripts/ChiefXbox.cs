@@ -49,6 +49,11 @@ public class ChiefXbox : MonoBehaviour {
         this.controller = controller;
     }
 
+    public IController GetController()
+    {
+        return controller;
+    }
+
     public Vector2 GetPrevious()
     {
         return previous;
