@@ -8,17 +8,17 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 
     public bool Back()
     {
-        throw new System.NotImplementedException();
+        return Input.GetKey(KeyCode.Escape);
     }
 
     public float LookHorizontal()
     {
-        throw new System.NotImplementedException();
+        return Input.mousePosition.x;
     }
 
     public float LookVertical()
     {
-        throw new System.NotImplementedException();
+        return Input.mousePosition.y;
     }
 
     public float MoveHorizontal()
@@ -33,7 +33,7 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 
     public bool Select()
     {
-        throw new System.NotImplementedException();
+        return Input.GetKey(KeyCode.Return);
     }
 
     public void SetDeviceSignature(string deviceSignature)
