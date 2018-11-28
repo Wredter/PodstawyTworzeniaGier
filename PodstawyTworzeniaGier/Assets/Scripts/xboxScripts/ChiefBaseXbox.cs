@@ -38,15 +38,15 @@ public class ChiefBaseXbox : MonoBehaviour, IPlayerIntegration {
         actualHealth -= damage;
         if (actualHealth < 0)
         {
-            if (gameObject.name == "archers")
+            if (playerName == "Player1")
             {
-                SceneManager.LoadScene("VikingsWon");
+                SceneManager.LoadScene("Player2Won");
 
 
             }
             else
             {
-                SceneManager.LoadScene("ArchersWon");
+                SceneManager.LoadScene("Player1Won");
             }
             Destroy(gameObject);
         }

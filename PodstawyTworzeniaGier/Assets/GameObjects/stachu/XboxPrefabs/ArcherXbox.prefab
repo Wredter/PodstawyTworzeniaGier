@@ -94,7 +94,7 @@ MonoBehaviour:
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   isInfected: 0
-  projectile: {fileID: 1476513989013696, guid: 6e916f0da4ed7924baa469a59ea3c6ef, type: 2}
+  projectile: {fileID: 1121767345656000, guid: 6e916f0da4ed7924baa469a59ea3c6ef, type: 2}
   shootCooldown: 50
 --- !u!114 &114295994132271448
 MonoBehaviour:
