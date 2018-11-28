@@ -13,12 +13,12 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 
     public float LookHorizontal()
     {
-        return Input.mousePosition.x;
+        return Input.GetAxis(deviceSignature + "Horizontal2");
     }
 
     public float LookVertical()
     {
-        return Input.mousePosition.y;
+        return Input.GetAxis(deviceSignature + "Vertical2");
     }
 
     public float MoveHorizontal()
@@ -43,16 +43,16 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 
     public bool Shoot()
     {
-        return Input.GetMouseButtonDown(0);
+        return Input.GetKey(KeyCode.Space);
     }
 
     public bool Special1()
     {
-        throw new System.NotImplementedException();
+        return Input.GetKey(KeyCode.E);
     }
 
     public bool Special2()
     {
-        throw new System.NotImplementedException();
+        return Input.GetKey(KeyCode.Q);
     }
 }
