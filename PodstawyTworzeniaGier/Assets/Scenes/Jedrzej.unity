@@ -200,10 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ee6134d462cb145a448ec9d669bb20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAddInterval: 1
-  timeRemoveInterval: 20
-  rightFoot: {fileID: 1514347932426972, guid: a8f7043ce84bd6a4e9470bdbcb22f43f, type: 2}
-  leftFoot: {fileID: 1142435821529236, guid: 94521a824cc049249b872f1d7432c2aa, type: 2}
+  footLifetime: 3
+  addIntervalTime: 2
+  rightFoot: {fileID: 1295797330383660, guid: dc100463e76ef754bb9263c5fe8f320e, type: 2}
+  leftFoot: {fileID: 1269095005756718, guid: 9bbf0349f77d9f94a9382e46df79e094, type: 2}
 --- !u!1 &666997369
 GameObject:
   m_ObjectHideFlags: 0
