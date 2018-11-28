@@ -280,7 +280,7 @@ Prefab:
     - target: {fileID: 114551373712764204, guid: e936a91087bbe5242a43301e21102c2f,
         type: 2}
       propertyPath: m_Text
-      value: Press A to choose character
+      value: Press 'A' to choose character
       objectReference: {fileID: 0}
     - target: {fileID: 114509468481000830, guid: e936a91087bbe5242a43301e21102c2f,
         type: 2}
@@ -298,6 +298,33 @@ Prefab:
       propertyPath: choice
       value: 
       objectReference: {fileID: 375844739}
+    - target: {fileID: 114551373712764204, guid: e936a91087bbe5242a43301e21102c2f,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ae458bc30e40c234fbd2030a33dac52a,
+        type: 3}
+    - target: {fileID: 114551373712764204, guid: e936a91087bbe5242a43301e21102c2f,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551373712764204, guid: e936a91087bbe5242a43301e21102c2f,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551373712764204, guid: e936a91087bbe5242a43301e21102c2f,
+        type: 2}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245874539513374, guid: e936a91087bbe5242a43301e21102c2f,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ae458bc30e40c234fbd2030a33dac52a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e936a91087bbe5242a43301e21102c2f, type: 2}
   m_IsPrefabAsset: 0
@@ -614,7 +641,7 @@ Prefab:
     - target: {fileID: 114903681209769256, guid: e4872159e3191a44fa8cad2f8e2e8399,
         type: 2}
       propertyPath: m_Text
-      value: Press A to choose character
+      value: Press 'A' to choose character
       objectReference: {fileID: 0}
     - target: {fileID: 114530341637103704, guid: e4872159e3191a44fa8cad2f8e2e8399,
         type: 2}
@@ -632,6 +659,38 @@ Prefab:
       propertyPath: choice
       value: 
       objectReference: {fileID: 375844739}
+    - target: {fileID: 114903681209769256, guid: e4872159e3191a44fa8cad2f8e2e8399,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ae458bc30e40c234fbd2030a33dac52a,
+        type: 3}
+    - target: {fileID: 114903681209769256, guid: e4872159e3191a44fa8cad2f8e2e8399,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114223186654338002, guid: e4872159e3191a44fa8cad2f8e2e8399,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ae458bc30e40c234fbd2030a33dac52a,
+        type: 3}
+    - target: {fileID: 114903681209769256, guid: e4872159e3191a44fa8cad2f8e2e8399,
+        type: 2}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903681209769256, guid: e4872159e3191a44fa8cad2f8e2e8399,
+        type: 2}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903681209769256, guid: e4872159e3191a44fa8cad2f8e2e8399,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4872159e3191a44fa8cad2f8e2e8399, type: 2}
   m_IsPrefabAsset: 0

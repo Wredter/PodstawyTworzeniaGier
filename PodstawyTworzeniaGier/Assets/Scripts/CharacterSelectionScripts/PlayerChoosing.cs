@@ -65,12 +65,12 @@ public class PlayerChoosing : MonoBehaviour {
             {
                 LoadPrefabs();
                 block = true;
-                infoForPlayer.text = "Press A to choose character.";
+                infoForPlayer.text = "Press 'A' to choose character.";
             } else if(!confirm && !block)
             {
                 confirm = true;
                 block = true;
-                infoForPlayer.text = "Press A to be ready";
+                infoForPlayer.text = "Press 'A' to be ready";
             } else if(!block)
             {
                 confirm2 = true;
@@ -86,12 +86,12 @@ public class PlayerChoosing : MonoBehaviour {
                 confirm2 = false;
                 block2 = true;
                 NotReady();
-                infoForPlayer.text = "Press A to be ready";
+                infoForPlayer.text = "Press 'A' to be ready";
             } else if(confirm && !block2)
             {
                 confirm = false;
                 block2 = true;
-                infoForPlayer.text = "Press A to choose character";
+                infoForPlayer.text = "Press 'A' to choose character";
             }
         }
         if(!controller.Select())

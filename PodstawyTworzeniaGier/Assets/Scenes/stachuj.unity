@@ -29293,25 +29293,25 @@ Prefab:
         type: 2}
       propertyPath: archerHUD
       value: 
-      objectReference: {fileID: 1717165289971258, guid: f094cc15195bf254db1da83688c726e4,
+      objectReference: {fileID: 1094548375260948, guid: f094cc15195bf254db1da83688c726e4,
         type: 2}
     - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: archerHUD
       value: 
-      objectReference: {fileID: 1717165289971258, guid: f094cc15195bf254db1da83688c726e4,
+      objectReference: {fileID: 1094548375260948, guid: f094cc15195bf254db1da83688c726e4,
         type: 2}
     - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: vikingHUD
       value: 
-      objectReference: {fileID: 1470790989341360, guid: 86a5426d5b23bd84eaab70c0810d68f2,
+      objectReference: {fileID: 1463398394749182, guid: 86a5426d5b23bd84eaab70c0810d68f2,
         type: 2}
     - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: vikingHUD
       value: 
-      objectReference: {fileID: 1470790989341360, guid: 86a5426d5b23bd84eaab70c0810d68f2,
+      objectReference: {fileID: 1463398394749182, guid: 86a5426d5b23bd84eaab70c0810d68f2,
         type: 2}
     - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
