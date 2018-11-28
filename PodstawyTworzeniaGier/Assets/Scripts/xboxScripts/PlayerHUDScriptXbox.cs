@@ -45,7 +45,7 @@ public class PlayerHUDScriptXbox : MonoBehaviour {
                 horde.gameObject.transform.position = new Vector2(-28, -30);
                 break;
             case "Player2":
-                horde.gameObject.transform.position = new Vector2(45, 45);
+                horde.gameObject.transform.position = new Vector2(45, 40);
                 break;
         }
         horde.GetComponent<HordeXbox>().SetDeviceSignature(deviceName);
