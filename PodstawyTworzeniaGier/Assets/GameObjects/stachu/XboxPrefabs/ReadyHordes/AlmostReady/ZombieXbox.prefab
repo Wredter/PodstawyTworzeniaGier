@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d3b1e42557efc409ff7dc32be1ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewSmoothness: 0.51
+  viewSmoothness: 0.71
   hordeName: zombies
   hordeChief: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866, type: 2}
   hordeMinion: {fileID: 1120828999536898, guid: 3c55bd54efb7dc742b6a5e495849db63,
