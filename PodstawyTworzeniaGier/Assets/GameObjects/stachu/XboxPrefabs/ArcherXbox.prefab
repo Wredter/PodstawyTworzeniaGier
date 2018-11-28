@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: -0.04}
   serializedVersion: 2
-  m_Radius: 0.71
+  m_Radius: 1.4
 --- !u!114 &114014359573199896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
   health: 100
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
-  isInfected: 0
+  infectedBy: {fileID: 0}
   projectile: {fileID: 1121767345656000, guid: 6e916f0da4ed7924baa469a59ea3c6ef, type: 2}
   shootCooldown: 50
 --- !u!114 &114295994132271448

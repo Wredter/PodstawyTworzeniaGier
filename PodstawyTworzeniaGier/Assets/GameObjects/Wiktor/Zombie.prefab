@@ -56,9 +56,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 20.72
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   infectedBy: {fileID: 0}
-  speedMultipalyer: 0
+  speedMultipalyer: 10
   dmgOnContact: 2
   poisonDmg: 10
   poisonNumberOfTicks: 4
