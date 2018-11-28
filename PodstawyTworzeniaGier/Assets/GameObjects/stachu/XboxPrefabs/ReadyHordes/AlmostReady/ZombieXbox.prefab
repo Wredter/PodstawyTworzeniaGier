@@ -58,8 +58,8 @@ MonoBehaviour:
     type: 2}
   minionsNumber: 30
   spawnRadius: 5
-  minionsKS: 500
-  minionsK: 1600
+  minionsKS: 300
+  minionsK: 2000
   maxSpeed: 10
   random: 0.01
   minions: []
