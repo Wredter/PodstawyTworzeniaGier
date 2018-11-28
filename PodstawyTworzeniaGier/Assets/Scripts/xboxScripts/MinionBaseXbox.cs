@@ -6,13 +6,13 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
 {
     public float health;
     public GameObject healthBarView;
-
+    public HordeXbox infectedBy = null;
     protected Vector2 input;
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
     protected string playerName;
     protected float actualHealth;
-    public bool isInfected;
+    //public bool isInfected;
     protected GameObject chief;
     protected IController controller;
 
@@ -23,7 +23,7 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
         healthBar = Instantiate(healthBarView);
         healthBar.GetComponent<HealthBarScriptXbox>().Initialise(gameObject);
         healthBar.transform.SetParent(transform, false);
-        isInfected = false;
+        //isInfected = false;
     }
 
     protected void FixedUpdate()
@@ -38,6 +38,12 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
         if (actualHealth <= 0)
         {
             //Death
+            if(infectedBy != null)
+            {
+                GameObject obj = Instantiate(infectedBy.hordeMinion,new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z),gameObject.transform.rotation);
+                infectedBy.minions.Add(obj);
+                infectedBy.minionsWithChief.Add(obj);
+            }
             Destroy(gameObject);
         }
     }

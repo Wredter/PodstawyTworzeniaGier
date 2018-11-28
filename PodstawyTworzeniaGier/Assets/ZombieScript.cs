@@ -21,7 +21,16 @@ public class ZombieScript : MinionBaseXbox
         Initialise();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         //isInfected = true;
-        myHorde = GameObject.Find("ZombieXbox").GetComponent<HordeXbox>();
+
+        foreach(GameObject horde in GameObject.FindGameObjectsWithTag("Horde"))
+        {
+            if (horde.gameObject.GetComponent<HordeXbox>().GetPlayerName().Equals(playerName))
+            {
+                myHorde = horde.GetComponent<HordeXbox>();
+            }
+        }
+        
+
         
     }
     private new void FixedUpdate()
@@ -44,13 +53,12 @@ public class ZombieScript : MinionBaseXbox
                 if (collision.gameObject.GetComponent<StatusEfectMenager>())
                 {
                     collision.gameObject.GetComponent<StatusEfectMenager>().ApplyPoison(poisonNumberOfTicks, poisonDmg, timeBetweenTicksInSec);
+                    collision.gameObject.GetComponent<MinionBaseXbox>().infectedBy = myHorde;
                 }
-
                 //GameObject pom = Instantiate(gameObject, collision.transform.position, collision.transform.rotation);
                 //myHorde.minions.Add(pom);
                 //myHorde.minionsWithChief.Add(pom);
                 //Instantiate(gameObject,collision.transform.position,collision.transform.rotation);
-
 
                 //Destroy(collision.gameObject);
 
