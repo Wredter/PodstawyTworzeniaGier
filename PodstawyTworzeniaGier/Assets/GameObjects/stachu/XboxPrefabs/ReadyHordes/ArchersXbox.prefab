@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114729538238502074}
   m_Layer: 0
   m_Name: ArchersXbox
-  m_TagString: Untagged
+  m_TagString: Horde
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   minionsK: 1600
   maxSpeed: 15
   random: 0.01
-  deviceSignature: Joystick1
-  inputDevice: 0
+  minions: []
+  minionsWithChief: []
   dashCooldown: 1
   divideCooldown: 1

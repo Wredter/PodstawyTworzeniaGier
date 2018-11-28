@@ -90,13 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bb067aa4d000e49a9dc12250aacd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  healthBarView: {fileID: 0}
-  isInfected: 0
+  health: 100
+  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
+    type: 2}
+  infectedBy: {fileID: 0}
   speedMultipalyer: 0
   dmgOnContact: 2
   poisonDmg: 10
   poisonNumberOfTicks: 4
+  timeBetweenTicksInSec: 0.75
 --- !u!114 &114972191976301078
 MonoBehaviour:
   m_ObjectHideFlags: 1
