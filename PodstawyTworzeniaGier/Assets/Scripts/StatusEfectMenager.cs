@@ -9,19 +9,19 @@ public class StatusEfectMenager : MonoBehaviour {
 	void Start () {
         minionBaseXbox = GetComponent<MinionBaseXbox>();
 	}
-    public void ApplyPoison(int poisonNumberOfTicks,int poisonDamage)
+    public void ApplyPoison(int poisonNumberOfTicks,int poisonDamage, float timeBetweenTicks)
     {
         if(poisonDutationTimers.Count <= 0)
         {
             poisonDutationTimers.Add(poisonNumberOfTicks);
-            StartCoroutine(PoisonDoT(poisonDamage));
+            StartCoroutine(PoisonDoT(poisonDamage,timeBetweenTicks));
         }
         else
         {
             poisonDutationTimers.Add(poisonNumberOfTicks);
         }
     }
-    IEnumerator PoisonDoT(int poisonDamage)
+    IEnumerator PoisonDoT(int poisonDamage, float timebetweenTicks)
     {
         while(poisonDutationTimers.Count > 0)
         {
@@ -31,7 +31,7 @@ public class StatusEfectMenager : MonoBehaviour {
             }
             minionBaseXbox.DealDamage(poisonDamage);
             poisonDutationTimers.RemoveAll(i => i == 0);
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(timebetweenTicks);
         }
     }
 }
