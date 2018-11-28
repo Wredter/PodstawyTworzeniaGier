@@ -7,9 +7,9 @@ public class ZombieScript : MinionBaseXbox
 
     // Use this for initialization
     public float speedMultipalyer;
-    [Range(10,40)]
-    public float dmgOnContact = 20;
-    [Range(1, 50)]
+    [Range(0,20)]
+    public float dmgOnContact = 2;
+    [Range(0,20)]
     public int poisonDmg = 10;
     [Range(1, 10)]
     public int poisonNumberOfTicks = 4;

@@ -90,12 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bb067aa4d000e49a9dc12250aacd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
-    type: 2}
+  health: 0
+  healthBarView: {fileID: 0}
   isInfected: 0
-  speedMultipalyer: 10
-  dmgOnContact: 20
+  speedMultipalyer: 0
+  dmgOnContact: 2
+  poisonDmg: 10
+  poisonNumberOfTicks: 4
 --- !u!114 &114972191976301078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,8 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poisonDutationTimers: 
-  poisonDmg: 10
-  poisonNumberOfTicks: 4
 --- !u!212 &212932693293276296
 SpriteRenderer:
   m_ObjectHideFlags: 1
