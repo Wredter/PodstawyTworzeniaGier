@@ -13,6 +13,8 @@ public class DisappearingFootsteps : MonoBehaviour
     public float timeRemoveInterval;
     Queue<Foot> feetQueue;
     SpriteRenderer spriteRenderer;
+    public GameObject rightFoot;
+    public GameObject leftFoot;
 
 
     // Use this for initialization
@@ -33,11 +35,16 @@ public class DisappearingFootsteps : MonoBehaviour
         {
             feetQueue.Enqueue(new Foot(gameObject.transform.position.x, gameObject.transform.position.y, feetQueue.Count % 2 == 0, gameObject.transform.rotation.x, gameObject.transform.rotation.y));
             currentAddInterval = 0;
+            GameObject temp = Instantiate(leftFoot);
+            temp.transform.position = new Vector2(2,3);
+            temp.GetComponent<Rigidbody2D>().rotation = 90;
+            Destroy(temp.gameObject);
         }
 
         foreach (var foot in feetQueue)
         {
             //
+
         }
 
         currentAddInterval += Time.deltaTime;

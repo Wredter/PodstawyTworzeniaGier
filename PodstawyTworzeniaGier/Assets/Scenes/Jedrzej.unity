@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284205670}
   - component: {fileID: 284205671}
+  - component: {fileID: 284205672}
   m_Layer: 0
   m_Name: spartan-body
   m_TagString: Untagged
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0dde88965df729c4b8d7f0ef8503215f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,6 +189,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &284205672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284205669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ee6134d462cb145a448ec9d669bb20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeAddInterval: 1
+  timeRemoveInterval: 20
+  rightFoot: {fileID: 1514347932426972, guid: a8f7043ce84bd6a4e9470bdbcb22f43f, type: 2}
+  leftFoot: {fileID: 1142435821529236, guid: 94521a824cc049249b872f1d7432c2aa, type: 2}
 --- !u!1 &666997369
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +212,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666997370}
-  - component: {fileID: 666997371}
   m_Layer: 0
   m_Name: Spartan
   m_TagString: Untagged
@@ -220,17 +235,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 50}
---- !u!114 &666997371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 666997369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ad600ea9919144189a6eb6fe74faf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1034700829
 GameObject:
   m_ObjectHideFlags: 0
