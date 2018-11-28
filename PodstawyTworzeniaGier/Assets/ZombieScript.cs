@@ -7,7 +7,12 @@ public class ZombieScript : MinionBaseXbox
 
     // Use this for initialization
     public float speedMultipalyer;
-    public float dmg;
+    [Range(10,40)]
+    public float dmgOnContact = 20;
+    [Range(1, 50)]
+    public int poisonDmg = 10;
+    [Range(1, 10)]
+    public int poisonNumberOfTicks = 4;
     HordeXbox myHorde;
     void Start()
     {
@@ -28,15 +33,26 @@ public class ZombieScript : MinionBaseXbox
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("OnCollisionEnter : czy jestem playerem");
-        if (!collision.gameObject.GetComponent<ZombieScript>()&&collision.gameObject.GetComponent<MinionBaseXbox>())
+
+        if (collision.gameObject.GetComponent<MinionBaseXbox>())
         {
-            
-            Debug.Log("OnCollisionEnter : zniszczyles mnie");
-            //GameObject pom = Instantiate(gameObject, collision.transform.position, collision.transform.rotation);
-            //myHorde.minions.Add(pom);
-            //myHorde.minionsWithChief.Add(pom);
-            Destroy(collision.gameObject);
-            //Instantiate(gameObject,collision.transform.position,collision.transform.rotation);
+            if (!collision.gameObject.GetComponent<ZombieScript>() && !collision.gameObject.GetComponent<MinionBaseXbox>().GetPlayerName().Equals(playerName))
+            {
+                collision.gameObject.GetComponent<MinionBaseXbox>().DealDamage(dmgOnContact);
+                if (collision.gameObject.GetComponent<StatusEfectMenager>())
+                {
+                    collision.gameObject.GetComponent<StatusEfectMenager>().ApplyPoison(poisonNumberOfTicks, poisonDmg);
+                }
+
+                //GameObject pom = Instantiate(gameObject, collision.transform.position, collision.transform.rotation);
+                //myHorde.minions.Add(pom);
+                //myHorde.minionsWithChief.Add(pom);
+                //Instantiate(gameObject,collision.transform.position,collision.transform.rotation);
+
+
+                //Destroy(collision.gameObject);
+
+            }
         }
     }
 }
