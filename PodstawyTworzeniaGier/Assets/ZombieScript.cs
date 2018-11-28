@@ -13,6 +13,8 @@ public class ZombieScript : MinionBaseXbox
     public int poisonDmg = 10;
     [Range(1, 10)]
     public int poisonNumberOfTicks = 4;
+    [Range(0,2)]
+    public float timeBetweenTicks = 0.75f;
     HordeXbox myHorde;
     void Start()
     {
@@ -41,7 +43,7 @@ public class ZombieScript : MinionBaseXbox
                 collision.gameObject.GetComponent<MinionBaseXbox>().DealDamage(dmgOnContact);
                 if (collision.gameObject.GetComponent<StatusEfectMenager>())
                 {
-                    collision.gameObject.GetComponent<StatusEfectMenager>().ApplyPoison(poisonNumberOfTicks, poisonDmg);
+                    collision.gameObject.GetComponent<StatusEfectMenager>().ApplyPoison(poisonNumberOfTicks, poisonDmg,timeBetweenTicks);
                 }
 
                 //GameObject pom = Instantiate(gameObject, collision.transform.position, collision.transform.rotation);
