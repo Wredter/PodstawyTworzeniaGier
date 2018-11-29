@@ -35,7 +35,7 @@ public class ChiefBaseXbox : MonoBehaviour, IPlayerIntegration {
 
     public void DealDamage(float damage)
     {
-        actualHealth -= damage;
+        //actualHealth -= damage;
         if (actualHealth < 0)
         {
             if (playerName == "Player1")

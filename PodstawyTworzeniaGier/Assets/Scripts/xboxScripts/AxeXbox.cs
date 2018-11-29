@@ -74,8 +74,7 @@ public class AxeXbox : ProjectileXbox
         {
             if (!collision.gameObject.GetComponent<MinionBaseXbox>().GetPlayerName().Equals(playerName))
             {
-                Stick(collision.gameObject);
-                hasHit = true;
+                //Stick(collision.gameObject);
             }
         }
         else
@@ -94,5 +93,15 @@ public class AxeXbox : ProjectileXbox
     public void Unstick()
     {
         isSticked = false;
+    }
+
+    public bool GetHasHit()
+    {
+        return hasHit;
+    }
+
+    public void SetHasHit(bool hasHit)
+    {
+        this.hasHit = hasHit;
     }
 }

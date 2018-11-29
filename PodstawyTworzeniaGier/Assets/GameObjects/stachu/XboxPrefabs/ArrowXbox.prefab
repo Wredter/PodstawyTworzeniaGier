@@ -92,7 +92,7 @@ MonoBehaviour:
   randomSpread: 0.1
   range: 100
   cooldown: 25
-  damage: 50
+  damage: 40
 --- !u!212 &212736156125405086
 SpriteRenderer:
   m_ObjectHideFlags: 1

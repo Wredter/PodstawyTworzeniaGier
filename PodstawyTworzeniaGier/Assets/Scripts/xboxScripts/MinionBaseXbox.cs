@@ -43,6 +43,7 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
                 GameObject obj = Instantiate(infectedBy.hordeMinion,new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z),gameObject.transform.rotation);
                 infectedBy.minions.Add(obj);
                 infectedBy.minionsWithChief.Add(obj);
+                obj.GetComponent<IPlayerIntegration>().SetPlayerName(infectedBy.GetComponent<IPlayerIntegration>().GetPlayerName());
             }
             Destroy(gameObject);
         }
@@ -60,7 +61,17 @@ public class MinionBaseXbox : MonoBehaviour, IPlayerIntegration
         {
             if (!collision.gameObject.GetComponent<ProjectileXbox>().GetPlayerName().Equals(playerName))
             {
+                if(collision.GetComponent<AxeXbox>())
+                {
+                    if(!collision.GetComponent<AxeXbox>().GetHasHit())
+                    {
+                        DealDamage(collision.gameObject.GetComponent<ProjectileXbox>().damage);
+                        collision.GetComponent<AxeXbox>().SetHasHit(true);
+                    }
+                }
+                else
                 DealDamage(collision.gameObject.GetComponent<ProjectileXbox>().damage);
+                Destroy(collision.gameObject);
             }
         }
     }

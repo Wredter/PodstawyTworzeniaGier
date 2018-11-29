@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bb067aa4d000e49a9dc12250aacd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   infectedBy: {fileID: 0}

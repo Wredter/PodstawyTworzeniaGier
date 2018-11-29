@@ -19,6 +19,7 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
     protected string deviceSignature;
     protected IController controller;
     protected string playerName;
+    public bool isZombie;
 
     public List<GameObject> minions;
     public List<GameObject> minionsWithChief;
@@ -31,7 +32,7 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
 
     void Start()
     {
-        switch(deviceSignature)
+        switch (deviceSignature)
         {
             case "Joystick1":
             case "Joystick2":
@@ -41,7 +42,7 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
                 controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
                 break;
         }
-        
+
         controller.SetDeviceSignature(deviceSignature);
         divide1 = new Vector2();
         divide2 = new Vector2();
@@ -80,6 +81,10 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetController(controller));
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetChief(chief));
         minions.ForEach(m => m.GetComponent<MinionBaseXbox>().SetPlayerName(playerName));
+        if (minions[0].GetComponent<ZombieScript>())
+        {
+            isZombie = true;
+        }
     }
 
     // Update is called once per frame
@@ -87,7 +92,7 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
     {
         minionsWithChief = minionsWithChief.FindAll(m => m != null);
         minions = minions.FindAll(m => m != null);
-        if(minions.Count <= 0)
+        if (minions.Count <= 0)
         {
             if (playerName == "Player1")
             {
@@ -133,9 +138,10 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
                     float forceR = Mathf.Sqrt(force.x * force.x + force.y * force.y);
                     if (forceR > maxForce)
                     {
-                        force.Set(force.x/ forceR * maxForce, force.y / forceR * maxForce);
+                        force.Set(force.x / forceR * maxForce, force.y / forceR * maxForce);
                     }
                     if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
+                        if(r < 15)
                         obj.GetComponent<Rigidbody2D>().AddForce(force);
                 }
 
@@ -213,16 +219,20 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
             //divide
             divideCooldownTimer -= Time.deltaTime;
             divide -= Time.deltaTime * 5;
+            if (isZombie)
+            {
+                divide -= Time.deltaTime * 25;
+            }
             if (divide < 0) divide = 0;
 
             if (divide > 0) divideHorde();
             else { divideX = 0; divideY = 0; }
-
             if (controller.Special1() || Input.GetKeyDown(KeyCode.E))
             {
                 if (divideCooldownTimer <= 0)
                 {
                     divide = 12;
+                    if (isZombie) divide = 25;
                     center = chief.transform.position;
                     divideCooldownTimer = divideCooldown;
                 }
@@ -254,7 +264,7 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
             dashX /= 1000;
             dashY /= 1000;
             float r = Mathf.Sqrt(dashX * dashX + dashY * dashY);
-            Vector2 projectileThrow = new Vector2(dashX/r, dashY/r);
+            Vector2 projectileThrow = new Vector2(dashX / r, dashY / r);
             if (!float.IsNaN(projectileThrow.x) && !float.IsNaN(projectileThrow.y))
                 rb2d.AddForce(projectileThrow * dashForce);
         }
@@ -265,7 +275,9 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
     float divide;
     float divideX = 0, divideY = 0;
     public void divideHorde()
+
     {
+ 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         divideX *= 29;
@@ -279,15 +291,29 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
         divideX /= 30;
         divideY /= 30;
         float angle = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.up, new Vector2(divideX, divideY));
-
+        if (isZombie)
+        {
+            angle = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.right, new Vector2(divideX, divideY));
+        }
 
         Vector2 d;
         divide1 *= 7;
         divide2 *= 7;
-        divide1 += new Vector2(divide * Mathf.Cos(angle) + center.x, divide * Mathf.Sin(angle) + center.y)*3;
-        divide2 += new Vector2(-divide * Mathf.Cos(angle) + center.x, -divide * Mathf.Sin(angle) + center.y)*3;
+
+        float distance = 3;
+
+        divide1 += new Vector2(divide * Mathf.Cos(angle) + center.x, divide * Mathf.Sin(angle) + center.y) * distance;
+        if (!isZombie)
+        {
+            divide2 += new Vector2(-divide * Mathf.Cos(angle) + center.x, -divide * Mathf.Sin(angle) + center.y) * distance;
+        }
+        else
+        {
+            divide2 += new Vector2( center.x, center.y) * 3;
+        }
         divide1 /= 10;
         divide2 /= 10;
+
         float dx, dy, r, r2;
         Vector2 force = new Vector2();
         int i = 1;
@@ -295,7 +321,15 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
         {
             if (i == 1) d = divide1;
             else d = divide2;
-            i *= -1;
+            if (!isZombie)
+            {
+                i *= -1;
+            } else
+            {
+                i += 1;
+                if (i > 3) i = 1;
+            }
+
 
             dx = d.x - obj.transform.position.x;
             dy = d.y - obj.transform.position.y;
