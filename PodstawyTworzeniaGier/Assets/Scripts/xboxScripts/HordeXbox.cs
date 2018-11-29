@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HordeXbox : MonoBehaviour, IPlayerIntegration
 {
@@ -86,6 +87,19 @@ public class HordeXbox : MonoBehaviour, IPlayerIntegration
     {
         minionsWithChief = minionsWithChief.FindAll(m => m != null);
         minions = minions.FindAll(m => m != null);
+        if(minions.Count <= 0)
+        {
+            if (playerName == "Player1")
+            {
+                SceneManager.LoadScene("Player2Won");
+
+
+            }
+            else
+            {
+                SceneManager.LoadScene("Player1Won");
+            }
+        }
 
         if (chief == null)
         {
