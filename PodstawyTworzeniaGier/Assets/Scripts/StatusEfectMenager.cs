@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StatusEfectMenager : MonoBehaviour {
-    MinionBaseXbox minionBaseXbox;
+    MinionBase minionBaseXbox;
     public List<int> poisonDutationTimers = new List<int>();
 	// Use this for initialization
 	void Start () {
-        minionBaseXbox = GetComponent<MinionBaseXbox>();
+        minionBaseXbox = GetComponent<MinionBase>();
 	}
     public void ApplyPoison(int poisonNumberOfTicks,int poisonDamage, float timeBetweenTicks)
     {

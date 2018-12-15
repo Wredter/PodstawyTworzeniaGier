@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manekin : MinionBaseXbox {
+public class Manekin : MinionBase {
 
     // Use this for initialization
     void Start() {
