@@ -196,7 +196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Minion1
+  m_Text: Zombie
 --- !u!114 &114161249047416172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Minion1
+  m_Text: Spartan
 --- !u!114 &114236097619952242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,7 +343,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Minion0
+  m_Text: Archer
 --- !u!114 &114729743058590120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,7 +376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Minion1
+  m_Text: Viking
 --- !u!114 &114937049758694934
 MonoBehaviour:
   m_ObjectHideFlags: 1
