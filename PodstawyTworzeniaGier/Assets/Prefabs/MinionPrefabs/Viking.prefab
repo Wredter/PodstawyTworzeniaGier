@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114570265036330324}
   - component: {fileID: 114555491813582934}
   m_Layer: 0
-  m_Name: VikingXbox
+  m_Name: Viking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58476907613396584}
   - component: {fileID: 114875363832956160}
   m_Layer: 0
-  m_Name: ArrowXbox
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

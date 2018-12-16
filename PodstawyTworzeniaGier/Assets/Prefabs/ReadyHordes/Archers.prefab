@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4051586064120074}
   - component: {fileID: 114729538238502074}
   m_Layer: 0
-  m_Name: ArchersXbox
+  m_Name: Archers
   m_TagString: Horde
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +62,7 @@ MonoBehaviour:
   minionsK: 1600
   maxSpeed: 15
   random: 0.01
+  isZombie: 0
   minions: []
   minionsWithChief: []
   dashCooldown: 1

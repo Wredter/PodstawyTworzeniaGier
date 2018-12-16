@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4960933740865206}
   - component: {fileID: 114373024036501782}
   m_Layer: 0
-  m_Name: ZombieXbox
+  m_Name: Zombie
   m_TagString: Horde
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +62,7 @@ MonoBehaviour:
   minionsK: 2000
   maxSpeed: 10
   random: 0.01
+  isZombie: 0
   minions: []
   minionsWithChief: []
   dashCooldown: 1
