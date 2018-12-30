@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58427648233684088}
   - component: {fileID: 114014359573199896}
   - component: {fileID: 114295994132271448}
+  - component: {fileID: 114044664241191050}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -96,6 +97,21 @@ MonoBehaviour:
   infectedBy: {fileID: 0}
   projectile: {fileID: 1121767345656000, guid: 6e916f0da4ed7924baa469a59ea3c6ef, type: 2}
   shootCooldown: 50
+--- !u!114 &114044664241191050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592162892366128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ee6134d462cb145a448ec9d669bb20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footLifetime: 0.5
+  addIntervalTime: 0.3
+  rightFoot: {fileID: 1295797330383660, guid: dc100463e76ef754bb9263c5fe8f320e, type: 2}
+  leftFoot: {fileID: 1269095005756718, guid: 9bbf0349f77d9f94a9382e46df79e094, type: 2}
 --- !u!114 &114295994132271448
 MonoBehaviour:
   m_ObjectHideFlags: 1
