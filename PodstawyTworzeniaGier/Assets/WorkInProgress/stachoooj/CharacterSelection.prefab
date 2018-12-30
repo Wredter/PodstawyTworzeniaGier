@@ -639,6 +639,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 281f2e283a0fcd946b468dbcff72dd34, type: 3}
   - {fileID: 21300000, guid: f067f52276ca7e140bb937b4895e22cd, type: 3}
   - {fileID: 21300000, guid: 5de8eab289a44f941b3edebfc8856087, type: 3}
+  selectionFrame: {fileID: 21300000, guid: d4d31c53ef60f804391257135ffad665, type: 3}
+  deviceSignature: 
 --- !u!114 &114674289005445514
 MonoBehaviour:
   m_ObjectHideFlags: 1
