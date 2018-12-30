@@ -197,6 +197,39 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 center = new Vector2(center.x + moveX * maxSpeed * Time.deltaTime,
                    center.y + moveY * maxSpeed * Time.deltaTime);
 
+            if(controller.Special1())
+            {
+                if (minions.Count > 0)
+                {
+                    if (minions[0].GetComponent<Viking>())
+                    {
+                        if (dashCooldownTimer <= 0)
+                        {
+                            dashForce = 2000;
+                            dashCooldownTimer = dashCooldown;
+                        }
+                    }
+                    else if (minions[0].GetComponent<Archer>())
+                    {
+                        if (divideCooldownTimer <= 0)
+                        {
+                            divide = 12;
+                            if (isZombie) divide = 25;
+                            center = chief.transform.position;
+                            divideCooldownTimer = divideCooldown;
+                        }
+                    }
+                    else if (minions[0].GetComponent<ZombieScript>())
+                    {
+                        //TODO zombie action
+                    }
+                    /*else if (minions[0].GetComponent<Spartan>())
+                    {
+                        TODO spartan script plus spartan action
+                    }*/
+                }
+            }
+
             //dash
             dashCooldownTimer -= Time.deltaTime;
             dashForce -= Time.deltaTime * 2000;
@@ -207,14 +240,14 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 dashY = 0;
             }
             dash();
-            if (controller.Special2() || Input.GetKeyDown(KeyCode.F))
+            /*if (controller.Special2() || Input.GetKeyDown(KeyCode.F))
             {
                 if (dashCooldownTimer <= 0)
                 {
                     dashForce = 2000;
                     dashCooldownTimer = dashCooldown;
                 }
-            }
+            }*/
 
             //divide
             divideCooldownTimer -= Time.deltaTime;
@@ -227,7 +260,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
             if (divide > 0) divideHorde();
             else { divideX = 0; divideY = 0; }
-            if (controller.Special1() || Input.GetKeyDown(KeyCode.E))
+            /*if (controller.Special1() || Input.GetKeyDown(KeyCode.E))
             {
                 if (divideCooldownTimer <= 0)
                 {
@@ -238,7 +271,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 }
 
 
-            }
+            }*/
         }
     }
 
