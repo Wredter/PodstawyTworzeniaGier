@@ -20,6 +20,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     protected IController controller;
     protected string playerName;
     public bool isZombie;
+    public float slow = 1f;
 
     public List<GameObject> minions;
     public List<GameObject> minionsWithChief;
@@ -192,7 +193,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             }
 
             if (divide <= 0)
-                chief.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * maxSpeed, moveY * maxSpeed);
+                chief.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * maxSpeed * slow, moveY * maxSpeed * slow);
             else
                 center = new Vector2(center.x + moveX * maxSpeed * Time.deltaTime,
                    center.y + moveY * maxSpeed * Time.deltaTime);

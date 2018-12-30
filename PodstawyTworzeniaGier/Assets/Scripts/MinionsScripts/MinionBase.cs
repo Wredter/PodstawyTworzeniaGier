@@ -74,6 +74,28 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
                 Destroy(collision.gameObject);
             }
         }
+
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 0.5f;
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 0.5f;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 1f;
+        }
+
     }
 
     public GameObject GetChief()

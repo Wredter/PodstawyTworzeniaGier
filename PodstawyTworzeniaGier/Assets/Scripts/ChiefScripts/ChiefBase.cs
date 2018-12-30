@@ -31,6 +31,27 @@ public class ChiefBase : MonoBehaviour, IPlayerIntegration {
                 DealDamage(collision.GetComponent<Projectile>().damage);
             }
         }
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 0.5f;
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 0.5f;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 1f;
+        }
+
     }
 
     public void DealDamage(float damage)
