@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58241685050280788}
   - component: {fileID: 114570265036330324}
   - component: {fileID: 114555491813582934}
+  - component: {fileID: 114000616385044020}
   m_Layer: 0
   m_Name: Viking
   m_TagString: Untagged
@@ -79,6 +80,21 @@ CircleCollider2D:
   m_Offset: {x: -0.02, y: -0.12}
   serializedVersion: 2
   m_Radius: 1.4
+--- !u!114 &114000616385044020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380954963969272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ee6134d462cb145a448ec9d669bb20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footLifetime: 0.5
+  addIntervalTime: 0.3
+  rightFoot: {fileID: 1295797330383660, guid: dc100463e76ef754bb9263c5fe8f320e, type: 2}
+  leftFoot: {fileID: 1269095005756718, guid: 9bbf0349f77d9f94a9382e46df79e094, type: 2}
 --- !u!114 &114555491813582934
 MonoBehaviour:
   m_ObjectHideFlags: 1
