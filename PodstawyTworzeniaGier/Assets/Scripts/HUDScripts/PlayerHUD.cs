@@ -6,6 +6,7 @@ public class PlayerHUD : MonoBehaviour {
     public GameObject archerHorde;
     public GameObject vikingHorde;
     public GameObject zombieHorde;
+    public GameObject spartanHorde;
     public GameObject archerHUD;
     public GameObject vikingHUD;
     private GameObject activeHUD;
@@ -31,6 +32,8 @@ public class PlayerHUD : MonoBehaviour {
                     activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "spartans":
+                    horde = Instantiate(spartanHorde) as GameObject;
+                    activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
             }
         }

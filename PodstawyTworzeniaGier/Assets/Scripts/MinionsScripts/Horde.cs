@@ -222,7 +222,13 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     }
                     else if (minions[0].GetComponent<ZombieScript>())
                     {
-                        //TODO zombie action
+                        if (divideCooldownTimer <= 0)
+                        {
+                            divide = 12;
+                            if (isZombie) divide = 25;
+                            center = chief.transform.position;
+                            divideCooldownTimer = divideCooldown;
+                        }
                     }
                     /*else if (minions[0].GetComponent<Spartan>())
                     {

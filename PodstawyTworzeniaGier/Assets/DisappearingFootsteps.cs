@@ -20,7 +20,7 @@ public class DisappearingFootsteps : MonoBehaviour
     {
         leftFootSprite = Resources.Load<Sprite>("Assets/Graphics/PrimitiveTestGraphics/left_foot.png");
         rightFootSprite = Resources.Load<Sprite>("Assets/Graphics/PrimitiveTestGraphics/right_foot.png");
-        currentAddInterval = 0;
+        currentAddInterval = Random.Range(0, 100) * addIntervalTime / 100f;
         isNextFootRight = true;
     }
 
