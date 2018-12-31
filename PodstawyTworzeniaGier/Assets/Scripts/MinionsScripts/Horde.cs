@@ -31,6 +31,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     //divideHorde
     Vector2 divide1, divide2, center;
 
+    //spartan dash
+    GameObject[,] pociong;
     void Start()
     {
         switch (deviceSignature)
@@ -86,6 +88,10 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         {
             isZombie = true;
         }
+
+        pociong = new GameObject[4, 100];
+
+
     }
 
     // Update is called once per frame
@@ -142,7 +148,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                         force.Set(force.x / forceR * maxForce, force.y / forceR * maxForce);
                     }
                     if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
-                        if(r < 15)
+                        if(r < 15 && !isSpartanDash)
                         obj.GetComponent<Rigidbody2D>().AddForce(force);
                 }
 
@@ -156,6 +162,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                         dy = obj2.transform.position.y - obj.transform.position.y;
                         r2 = dx * dx + dy * dy;
                         r = Mathf.Sqrt(r2 + 10);
+                        if (isSpartanDash) r += 3;
                         force.Set(-dx / r * minionsK / r2, -dy / r * minionsK / r2);
                         if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
                             obj.GetComponent<Rigidbody2D>().AddForce(force);
@@ -230,11 +237,28 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                             divideCooldownTimer = divideCooldown;
                         }
                     }
-                    /*else if (minions[0].GetComponent<Spartan>())
+                    else if (minions[0].GetComponent<Spartan>())
                     {
-                        TODO spartan script plus spartan action
-                    }*/
+                        Debug.Log("SPARTAN EEEEE");
+                        if (spartanTimer <= 0)
+                        {
+                            isSpartanDash = true;
+                            spartanTimer = spartanCooldown;
+                        }
+                    }
                 }
+            }
+
+            //spartan
+            spartanTimer -= Time.deltaTime;
+            if (spartanTimer <= spartanCooldown - spartanTime)
+            {
+                isSpartanDash = false;
+            }
+            if (isSpartanDash)
+            {
+                Debug.Log("SPARTAN DASH");
+                spartanDash();
             }
 
             //dash
@@ -282,6 +306,11 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         }
     }
 
+    bool isSpartanDash = false;
+    public float spartanCooldown = 5;
+    float spartanTimer = 0;
+    public float spartanTime = 4;
+
     public float dashCooldown = 1;
     float dashCooldownTimer = 0;
     float dashForce;
@@ -307,6 +336,55 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             Vector2 projectileThrow = new Vector2(dashX / r, dashY / r);
             if (!float.IsNaN(projectileThrow.x) && !float.IsNaN(projectileThrow.y))
                 rb2d.AddForce(projectileThrow * dashForce);
+        }
+    }
+    float ddx = 0, ddy = 1;
+    public void spartanDash()
+    {
+        float k = 1.3f;
+        int ii = minions.Count;
+        Debug.Log("ii: " + ii);
+        Vector2 force = new Vector2(0, 0); // grawitacja
+        int i = 0; int j = 0;
+
+        float dx, dy;
+        float myDx = 0;
+        float myDy = 0;
+
+        ddx *= 9;
+        ddy *= 9;
+        ddx += controller.MoveHorizontal();
+        ddy += controller.MoveVertical();
+        ddx /= 10;
+        ddy /= 10;
+        float angle = Mathf.Deg2Rad * Vector2.SignedAngle(-Vector2.up, new Vector2(ddx, ddy));
+        //angle = 3.14f / 6;
+        float r, r2, angle2;
+        foreach (GameObject obj in minions)
+        {
+
+            {
+                dx = (i-1.5f) * k;
+                dy = (j-2) * k;
+
+                r2 = dx * dx + dy * dy;
+                r = Mathf.Sqrt(r2);
+                angle2 = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.right, new Vector2(dx, dy));
+
+                force.Set((chief.transform.position.x + Mathf.Cos(angle2 + angle) * r - obj.transform.position.x) *200,
+                    (chief.transform.position.y + Mathf.Sin(angle2 + angle) * r - obj.transform.position.y) *200);
+                obj.GetComponent<Rigidbody2D>().AddForce(force);
+            }
+
+            Debug.Log("dupa");
+
+
+            i++;
+            if (i >= 4)
+            {
+                i = 0;
+                j++;
+            }
         }
     }
 
