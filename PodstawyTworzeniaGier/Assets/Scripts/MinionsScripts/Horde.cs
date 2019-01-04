@@ -103,13 +103,13 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         {
             if (playerName == "Player1")
             {
-                SceneManager.LoadScene("Player2Won");
-
-
+                FindObjectOfType<SpawnControll>().RespawnPlayer1(gameObject);
+                //SceneManager.LoadScene("Player2Won");
             }
             else
             {
-                SceneManager.LoadScene("Player1Won");
+                FindObjectOfType<SpawnControll>().RespawnPlayer2(gameObject);
+                //SceneManager.LoadScene("Player1Won");
             }
         }
 
@@ -516,5 +516,10 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     public void SetPlayerName(string playerName)
     {
         this.playerName = playerName;
+    }
+
+    public int GetMinionsCount()
+    {
+        return minions.Count;
     }
 }
