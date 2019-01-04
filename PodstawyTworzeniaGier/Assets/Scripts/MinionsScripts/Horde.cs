@@ -148,7 +148,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                             force.Set(force.x / forceR * maxForce, force.y / forceR * maxForce);
                         }
                         if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
-                            if (r < 15)
+                            if (r < 25)
                                 obj.GetComponent<Rigidbody2D>().AddForce(force);
                     }
 
@@ -320,8 +320,19 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     float dashX = 0, dashY = 0;
     public void dash()
     {
+        float dx, dy, r2, r3;
+
         foreach (GameObject obj in minionsWithChief)
         {
+            dx = obj.transform.position.x - chief.transform.position.x;
+            dy = obj.transform.position.y - chief.transform.position.y;
+            r2 = dx * dx + dy * dy;
+            r3 = Mathf.Sqrt(r2);
+            if (r3 > 25)
+            {
+                continue;
+            }
+
             Rigidbody2D rb2d = obj.GetComponent<Rigidbody2D>();
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dashX *= 999;
@@ -349,6 +360,15 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         float dx, dy, r2, r;
         foreach (GameObject obj in minionsWithChief)
         {
+            dx = obj.transform.position.x - chief.transform.position.x;
+            dy = obj.transform.position.y - chief.transform.position.y;
+            r2 = dx * dx + dy * dy;
+            r = Mathf.Sqrt(r2);
+            if (r > 25)
+            {
+                continue;
+            }
+
             /*dx = spartanX - (obj.transform.position.x);
             dy = spartanY - (obj.transform.position.y);
             r = Mathf.Sqrt(dx * dx + dy * dy + 0.1f);
@@ -415,6 +435,15 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         int i = 1;
         foreach (GameObject obj in minionsWithChief)
         {
+            dx = obj.transform.position.x - chief.transform.position.x;
+            dy = obj.transform.position.y - chief.transform.position.y;
+            r2 = dx * dx + dy * dy;
+            r = Mathf.Sqrt(r2);
+            if (r > 25)
+            {
+                continue;
+            }
+
             if (i == 1) d = divide1;
             else d = divide2;
             if (!isZombie)
