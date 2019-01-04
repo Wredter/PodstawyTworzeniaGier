@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 50164323271910256}
   - component: {fileID: 58628203476252264}
   - component: {fileID: 114261731964668160}
+  - component: {fileID: 114404234309748290}
   m_Layer: 0
   m_Name: Spartan
   m_TagString: Untagged
@@ -134,6 +135,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc84dc13d8f8fa9408fd43e686f95104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114404234309748290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195378423042208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ee6134d462cb145a448ec9d669bb20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footLifetime: 0.4
+  addIntervalTime: 0.4
+  rightFoot: {fileID: 1295797330383660, guid: dc100463e76ef754bb9263c5fe8f320e, type: 2}
+  leftFoot: {fileID: 1269095005756718, guid: 9bbf0349f77d9f94a9382e46df79e094, type: 2}
 --- !u!212 &212103896758194242
 SpriteRenderer:
   m_ObjectHideFlags: 1

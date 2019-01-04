@@ -91,10 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ee6134d462cb145a448ec9d669bb20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footLifetime: 0.5
-  addIntervalTime: 0.3
-  rightFoot: {fileID: 0}
-  leftFoot: {fileID: 0}
+  footLifetime: 0.4
+  addIntervalTime: 0.4
+  rightFoot: {fileID: 1295797330383660, guid: dc100463e76ef754bb9263c5fe8f320e, type: 2}
+  leftFoot: {fileID: 1269095005756718, guid: 9bbf0349f77d9f94a9382e46df79e094, type: 2}
 --- !u!114 &114699918125255750
 MonoBehaviour:
   m_ObjectHideFlags: 1

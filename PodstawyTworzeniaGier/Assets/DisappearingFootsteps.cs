@@ -42,7 +42,7 @@ public class DisappearingFootsteps : MonoBehaviour
             obj.transform.position = gameObject.transform.position;
             obj.transform.rotation = gameObject.transform.rotation;
             Destroy(obj, footLifetime);
-            currentAddInterval = 0;
+            currentAddInterval = Random.Range(0, 30) * addIntervalTime / 100f;
         }       
         currentAddInterval += Time.deltaTime;
     }
