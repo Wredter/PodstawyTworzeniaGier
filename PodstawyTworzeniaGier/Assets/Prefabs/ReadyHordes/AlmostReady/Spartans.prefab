@@ -54,17 +54,19 @@ MonoBehaviour:
   viewSmoothness: 0.79
   hordeName: spartans
   hordeChief: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866, type: 2}
-  hordeMinion: {fileID: 1005825811963302, guid: badd4a82a81209a4894d0c0006d09923,
+  hordeMinion: {fileID: 1195378423042208, guid: badd4a82a81209a4894d0c0006d09923,
     type: 2}
   minionsNumber: 30
   spawnRadius: 5
   minionsKS: 500
   minionsK: 1600
-  maxSpeed: 15
+  maxSpeed: 20
   random: 0.01
   isZombie: 0
   slow: 1
   minions: []
   minionsWithChief: []
+  spartanCooldown: 5
+  spartanTime: 2
   dashCooldown: 1
   divideCooldown: 1
