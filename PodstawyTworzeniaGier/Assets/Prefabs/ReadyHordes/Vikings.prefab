@@ -60,10 +60,13 @@ MonoBehaviour:
   spawnRadius: 5
   minionsKS: 500
   minionsK: 1600
-  maxSpeed: 15
+  maxSpeed: 20
   random: 0.01
   isZombie: 0
+  slow: 1
   minions: []
   minionsWithChief: []
+  spartanCooldown: 5
+  spartanTime: 2
   dashCooldown: 1
   divideCooldown: 1

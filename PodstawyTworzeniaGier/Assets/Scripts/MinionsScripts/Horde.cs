@@ -130,45 +130,45 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         }
         else
         {
-
-            Vector2 force = new Vector2();
-            float dx, dy, r2, r;
-            float maxForce = 1500;
-            if (divide <= 0)
-                foreach (GameObject obj in minions)
-                {
-                    dx = chief.transform.position.x - obj.transform.position.x;
-                    dy = chief.transform.position.y - obj.transform.position.y;
-                    r2 = dx * dx + dy * dy;
-                    r = Mathf.Sqrt(r2 + 10);
-                    force.Set(dx * minionsKS, dy * minionsKS);
-                    float forceR = Mathf.Sqrt(force.x * force.x + force.y * force.y);
-                    if (forceR > maxForce)
-                    {
-                        force.Set(force.x / forceR * maxForce, force.y / forceR * maxForce);
-                    }
-                    if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
-                        if(r < 15 && !isSpartanDash)
-                        obj.GetComponent<Rigidbody2D>().AddForce(force);
-                }
-
-            foreach (GameObject obj in minions)
             {
-                foreach (GameObject obj2 in minionsWithChief)
-                {
-                    if (obj != obj2)
+                Vector2 force = new Vector2();
+                float dx, dy, r2, r;
+                float maxForce = 1500;
+                if (divide <= 0)
+                    foreach (GameObject obj in minions)
                     {
-                        dx = obj2.transform.position.x - obj.transform.position.x;
-                        dy = obj2.transform.position.y - obj.transform.position.y;
+                        dx = chief.transform.position.x - obj.transform.position.x;
+                        dy = chief.transform.position.y - obj.transform.position.y;
                         r2 = dx * dx + dy * dy;
                         r = Mathf.Sqrt(r2 + 10);
-                        if (isSpartanDash) r += 3;
-                        force.Set(-dx / r * minionsK / r2, -dy / r * minionsK / r2);
+                        force.Set(dx * minionsKS, dy * minionsKS);
+                        float forceR = Mathf.Sqrt(force.x * force.x + force.y * force.y);
+                        if (forceR > maxForce)
+                        {
+                            force.Set(force.x / forceR * maxForce, force.y / forceR * maxForce);
+                        }
                         if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
-                            obj.GetComponent<Rigidbody2D>().AddForce(force);
+                            if (r < 15)
+                                obj.GetComponent<Rigidbody2D>().AddForce(force);
                     }
-                }
 
+                foreach (GameObject obj in minions)
+                {
+                    foreach (GameObject obj2 in minionsWithChief)
+                    {
+                        if (obj != obj2)
+                        {
+                            dx = obj2.transform.position.x - obj.transform.position.x;
+                            dy = obj2.transform.position.y - obj.transform.position.y;
+                            r2 = dx * dx + dy * dy;
+                            r = Mathf.Sqrt(r2 + 10);
+                            force.Set(-dx / r * minionsK / r2, -dy / r * minionsK / r2);
+                            if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
+                                obj.GetComponent<Rigidbody2D>().AddForce(force);
+                        }
+                    }
+
+                }
             }
 
             foreach (GameObject obj in minionsWithChief)
@@ -242,6 +242,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                         Debug.Log("SPARTAN EEEEE");
                         if (spartanTimer <= 0)
                         {
+                            spartanX = chief.transform.position.x + controller.LookHorizontal()*15;
+                            spartanY = chief.transform.position.y + controller.LookVertical()*15;
                             isSpartanDash = true;
                             spartanTimer = spartanCooldown;
                         }
@@ -258,6 +260,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             if (isSpartanDash)
             {
                 Debug.Log("SPARTAN DASH");
+
                 spartanDash();
             }
 
@@ -309,7 +312,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     bool isSpartanDash = false;
     public float spartanCooldown = 5;
     float spartanTimer = 0;
-    public float spartanTime = 4;
+    public float spartanTime = 2;
 
     public float dashCooldown = 1;
     float dashCooldownTimer = 0;
@@ -338,53 +341,29 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 rb2d.AddForce(projectileThrow * dashForce);
         }
     }
-    float ddx = 0, ddy = 1;
+
+    float spartanX, spartanY;
+    Vector2 spforce = new Vector2();
     public void spartanDash()
     {
-        float k = 1.3f;
-        int ii = minions.Count;
-        Debug.Log("ii: " + ii);
-        Vector2 force = new Vector2(0, 0); // grawitacja
-        int i = 0; int j = 0;
-
-        float dx, dy;
-        float myDx = 0;
-        float myDy = 0;
-
-        ddx *= 9;
-        ddy *= 9;
-        ddx += controller.MoveHorizontal();
-        ddy += controller.MoveVertical();
-        ddx /= 10;
-        ddy /= 10;
-        float angle = Mathf.Deg2Rad * Vector2.SignedAngle(-Vector2.up, new Vector2(ddx, ddy));
-        //angle = 3.14f / 6;
-        float r, r2, angle2;
-        foreach (GameObject obj in minions)
+        float dx, dy, r2, r;
+        foreach (GameObject obj in minionsWithChief)
         {
+            /*dx = spartanX - (obj.transform.position.x);
+            dy = spartanY - (obj.transform.position.y);
+            r = Mathf.Sqrt(dx * dx + dy * dy + 0.1f);
+            spforce.Set(spartanX*800, spartanY*800);
+            //obj.transform.Translate(spforce);
+            //spforce.Set(dx, dy);
+            obj.GetComponent<Rigidbody2D>().AddForce(spforce);*/
 
-            {
-                dx = (i-1.5f) * k;
-                dy = (j-2) * k;
-
-                r2 = dx * dx + dy * dy;
-                r = Mathf.Sqrt(r2);
-                angle2 = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.right, new Vector2(dx, dy));
-
-                force.Set((chief.transform.position.x + Mathf.Cos(angle2 + angle) * r - obj.transform.position.x) *200,
-                    (chief.transform.position.y + Mathf.Sin(angle2 + angle) * r - obj.transform.position.y) *200);
-                obj.GetComponent<Rigidbody2D>().AddForce(force);
-            }
-
-            Debug.Log("dupa");
-
-
-            i++;
-            if (i >= 4)
-            {
-                i = 0;
-                j++;
-            }
+            dx = spartanX - obj.transform.position.x;
+            dy = spartanY - obj.transform.position.y;
+            r2 = dx * dx + dy * dy;
+            r = Mathf.Sqrt(r2 + 5);
+            spforce.Set(dx * minionsKS * 0.5f, dy * minionsKS * 0.5f);
+            if (!float.IsNaN(spforce.x) && !float.IsNaN(spforce.y))
+                obj.GetComponent<Rigidbody2D>().AddForce(spforce);
         }
     }
 
@@ -395,7 +374,6 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     public void divideHorde()
 
     {
- 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         divideX *= 29;
@@ -432,7 +410,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         divide1 /= 10;
         divide2 /= 10;
 
-        float dx, dy, r, r2;
+        float dx, dy, r, r2, r21, r22;
         Vector2 force = new Vector2();
         int i = 1;
         foreach (GameObject obj in minionsWithChief)
@@ -446,6 +424,47 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             {
                 i += 1;
                 if (i > 3) i = 1;
+            }
+
+            if (!isZombie)
+            {
+                d = divide1;
+                dx = d.x - obj.transform.position.x;
+                dy = d.y - obj.transform.position.y;
+                r21 = dx * dx + dy * dy;
+                d = divide2;
+                dx = d.x - obj.transform.position.x;
+                dy = d.y - obj.transform.position.y;
+                r22 = dx * dx + dy * dy;
+
+                if (r21 > r22)
+                {
+                    d = divide2;
+                }
+                else
+                {
+                    d = divide1;
+                }
+            }
+            else
+            {
+                d = divide1;
+                dx = d.x - obj.transform.position.x;
+                dy = d.y - obj.transform.position.y;
+                r21 = dx * dx + dy * dy;
+                d = divide2;
+                dx = d.x - obj.transform.position.x;
+                dy = d.y - obj.transform.position.y;
+                r22 = dx * dx + dy * dy;
+
+                if (r21/6f > r22)
+                {
+                    d = divide2;
+                }
+                else
+                {
+                    d = divide1;
+                }
             }
 
 
