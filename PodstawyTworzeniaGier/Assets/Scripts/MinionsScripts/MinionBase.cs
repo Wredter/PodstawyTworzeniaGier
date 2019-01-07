@@ -7,6 +7,7 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
     public float health;
     public GameObject healthBarView;
     public Horde infectedBy = null;
+    public GameObject minionGhost;
     protected Vector2 input;
     protected Rigidbody2D rb2d;
     protected GameObject healthBar;
@@ -15,6 +16,7 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
     //public bool isInfected;
     protected GameObject chief;
     protected IController controller;
+    private int timer=0;
 
     public void Initialise()
     {
@@ -28,8 +30,10 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
 
     protected void FixedUpdate()
     {
+
         //input = new Vector2(controller.MoveHorizontal(), controller.MoveVertical());
         rb2d.velocity = new Vector2();
+
     }
 
     public void DealDamage(float damage)
@@ -38,14 +42,18 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
         if (actualHealth <= 0)
         {
             //Death
-            if(infectedBy != null)
+            if (infectedBy != null)
             {
-                GameObject obj = Instantiate(infectedBy.hordeMinion,new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z),gameObject.transform.rotation);
+                GameObject obj = Instantiate(infectedBy.hordeMinion, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
                 infectedBy.minions.Add(obj);
                 infectedBy.minionsWithChief.Add(obj);
                 obj.GetComponent<IPlayerIntegration>().SetPlayerName(infectedBy.GetComponent<IPlayerIntegration>().GetPlayerName());
             }
+            var tmp = gameObject.transform.position;
+            Instantiate(minionGhost, tmp, new Quaternion(0, 0, 0, 0));
+
             Destroy(gameObject);
+
         }
     }
 
@@ -57,21 +65,23 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
     public void OnTriggerEnter2D(Collider2D collision)
     {
         //Deal damage if trigger is not owned by player
-        if(collision.gameObject.GetComponent<Projectile>())
+        if (collision.gameObject.GetComponent<Projectile>())
         {
             if (!collision.gameObject.GetComponent<Projectile>().GetPlayerName().Equals(playerName))
             {
-                if(collision.GetComponent<Axe>())
+                if (collision.GetComponent<Axe>())
                 {
-                    if(!collision.GetComponent<Axe>().GetHasHit())
+                    if (!collision.GetComponent<Axe>().GetHasHit())
                     {
                         DealDamage(collision.gameObject.GetComponent<Projectile>().damage);
                         collision.GetComponent<Axe>().SetHasHit(true);
                     }
                 }
                 else
-                DealDamage(collision.gameObject.GetComponent<Projectile>().damage);
+                    DealDamage(collision.gameObject.GetComponent<Projectile>().damage);
+
                 Destroy(collision.gameObject);
+
             }
         }
 

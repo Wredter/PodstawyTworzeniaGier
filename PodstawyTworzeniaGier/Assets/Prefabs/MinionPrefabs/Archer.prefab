@@ -95,6 +95,8 @@ MonoBehaviour:
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   infectedBy: {fileID: 0}
+  minionGhost: {fileID: 1847538404695554, guid: f601c77502ed8364f83aaf89ae6b4d7c,
+    type: 2}
   projectile: {fileID: 1121767345656000, guid: 6e916f0da4ed7924baa469a59ea3c6ef, type: 2}
   shootCooldown: 50
 --- !u!114 &114044664241191050
