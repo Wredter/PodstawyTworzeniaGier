@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50178832060431048}
   - component: {fileID: 114338551124643120}
   - component: {fileID: 114092800372514028}
+  - component: {fileID: 114930072347802352}
   m_Layer: 0
   m_Name: ChiefContainerXbox
   m_TagString: Untagged
@@ -77,6 +78,8 @@ MonoBehaviour:
   health: 100
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
+  archersWon: {fileID: 0}
+  vikingsWon: {fileID: 0}
 --- !u!114 &114338551124643120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,3 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1604622530028642, guid: 00bbed19ab7742c42855c6ee0b911136, type: 2}
+--- !u!114 &114930072347802352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260408443149178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf7da6866ba67746befddc995defbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 1
+  cactus: {fileID: 4985984915745468, guid: d408d56410450bb4b9dddd3d4ca72eac, type: 2}
+  CactusCooldown: 1
+  CactusSpawnDelay: 1
