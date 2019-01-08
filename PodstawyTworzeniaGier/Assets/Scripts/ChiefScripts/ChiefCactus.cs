@@ -33,7 +33,7 @@ public class ChiefCactus : MonoBehaviour
 	{
 	    moveX = 0;
 	    moveY = 0;
-        HandleMovement();
+        //HandleMovement();
         HandleCactusDrop(KeyCode.K);
         Debug.Log("KAKTUSSSSSSSS UPDATE");
     }
