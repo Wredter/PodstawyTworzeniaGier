@@ -122,6 +122,8 @@ MonoBehaviour:
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   infectedBy: {fileID: 0}
+  minionGhost: {fileID: 1220350503524468, guid: e2cbdbd5afc0d8a41ad9f57108fc0ca4,
+    type: 2}
   projectile: {fileID: 1698675941034884, guid: cffbc2193c42d8443b069441298db45b, type: 2}
   maxProjectileCount: 2
 --- !u!212 &212530899622333988

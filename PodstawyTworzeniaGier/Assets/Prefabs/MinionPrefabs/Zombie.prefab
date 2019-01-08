@@ -110,6 +110,8 @@ MonoBehaviour:
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
   infectedBy: {fileID: 0}
+  minionGhost: {fileID: 1778749003530086, guid: 6d42d63de5fb2e142b467d6d4dc24091,
+    type: 2}
   speedMultipalyer: 10
   dmgOnContact: 2
   poisonDmg: 10
