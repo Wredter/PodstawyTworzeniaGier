@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewSmoothness: 0.71
   hordeName: zombies
-  hordeChief: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866, type: 2}
+  hordeChief: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1, type: 2}
   hordeMinion: {fileID: 1120828999536898, guid: 3c55bd54efb7dc742b6a5e495849db63,
     type: 2}
   minionsNumber: 30

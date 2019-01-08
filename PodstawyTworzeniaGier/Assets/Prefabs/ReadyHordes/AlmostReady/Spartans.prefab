@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewSmoothness: 0.79
   hordeName: spartans
-  hordeChief: {fileID: 1811357375295614, guid: 1cb6e3760c35b0f42aacbabc33706866, type: 2}
+  hordeChief: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1, type: 2}
   hordeMinion: {fileID: 1195378423042208, guid: badd4a82a81209a4894d0c0006d09923,
     type: 2}
   minionsNumber: 30
