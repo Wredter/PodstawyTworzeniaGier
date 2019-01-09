@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour {
 	void FixedUpdate () {
-		if(Input.GetButton("Joystick1X") || Input.GetButton("Joystick2X"))
+		if(Input.GetButton("Joystick1A") || Input.GetButton("Joystick2A") || Input.GetKey(KeyCode.KeypadEnter))
         {
-            SceneManager.LoadScene("CharacterSelection");
+            SceneManager.LoadScene("SelectionScreen");
         }
 	}
 }

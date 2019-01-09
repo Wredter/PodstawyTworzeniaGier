@@ -14,10 +14,10 @@ public class PlayerHUD : MonoBehaviour {
     private string deviceName;
 	
 	public void Start () {
-        if(PlayerPrefs.HasKey(name))
+        if(PlayerPrefs.HasKey(name + "minion"))
         {
-            Debug.Log(PlayerPrefs.GetString(name));
-            switch(PlayerPrefs.GetString(name))
+            Debug.Log(PlayerPrefs.GetString(name + "minion"));
+            switch(PlayerPrefs.GetString(name + "minion"))
             {
                 case "archers":
                     horde = Instantiate(archerHorde) as GameObject;

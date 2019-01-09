@@ -12,6 +12,8 @@ public class SelectionScript : MonoBehaviour
     public List<Sprite> minions = new List<Sprite>();
     public Sprite selectionFrame;
     public string deviceSignature;
+    public string player;
+    public GameObject nextSceneLauncher;
 
     private IController controller;
     private bool selected = false;
@@ -21,6 +23,7 @@ public class SelectionScript : MonoBehaviour
     private List<GameObject> selectionsMinion = new List<GameObject>();
     private int selectedMinion;
     private GameObject frame;
+    private bool isReady = false;
 
     private bool notMovedHorizontal;
     private bool notMovedVertical;
@@ -69,50 +72,104 @@ public class SelectionScript : MonoBehaviour
 
         frame = new GameObject();
         CreateFrame();
+        selectedChief = 1;
+        selectedMinion = 1;
     }
 
     void Update()
     {
-        //Checks if player moved carousel to left or right
-        if (controller.MoveHorizontal() > 0.5 && notMovedHorizontal)
+        if(controller.Select())
         {
-            notMovedHorizontal = false;
-            if (selectionChiefs)
+            if (!isReady)
             {
-                selectedChief = MoveCarousel(1, selectedChief, chiefs, chiefCanvases, selectionsChief);
+                nextSceneLauncher.GetComponent<LoadAfterChoosing>().Ready();
+                Destroy(frame.gameObject);
+                string chief = "";
+                string minion = "";
+                switch (selectedChief)
+                {
+                    case 0:
+                        chief = "chief1";
+                        break;
+                    case 1:
+                        chief = "chief2";
+                        break;
+                    case 2:
+                        chief = "chief3";
+                        break;
+                }
+                PlayerPrefs.SetString(player + "chief", chief);
+                switch (selectedMinion)
+                {
+                    case 0:
+                        minion = "archers";
+                        break;
+                    case 1:
+                        minion = "vikings";
+                        break;
+                    case 2:
+                        minion = "zombies";
+                        break;
+                    case 3:
+                        minion = "spartans";
+                        break;
+                }
+                PlayerPrefs.SetString(player + "minion", minion);
             }
-            else
-            {
-                selectedMinion = MoveCarousel(1, selectedMinion, minions, minionCanvases, selectionsMinion);
-            }
+            isReady = true;
         }
-        else if (controller.MoveHorizontal() < -0.5 && notMovedHorizontal)
+        if(controller.Back())
         {
-            notMovedHorizontal = false;
-            if (selectionChiefs)
+            if(!isReady)
             {
-                selectedChief = MoveCarousel(-1, selectedChief, chiefs, chiefCanvases, selectionsChief);
+                nextSceneLauncher.GetComponent<LoadAfterChoosing>().UnReady();
+                CreateFrame();
             }
-            else
-            {
-                selectedMinion = MoveCarousel(-1, selectedMinion, minions, minionCanvases, selectionsMinion);
-            }
+            isReady = false;
         }
-        else if(controller.MoveHorizontal() <= .5 && controller.MoveHorizontal() >= -.5)
+        if (!isReady)
         {
-            notMovedHorizontal = true;
-        }
+            //Checks if player moved carousel to left or right
+            if (controller.MoveHorizontal() > 0.8 && notMovedHorizontal)
+            {
+                notMovedHorizontal = false;
+                if (selectionChiefs)
+                {
+                    selectedChief = MoveCarousel(1, selectedChief, chiefs, chiefCanvases, selectionsChief);
+                }
+                else
+                {
+                    selectedMinion = MoveCarousel(1, selectedMinion, minions, minionCanvases, selectionsMinion);
+                }
+            }
+            else if (controller.MoveHorizontal() < -0.8 && notMovedHorizontal)
+            {
+                notMovedHorizontal = false;
+                if (selectionChiefs)
+                {
+                    selectedChief = MoveCarousel(-1, selectedChief, chiefs, chiefCanvases, selectionsChief);
+                }
+                else
+                {
+                    selectedMinion = MoveCarousel(-1, selectedMinion, minions, minionCanvases, selectionsMinion);
+                }
+            }
+            else if (controller.MoveHorizontal() <= .8 && controller.MoveHorizontal() >= -.8)
+            {
+                notMovedHorizontal = true;
+            }
 
-        //Checks if player selected other carousel
-        if((controller.MoveVertical() > .5 || controller.MoveVertical() < -.5) && notMovedVertical)
-        {
-            notMovedVertical = false;
-            selectionChiefs = !selectionChiefs;
-            CreateFrame();
-        }
-        else if((controller.MoveVertical() <= .5 && controller.MoveVertical() >= -.5))
-        {
-            notMovedVertical = true;
+            //Checks if player selected other carousel
+            if ((controller.MoveVertical() > .8 || controller.MoveVertical() < -.8) && notMovedVertical)
+            {
+                notMovedVertical = false;
+                selectionChiefs = !selectionChiefs;
+                CreateFrame();
+            }
+            else if ((controller.MoveVertical() <= .8 && controller.MoveVertical() >= -.8))
+            {
+                notMovedVertical = true;
+            }
         }
     }
 
