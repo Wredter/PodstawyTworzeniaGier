@@ -10,29 +10,49 @@ public class PlayerHUD : MonoBehaviour {
     public bool hasNoHud;
     public GameObject archerHUD;
     public GameObject vikingHUD;
+    public GameObject mexican;
+    public GameObject snowball;
+    public GameObject mage;
     private GameObject activeHUD;
     private string deviceName;
 	
 	public void Start () {
         if(PlayerPrefs.HasKey(name + "minion"))
         {
+            GameObject actualChief = mexican;
+            switch(PlayerPrefs.GetString(name + "chief"))
+            {
+                case "mexican":
+                    actualChief = mexican;
+                    break;
+                case "snowball":
+                    actualChief = snowball;
+                    break;
+                case "mage":
+                    actualChief = mage;
+                    break;
+            }
             Debug.Log(PlayerPrefs.GetString(name + "minion"));
             switch(PlayerPrefs.GetString(name + "minion"))
             {
                 case "archers":
+                    horde.GetComponent<Horde>().hordeChief = actualChief;
                     horde = Instantiate(archerHorde) as GameObject;
                     if(!hasNoHud) activeHUD = Instantiate(archerHUD) as GameObject;
                     break;
                 case "vikings":
+                    horde.GetComponent<Horde>().hordeChief = actualChief;
                     horde = Instantiate(vikingHorde) as GameObject;
                     if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "zombies":
+                    horde.GetComponent<Horde>().hordeChief = actualChief;
                     horde = Instantiate(zombieHorde) as GameObject;
                     horde.name = "ZombieXbox";
                     if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "spartans":
+                    horde.GetComponent<Horde>().hordeChief = actualChief;
                     horde = Instantiate(spartanHorde) as GameObject;
                     if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;

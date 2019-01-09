@@ -89,13 +89,13 @@ public class SelectionScript : MonoBehaviour
                 switch (selectedChief)
                 {
                     case 0:
-                        chief = "chief1";
+                        chief = "mexcan";
                         break;
                     case 1:
-                        chief = "chief2";
+                        chief = "snowball";
                         break;
                     case 2:
-                        chief = "chief3";
+                        chief = "mage";
                         break;
                 }
                 PlayerPrefs.SetString(player + "chief", chief);
