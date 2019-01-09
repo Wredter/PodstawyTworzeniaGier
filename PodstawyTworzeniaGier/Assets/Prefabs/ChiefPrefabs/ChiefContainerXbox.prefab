@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 50178832060431048}
   - component: {fileID: 114338551124643120}
   - component: {fileID: 114092800372514028}
+  - component: {fileID: 114930072347802352}
+  - component: {fileID: 58716605599373580}
   m_Layer: 0
   m_Name: ChiefContainerXbox
   m_TagString: Untagged
@@ -63,6 +65,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &58716605599373580
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260408443149178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.01
 --- !u!114 &114092800372514028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,9 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5d7c8ef867e2e478a178f3578486d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1
   healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
     type: 2}
+  archersWon: {fileID: 0}
+  vikingsWon: {fileID: 0}
 --- !u!114 &114338551124643120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointer: {fileID: 1410623383194340, guid: cbc60a8156706a044992460f43b9f7b7, type: 2}
-  pointerSmoothness: 10
+  pointerSmoothness: 0.8
 --- !u!114 &114791052185490768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,3 +121,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1604622530028642, guid: 00bbed19ab7742c42855c6ee0b911136, type: 2}
+--- !u!114 &114930072347802352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260408443149178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf7da6866ba67746befddc995defbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 1
+  cactus: {fileID: 4985984915745468, guid: d408d56410450bb4b9dddd3d4ca72eac, type: 2}
+  CactusCooldown: 1
+  CactusSpawnDelay: 1
