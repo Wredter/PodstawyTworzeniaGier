@@ -43,3 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bones
+    uniqueID: 4179740599
+    locked: 0
+  - name: Player
+    uniqueID: 3594312299
+    locked: 0
