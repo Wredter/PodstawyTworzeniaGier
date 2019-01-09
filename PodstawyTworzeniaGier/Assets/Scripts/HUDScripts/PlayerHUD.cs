@@ -7,6 +7,7 @@ public class PlayerHUD : MonoBehaviour {
     public GameObject vikingHorde;
     public GameObject zombieHorde;
     public GameObject spartanHorde;
+    public bool hasNoHud;
     public GameObject archerHUD;
     public GameObject vikingHUD;
     private GameObject activeHUD;
@@ -20,20 +21,20 @@ public class PlayerHUD : MonoBehaviour {
             {
                 case "archers":
                     horde = Instantiate(archerHorde) as GameObject;
-                    activeHUD = Instantiate(archerHUD) as GameObject;
+                    if(!hasNoHud) activeHUD = Instantiate(archerHUD) as GameObject;
                     break;
                 case "vikings":
                     horde = Instantiate(vikingHorde) as GameObject;
-                    activeHUD = Instantiate(vikingHUD) as GameObject;
+                    if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "zombies":
                     horde = Instantiate(zombieHorde) as GameObject;
                     horde.name = "ZombieXbox";
-                    activeHUD = Instantiate(vikingHUD) as GameObject;
+                    if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
                 case "spartans":
                     horde = Instantiate(spartanHorde) as GameObject;
-                    activeHUD = Instantiate(vikingHUD) as GameObject;
+                    if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
             }
         }
@@ -52,9 +53,9 @@ public class PlayerHUD : MonoBehaviour {
                 break;
         }
         horde.GetComponent<Horde>().SetDeviceSignature(deviceName);
-        activeHUD.GetComponent<HUD>().SetHorde(horde.GetComponent<Horde>());
-        activeHUD.transform.SetParent(gameObject.transform);
-        if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
+        if (!hasNoHud) activeHUD.GetComponent<HUD>().SetHorde(horde.GetComponent<Horde>());
+        if (!hasNoHud) activeHUD.transform.SetParent(gameObject.transform);
+        if (!hasNoHud) if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
     }
 
     public Vector2 GetHordeCenter()
@@ -75,20 +76,20 @@ public class PlayerHUD : MonoBehaviour {
         {
             case "archers":
                 horde = Instantiate(archerHorde) as GameObject;
-                activeHUD = Instantiate(archerHUD) as GameObject;
+                if (!hasNoHud) activeHUD = Instantiate(archerHUD) as GameObject;
                 break;
             case "vikings":
                 horde = Instantiate(vikingHorde) as GameObject;
-                activeHUD = Instantiate(vikingHUD) as GameObject;
+                if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                 break;
             case "zombies":
                 horde = Instantiate(zombieHorde) as GameObject;
                 horde.name = "ZombieXbox";
-                activeHUD = Instantiate(vikingHUD) as GameObject;
+                if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                 break;
             case "spartans":
                 horde = Instantiate(spartanHorde) as GameObject;
-                activeHUD = Instantiate(vikingHUD) as GameObject;
+                if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                 break;
         }
         if (PlayerPrefs.HasKey(name + "device"))
@@ -106,8 +107,8 @@ public class PlayerHUD : MonoBehaviour {
                 break;
         }
         horde.GetComponent<Horde>().SetDeviceSignature(deviceName);
-        activeHUD.GetComponent<HUD>().SetHorde(horde.GetComponent<Horde>());
-        activeHUD.transform.SetParent(gameObject.transform);
-        if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
+        if (!hasNoHud) activeHUD.GetComponent<HUD>().SetHorde(horde.GetComponent<Horde>());
+        if (!hasNoHud) activeHUD.transform.SetParent(gameObject.transform);
+        if (!hasNoHud) if (gameObject.transform.position.x > 1) activeHUD.transform.position = gameObject.transform.position;
     }
 }

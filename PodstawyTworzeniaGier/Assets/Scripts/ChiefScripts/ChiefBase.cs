@@ -11,15 +11,11 @@ public class ChiefBase : MonoBehaviour, IPlayerIntegration {
 
     protected string playerName;
     protected Rigidbody2D rb2d;
-    protected GameObject healthBar;
     protected float actualHealth;
 	
 	void Start () {
         actualHealth = health;
         rb2d = GetComponent<Rigidbody2D>();
-        healthBar = Instantiate(healthBarView);
-        healthBar.GetComponent<HealthBar>().Initialise(gameObject);
-        healthBar.transform.SetParent(transform, false);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -56,21 +52,7 @@ public class ChiefBase : MonoBehaviour, IPlayerIntegration {
 
     public void DealDamage(float damage)
     {
-        //actualHealth -= damage;
-        if (actualHealth < 0)
-        {
-            if (playerName == "Player1")
-            {
-                SceneManager.LoadScene("Player2Won");
-
-
-            }
-            else
-            {
-                SceneManager.LoadScene("Player1Won");
-            }
-            Destroy(gameObject);
-        }
+        //Nothing happens
     }
 
     public float GetActualHealth()
