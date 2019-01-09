@@ -80,6 +80,10 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
         minionsWithChief.ForEach(m => m.name = hordeName);
         chief.GetComponent<Chief>().SetController(controller);
+        if (chief.GetComponent<ChiefCactus>())
+        {
+            chief.GetComponent<ChiefCactus>().SetController(controller);
+        }
         chief.GetComponent<ChiefBase>().SetPlayerName(playerName);
         minions.ForEach(m => m.GetComponent<MinionBase>().SetController(controller));
         minions.ForEach(m => m.GetComponent<MinionBase>().SetChief(chief));

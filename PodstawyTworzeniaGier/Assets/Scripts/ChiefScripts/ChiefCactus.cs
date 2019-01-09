@@ -15,6 +15,7 @@ public class ChiefCactus : MonoBehaviour
     public float CactusCooldown; //czas blokady po spawnie kaktusa
     public float CactusSpawnDelay; //opóźnienie pojawienia się kaktusa (umożliwia odsunięcie się z miejsca w którym powstanie)
     private bool canSpawnCactus;
+    IController controller;
 
     // Use this for initialization
     void Start ()
@@ -25,7 +26,6 @@ public class ChiefCactus : MonoBehaviour
         CactusCooldown = 5f;
         CactusSpawnDelay = 2f;
         canSpawnCactus = true;
-
     }
 	
 	// Update is called once per frame
@@ -36,6 +36,12 @@ public class ChiefCactus : MonoBehaviour
         //HandleMovement();
         HandleCactusDrop(KeyCode.K);
         //Debug.Log("KAKTUSSSSSSSS UPDATE");
+        if(controller.Special2() && canSpawnCactus)
+        {
+            Debug.Log("KAKTUSSSSSSSS SPAWN!");
+            Vector3 chiefPosition = gameObject.GetComponent<Transform>().position;
+            StartCoroutine(CactusSpawnCoroutine(2f, chiefPosition));
+        }
     }
 
     void HandleMovement()
@@ -89,5 +95,10 @@ public class ChiefCactus : MonoBehaviour
         cactusInstance = Instantiate(cactus);
         cactusInstance.GetComponent<Transform>().position = new Vector3(chiefPosition.x, chiefPosition.y);
         
+    }
+
+    public void SetController(IController controller)
+    {
+        this.controller = controller;
     }
 }

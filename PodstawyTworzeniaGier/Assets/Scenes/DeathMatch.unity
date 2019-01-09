@@ -28747,6 +28747,54 @@ Prefab:
       propertyPath: hasNoHud
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: chef
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: chef
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: mexican
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: snowball
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: mage
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: mexican
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: snowball
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: mage
+      value: 
+      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a7125993813b54ca50d1509723cb73, type: 2}
   m_IsPrefabAsset: 0
