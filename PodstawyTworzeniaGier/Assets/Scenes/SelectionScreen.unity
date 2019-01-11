@@ -315,7 +315,7 @@ Prefab:
     - target: {fileID: 114667279433319104, guid: db317729bba30c440822c1c651e1bcb9,
         type: 2}
       propertyPath: deviceSignature
-      value: 
+      value: Joystick2
       objectReference: {fileID: 0}
     - target: {fileID: 114667279433319104, guid: db317729bba30c440822c1c651e1bcb9,
         type: 2}
@@ -589,7 +589,7 @@ Prefab:
     - target: {fileID: 114667279433319104, guid: db317729bba30c440822c1c651e1bcb9,
         type: 2}
       propertyPath: deviceSignature
-      value: 
+      value: Joystick1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db317729bba30c440822c1c651e1bcb9, type: 2}
