@@ -328,7 +328,7 @@ Prefab:
     - target: {fileID: 114509468481000830, guid: e936a91087bbe5242a43301e21102c2f,
         type: 2}
       propertyPath: deviceSignatue
-      value: Joystick2
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e936a91087bbe5242a43301e21102c2f, type: 2}
@@ -344,6 +344,52 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 778392108}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1001 &802367146
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.8372262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.20805615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733122598206590, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766993370184756, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+      propertyPath: m_Name
+      value: ChiefContainerXbox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1215947327
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +745,7 @@ Prefab:
     - target: {fileID: 114530341637103704, guid: e4872159e3191a44fa8cad2f8e2e8399,
         type: 2}
       propertyPath: deviceSignatue
-      value: Joystick1
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4872159e3191a44fa8cad2f8e2e8399, type: 2}

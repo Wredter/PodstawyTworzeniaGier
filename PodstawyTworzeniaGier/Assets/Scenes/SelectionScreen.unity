@@ -586,6 +586,11 @@ Prefab:
       propertyPath: player
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 114667279433319104, guid: db317729bba30c440822c1c651e1bcb9,
+        type: 2}
+      propertyPath: deviceSignature
+      value: Joystick1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db317729bba30c440822c1c651e1bcb9, type: 2}
   m_IsPrefabAsset: 0
@@ -915,4 +920,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29110c23d584c1b40b06288216823200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameType: 0
   playerCount: 2

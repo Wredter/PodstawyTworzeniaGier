@@ -155,7 +155,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                             if (r < 25)
                                 obj.GetComponent<Rigidbody2D>().AddForce(force);
                     }
-
+                if (!isSnowBall)
                 foreach (GameObject obj in minions)
                 {
                     foreach (GameObject obj2 in minionsWithChief)
@@ -166,7 +166,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                             dy = obj2.transform.position.y - obj.transform.position.y;
                             r2 = dx * dx + dy * dy;
                             r = Mathf.Sqrt(r2 + 10);
-                            force.Set(-dx / r * minionsK / r2, -dy / r * minionsK / r2);
+                            force.Set(-dx / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius/1.4f), -dy / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius /1.4f));
                             if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
                                 obj.GetComponent<Rigidbody2D>().AddForce(force);
                         }
@@ -251,6 +251,25 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                             isSpartanDash = true;
                             spartanTimer = spartanCooldown;
                         }
+                    }
+
+
+                }
+            }
+
+            if (isSnowBall)
+            {
+                snowBall();
+            } else
+            {
+                foreach (GameObject obj in minionsWithChief)
+                {
+                    obj.GetComponent<CircleCollider2D>().radius += Time.deltaTime/10;
+                    obj.GetComponent<CircleCollider2D>().radius *= 1.05f;
+                    if (obj.GetComponent<CircleCollider2D>().radius > 1.4)
+                    {
+                            obj.GetComponent<CircleCollider2D>().enabled = true;
+                            obj.GetComponent<CircleCollider2D>().radius = 1.4f;
                     }
                 }
             }
@@ -510,6 +529,45 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 obj.GetComponent<Rigidbody2D>().AddForce(force);
         }
     }
+    public void snowBallOnOff(bool v)
+    {
+        isSnowBall = v;
+        Debug.Log("horde snowball: " + isSnowBall);
+        if (isSnowBall)
+        {
+            foreach(GameObject obj in minions)
+            {
+                obj.GetComponent<CircleCollider2D>().enabled = false;
+            }
+        } else
+        {
+            float dx, dy;
+            foreach (GameObject obj in minionsWithChief)
+            {
+                //obj.GetComponent<CircleCollider2D>().enabled = true;
+                obj.GetComponent<CircleCollider2D>().radius = 0f;
+                dx = chief.transform.position.x + Random.Range(-1000, 1000) - obj.transform.position.x;
+                dy = chief.transform.position.y + Random.Range(-1000, 1000) - obj.transform.position.y;
+                obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(-dx, -dy, obj.transform.position.z));
+            }
+        }
+    }
+    bool isSnowBall = false;
+    public float snowBallR = 0.2f;
+    public void snowBall()
+    {
+        Debug.Log("horde snowball");
+        float dx, dy, rx = 0, ry = 0;
+        foreach (GameObject minion in minions)
+        {
+            rx = 0; ry = 0;
+            dx = chief.transform.position.x + Random.Range(-1, 1) - minion.transform.position.x;
+            dy = chief.transform.position.y + Random.Range(-1, 1) - minion.transform.position.y;
+            minion.GetComponent<Rigidbody2D>().AddForce(new Vector3(chief.transform.position.x + rx, chief.transform.position.y + ry, minion.transform.position.z));
+
+        }
+    }
+
 
     public float GetChargeCooldown()
     {
