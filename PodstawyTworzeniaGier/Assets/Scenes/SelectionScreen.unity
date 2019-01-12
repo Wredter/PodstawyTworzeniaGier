@@ -581,16 +581,6 @@ Prefab:
       propertyPath: nextSceneLauncher
       value: 
       objectReference: {fileID: 1816811597}
-    - target: {fileID: 114667279433319104, guid: db317729bba30c440822c1c651e1bcb9,
-        type: 2}
-      propertyPath: player
-      value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667279433319104, guid: db317729bba30c440822c1c651e1bcb9,
-        type: 2}
-      propertyPath: deviceSignature
-      value: Joystick1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db317729bba30c440822c1c651e1bcb9, type: 2}
   m_IsPrefabAsset: 0
