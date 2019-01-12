@@ -135,11 +135,11 @@ public class SelectionScript : MonoBehaviour
                 notMovedHorizontal = false;
                 if (selectionChiefs)
                 {
-                    selectedChief = MoveCarousel(1, selectedChief, chiefs, chiefCanvases, selectionsChief);
+                    selectedChief = MoveCarousel(-1, selectedChief, chiefs, chiefCanvases, selectionsChief);
                 }
                 else
                 {
-                    selectedMinion = MoveCarousel(1, selectedMinion, minions, minionCanvases, selectionsMinion);
+                    selectedMinion = MoveCarousel(-1, selectedMinion, minions, minionCanvases, selectionsMinion);
                 }
             }
             else if (controller.MoveHorizontal() < -0.8 && notMovedHorizontal)
@@ -147,11 +147,11 @@ public class SelectionScript : MonoBehaviour
                 notMovedHorizontal = false;
                 if (selectionChiefs)
                 {
-                    selectedChief = MoveCarousel(-1, selectedChief, chiefs, chiefCanvases, selectionsChief);
+                    selectedChief = MoveCarousel(1, selectedChief, chiefs, chiefCanvases, selectionsChief);
                 }
                 else
                 {
-                    selectedMinion = MoveCarousel(-1, selectedMinion, minions, minionCanvases, selectionsMinion);
+                    selectedMinion = MoveCarousel(1, selectedMinion, minions, minionCanvases, selectionsMinion);
                 }
             }
             else if (controller.MoveHorizontal() <= .8 && controller.MoveHorizontal() >= -.8)
