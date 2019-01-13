@@ -30,7 +30,7 @@ public class Ghost : MonoBehaviour
             color.a -= 0.1f;
 
             var scale = GetComponent<Transform>().localScale;
-            GetComponent<Transform>().localScale = new Vector3(scale.x * 1.2f, scale.y * 1.2f, scale.z * 1.2f);
+            GetComponent<Transform>().localScale = new Vector3(scale.x * 0.9f, scale.y * 0.9f, scale.z * 0.9f);
             GetComponent<SpriteRenderer>().color = color;
             yield return new WaitForSeconds(0.2f);
 
