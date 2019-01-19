@@ -74,10 +74,10 @@ public class Axe : Projectile
         {
             if (!collision.gameObject.GetComponent<MinionBase>().GetPlayerName().Equals(playerName))
             {
-                //Stick(collision.gameObject);
+                Stick(collision.gameObject);
             }
         }
-        else
+        else if(!collision.gameObject.GetComponent<Projectile>())
         {
             Stick(gameObject);
             hasHit = true;

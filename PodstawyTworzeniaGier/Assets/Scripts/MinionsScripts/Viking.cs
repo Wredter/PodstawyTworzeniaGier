@@ -5,9 +5,9 @@ using UnityEngine;
 public class Viking : MinionBase
 {
     public GameObject projectile;
-    public int maxProjectileCount;
 
     private Dictionary<GameObject, Axe> axes;
+    private Horde horde;
     private int projectilesCount;
     private bool hasShot;
 
@@ -23,21 +23,39 @@ public class Viking : MinionBase
     private new void FixedUpdate()
     {
         base.FixedUpdate();
+        List<GameObject> toRemove = new List<GameObject>();
         foreach (Axe g in axes.Values)
         {
             g.UpdateCounter();
+        }
+        foreach (GameObject g in axes.Keys)
+        {
+            if(g == null)
+            {
+                toRemove.Add(g);
+            } else
+            if(g.GetComponent<Axe>().GetCounter() < 0)
+            {
+                toRemove.Add(g);
+                horde.AddToThrown(g);            
+            }
+        }
+        foreach(GameObject g in toRemove)
+        {
+            axes.Remove(g);
         }
     }
 
     void Update()
     {
-        if (controller.Shoot() && axes.Count < maxProjectileCount && !hasShot)
+        if (controller.Shoot() && horde.CanRemoveAxe() && !hasShot)
         {
             GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
             axes.Add(temp, temp.GetComponent<Axe>());
             axes[temp].SetPlayerName(playerName);
             axes[temp].Initialise("axe" + projectilesCount, this, controller);
             projectilesCount++;
+            horde.RemoveAxe();
             hasShot = true;
         }
         if(!controller.Shoot() && hasShot)
@@ -54,7 +72,8 @@ public class Viking : MinionBase
             if(collision.gameObject.GetComponent<Axe>().GetPlayerName().Equals(playerName) 
                 && collision.gameObject.GetComponent<Axe>().GetCounter() < 0)
             {
-                ((Viking)(collision.gameObject.GetComponent<Projectile>().GetPlayer())).ReturnProjectile(collision.gameObject);
+                horde.AddAxe();
+                //((Viking)(collision.gameObject.GetComponent<Projectile>().GetPlayer())).ReturnProjectile(collision.gameObject);
                 Destroy(collision.gameObject);
                 return;
             }
@@ -65,5 +84,11 @@ public class Viking : MinionBase
     public void ReturnProjectile(GameObject p)
     {
         axes.Remove(p);
+    }
+
+    public void SetHorde(GameObject g)
+    {
+        horde = g.GetComponent<Horde>();
+        Debug.Log(horde);
     }
 }

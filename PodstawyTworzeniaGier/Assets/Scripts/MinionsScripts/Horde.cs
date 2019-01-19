@@ -21,6 +21,11 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     protected string playerName;
     public bool isZombie;
     public float slow = 1f;
+    public int axesPerViking;
+    public int axeRespawnRate;
+    private int axeCount;
+    private LinkedList<GameObject> axes;
+    private int axeRespawnCounter = 0;
 
     public List<GameObject> minions;
     public List<GameObject> minionsWithChief;
@@ -33,8 +38,9 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
     //spartan dash
     GameObject[,] pociong;
-    void Start()
+    void Start()        
     {
+        axes = new LinkedList<GameObject>();
         switch (deviceSignature)
         {
             case "Joystick1":
@@ -95,12 +101,20 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
         pociong = new GameObject[4, 100];
 
-
+        if(minions[0].GetComponent<Viking>())
+        {
+            foreach (GameObject g in minions)
+            {
+                g.GetComponent<Viking>().SetHorde(gameObject);
+            }
+        }
+        axeCount = minions.Count * axesPerViking;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(axeCount);
         minionsWithChief = minionsWithChief.FindAll(m => m != null);
         minions = minions.FindAll(m => m != null);
         if (minions.Count <= 0)
@@ -156,23 +170,23 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                                 obj.GetComponent<Rigidbody2D>().AddForce(force);
                     }
                 if (!isSnowBall)
-                foreach (GameObject obj in minions)
-                {
-                    foreach (GameObject obj2 in minionsWithChief)
+                    foreach (GameObject obj in minions)
                     {
-                        if (obj != obj2)
+                        foreach (GameObject obj2 in minionsWithChief)
                         {
-                            dx = obj2.transform.position.x - obj.transform.position.x;
-                            dy = obj2.transform.position.y - obj.transform.position.y;
-                            r2 = dx * dx + dy * dy;
-                            r = Mathf.Sqrt(r2 + 10);
-                            force.Set(-dx / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius/1.4f), -dy / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius /1.4f));
-                            if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
-                                obj.GetComponent<Rigidbody2D>().AddForce(force);
+                            if (obj != obj2)
+                            {
+                                dx = obj2.transform.position.x - obj.transform.position.x;
+                                dy = obj2.transform.position.y - obj.transform.position.y;
+                                r2 = dx * dx + dy * dy;
+                                r = Mathf.Sqrt(r2 + 10);
+                                force.Set(-dx / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f), -dy / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f));
+                                if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
+                                    obj.GetComponent<Rigidbody2D>().AddForce(force);
+                            }
                         }
-                    }
 
-                }
+                    }
             }
 
             foreach (GameObject obj in minionsWithChief)
@@ -209,7 +223,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 center = new Vector2(center.x + moveX * maxSpeed * Time.deltaTime,
                    center.y + moveY * maxSpeed * Time.deltaTime);
 
-            if(controller.Special1())
+            if (controller.Special1())
             {
                 if (minions.Count > 0)
                 {
@@ -246,30 +260,29 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                         Debug.Log("SPARTAN EEEEE");
                         if (spartanTimer <= 0)
                         {
-                            spartanX = chief.transform.position.x + controller.LookHorizontal()*15;
-                            spartanY = chief.transform.position.y + controller.LookVertical()*15;
+                            spartanX = chief.transform.position.x + controller.LookHorizontal() * 15;
+                            spartanY = chief.transform.position.y + controller.LookVertical() * 15;
                             isSpartanDash = true;
                             spartanTimer = spartanCooldown;
                         }
                     }
-
-
                 }
             }
 
             if (isSnowBall)
             {
                 snowBall();
-            } else
+            }
+            else
             {
                 foreach (GameObject obj in minionsWithChief)
                 {
-                    obj.GetComponent<CircleCollider2D>().radius += Time.deltaTime/10;
+                    obj.GetComponent<CircleCollider2D>().radius += Time.deltaTime / 10;
                     obj.GetComponent<CircleCollider2D>().radius *= 1.05f;
                     if (obj.GetComponent<CircleCollider2D>().radius > 1.4)
                     {
-                            obj.GetComponent<CircleCollider2D>().enabled = true;
-                            obj.GetComponent<CircleCollider2D>().radius = 1.4f;
+                        obj.GetComponent<CircleCollider2D>().enabled = true;
+                        obj.GetComponent<CircleCollider2D>().radius = 1.4f;
                     }
                 }
             }
@@ -283,7 +296,6 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             if (isSpartanDash)
             {
                 Debug.Log("SPARTAN DASH");
-
                 spartanDash();
             }
 
@@ -297,14 +309,6 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 dashY = 0;
             }
             dash();
-            /*if (controller.Special2() || Input.GetKeyDown(KeyCode.F))
-            {
-                if (dashCooldownTimer <= 0)
-                {
-                    dashForce = 2000;
-                    dashCooldownTimer = dashCooldown;
-                }
-            }*/
 
             //divide
             divideCooldownTimer -= Time.deltaTime;
@@ -317,18 +321,58 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
             if (divide > 0) divideHorde();
             else { divideX = 0; divideY = 0; }
-            /*if (controller.Special1() || Input.GetKeyDown(KeyCode.E))
-            {
-                if (divideCooldownTimer <= 0)
+
+            if(minions.Count > 0) {
+                if (minions[0].GetComponent<Viking>())
                 {
-                    divide = 12;
-                    if (isZombie) divide = 25;
-                    center = chief.transform.position;
-                    divideCooldownTimer = divideCooldown;
+                    foreach (GameObject g in axes)
+                    {
+                        if (g == null)
+                        {
+
+                        }
+                    }
+                    //Remove additional axes
+                    while (axes.Count + axeCount > minions.Count * axesPerViking)
+                    {
+                        List<GameObject> toRemove = new List<GameObject>();
+                        foreach (GameObject g in axes)
+                        {
+                            if (g == null)
+                            {
+                                toRemove.Add(g);
+                            }
+                        }
+                        foreach (GameObject g in toRemove)
+                        {
+                            axes.Remove(g);
+                        }
+                        if (axes.Count > 0)
+                        {
+                            GameObject g = axes.First.Value;
+                            axes.RemoveFirst();
+                            Destroy(g);
+                        }
+                        else
+                        {
+                            axeCount--;
+                        }
+                    }
                 }
+            }
+        }
+    }
 
-
-            }*/
+    public void FixedUpdate()
+    {
+        axeRespawnCounter++;
+        if (minions[0].GetComponent<Viking>())
+        {
+            //respawn axes
+            if (axeRespawnCounter % axeRespawnRate == 0)
+            {
+                AddAxe();
+            }
         }
     }
 
@@ -448,7 +492,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         }
         else
         {
-            divide2 += new Vector2( center.x, center.y) * 3;
+            divide2 += new Vector2(center.x, center.y) * 3;
         }
         divide1 /= 10;
         divide2 /= 10;
@@ -472,7 +516,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             if (!isZombie)
             {
                 i *= -1;
-            } else
+            }
+            else
             {
                 i += 1;
                 if (i > 3) i = 1;
@@ -509,7 +554,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 dy = d.y - obj.transform.position.y;
                 r22 = dx * dx + dy * dy;
 
-                if (r21/6f > r22)
+                if (r21 / 6f > r22)
                 {
                     d = divide2;
                 }
@@ -535,11 +580,12 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         Debug.Log("horde snowball: " + isSnowBall);
         if (isSnowBall)
         {
-            foreach(GameObject obj in minions)
+            foreach (GameObject obj in minions)
             {
                 obj.GetComponent<CircleCollider2D>().enabled = false;
             }
-        } else
+        }
+        else
         {
             float dx, dy;
             foreach (GameObject obj in minionsWithChief)
@@ -568,7 +614,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         }
     }
 
-
+    #region getters and setters
     public float GetChargeCooldown()
     {
         return 1;
@@ -632,4 +678,42 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     {
         return minions.Count;
     }
+    #endregion
+
+    #region axe management
+    public void AddAxe()
+    {
+        if(axeCount <  axesPerViking * minions.Count)
+        {
+            axeCount++;
+        }
+    }
+
+    public bool CanRemoveAxe()
+    {
+        if (axeCount > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void RemoveAxe()
+    {
+        if(axeCount > 0)
+        {
+            axeCount--;
+        }
+    }
+
+    public void AddToThrown(GameObject axe)
+    {
+        axes.AddLast(axe);
+    }
+
+    public int GetAxeCount()
+    {
+        return axeCount;
+    }
+    #endregion
 }
