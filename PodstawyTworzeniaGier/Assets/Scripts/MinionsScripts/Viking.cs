@@ -5,15 +5,18 @@ using UnityEngine;
 public class Viking : MinionBase
 {
     public GameObject projectile;
+    public int cooldown;
 
     private Dictionary<GameObject, Axe> axes;
     private Horde horde;
     private int projectilesCount;
     private bool hasShot;
+    private int counter;
 
     // Use this for initialization
     void Start()
     {
+        counter = 0;
         Initialise();
         axes = new Dictionary<GameObject, Axe>();
         projectilesCount = 0;
@@ -44,11 +47,12 @@ public class Viking : MinionBase
         {
             axes.Remove(g);
         }
+        counter--;
     }
 
     void Update()
     {
-        if (controller.Shoot() && horde.CanRemoveAxe() && !hasShot)
+        if (controller.Shoot() && horde.CanRemoveAxe() && !hasShot && counter <= 0)
         {
             GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
             axes.Add(temp, temp.GetComponent<Axe>());
@@ -57,6 +61,7 @@ public class Viking : MinionBase
             projectilesCount++;
             horde.RemoveAxe();
             hasShot = true;
+            counter = cooldown;
         }
         if(!controller.Shoot() && hasShot)
         {
