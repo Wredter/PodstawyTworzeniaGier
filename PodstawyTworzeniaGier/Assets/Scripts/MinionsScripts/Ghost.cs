@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    private int timer;
-
+    private float move = 30f;
+    private Vector3 tmp;
     public GameObject Bones;
     // Use this for initialization
     void Start()
     {
+        tmp = gameObject.transform.position;
         StartFading();
 
     }
@@ -31,14 +32,16 @@ public class Ghost : MonoBehaviour
 
             var scale = GetComponent<Transform>().localScale;
             GetComponent<Transform>().localScale = new Vector3(scale.x * 0.9f, scale.y * 0.9f, scale.z * 0.9f);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(move, 5), ForceMode2D.Impulse);
+            move = -1.3f * move;
             GetComponent<SpriteRenderer>().color = color;
             yield return new WaitForSeconds(0.2f);
 
         }
-        var tmp = gameObject.transform.position;
+
         Instantiate(Bones, tmp, new Quaternion(0, 0, 0, 0));
         Destroy(gameObject);
-        
+
     }
 
     public void StartFading()
