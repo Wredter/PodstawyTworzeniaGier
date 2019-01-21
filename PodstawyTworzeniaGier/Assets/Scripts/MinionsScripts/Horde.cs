@@ -27,8 +27,9 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     private LinkedList<GameObject> axes;
     private int axeRespawnCounter = 0;
     //Audio
+    public List<AudioClip> skillSounds;
     private AudioSource skillSoundSource;
-    public AudioClip skillSound;
+    //public AudioClip skillSound;
     //
     public List<GameObject> minions;
     public List<GameObject> minionsWithChief;
@@ -43,6 +44,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     GameObject[,] pociong;
     void Start()        
     {
+        
         axes = new LinkedList<GameObject>();
         switch (deviceSignature)
         {
@@ -235,7 +237,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     {
                         if (dashCooldownTimer <= 0)
                         {
-                            skillSoundSource.PlayOneShot(skillSound,1F);
+                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0,skillSounds.Count)],1F);
                             dashForce = 2000;
                             dashCooldownTimer = dashCooldown;
                         }

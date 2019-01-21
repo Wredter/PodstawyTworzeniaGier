@@ -53,7 +53,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.85
+  m_Pitch: 0.95
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -162,7 +162,10 @@ MonoBehaviour:
   slow: 1
   axesPerViking: 2
   axeRespawnRate: 30
-  skillSound: {fileID: 8300000, guid: 75784b39bd26f1d45bd1fdd10d776ef7, type: 3}
+  skillSounds:
+  - {fileID: 8300000, guid: 9dff5908828ca9d42a64b717312aac4d, type: 3}
+  - {fileID: 8300000, guid: 38721d2145d8b7846aef8f6f42723466, type: 3}
+  - {fileID: 8300000, guid: b9612c2501100d641a039cd64feec764, type: 3}
   minions: []
   minionsWithChief: []
   spartanCooldown: 5
