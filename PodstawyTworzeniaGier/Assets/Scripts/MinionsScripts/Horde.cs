@@ -27,6 +27,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     private LinkedList<GameObject> axes;
     private int axeRespawnCounter = 0;
     //Audio
+    [Range(0f,1f)]
+    public float volume;
     public List<AudioClip> skillSounds;
     private AudioSource skillSoundSource;
     //public AudioClip skillSound;
@@ -237,7 +239,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     {
                         if (dashCooldownTimer <= 0)
                         {
-                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0,skillSounds.Count)],1F);
+                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0,skillSounds.Count)],volume);
                             dashForce = 2000;
                             dashCooldownTimer = dashCooldown;
                         }
