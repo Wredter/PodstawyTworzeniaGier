@@ -14,6 +14,7 @@ public class SelectionScript : MonoBehaviour
     public string deviceSignature;
     public string player;
     public GameObject nextSceneLauncher;
+    public GameObject minionsCarousel;
 
     private IController controller;
     private bool selected = false;
@@ -24,6 +25,8 @@ public class SelectionScript : MonoBehaviour
     private int selectedMinion;
     private GameObject frame;
     private bool isReady = false;
+    private Vector3 minionsRotation = new Vector3(-90, 15, 0);
+    private Vector3 minionsRotationGoal = new Vector3(-90, 15, 0);
 
     private bool notMovedHorizontal;
     private bool notMovedVertical;
@@ -34,7 +37,7 @@ public class SelectionScript : MonoBehaviour
         {
             case "Joystick1":
             case "Joystick2":
-                controller = new ControllerXbox();
+                controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
                 break;
             case "":
                 controller = new ControllerMouseAndKeyboard();
@@ -74,11 +77,21 @@ public class SelectionScript : MonoBehaviour
         CreateFrame();
         selectedChief = 1;
         selectedMinion = 1;
+        minionsCarousel.transform.eulerAngles = minionsRotation;
+    }
+
+    void FixedUpdate()
+    {
+        if (minionsRotation.y != minionsRotationGoal.y)
+        {
+            minionsRotation = Vector3.MoveTowards(minionsRotation, minionsRotationGoal, 1);
+        }
+        minionsCarousel.transform.eulerAngles = minionsRotation;
     }
 
     void Update()
     {
-        if(controller.Select())
+        if (controller.Select())
         {
             if (!isReady)
             {
@@ -102,25 +115,25 @@ public class SelectionScript : MonoBehaviour
                 switch (selectedMinion)
                 {
                     case 0:
-                        minion = "archers";
-                        break;
-                    case 1:
                         minion = "vikings";
                         break;
+                    case 1:
+                        minion = "archers";
+                        break;
                     case 2:
-                        minion = "zombies";
+                        minion = "spartans";
                         break;
                     case 3:
-                        minion = "spartans";
+                        minion = "zombies";
                         break;
                 }
                 PlayerPrefs.SetString(player + "minion", minion);
             }
             isReady = true;
         }
-        if(controller.Back())
+        if (controller.Back())
         {
-            if(!isReady)
+            if (!isReady)
             {
                 nextSceneLauncher.GetComponent<LoadAfterChoosing>().UnReady();
                 CreateFrame();
@@ -175,6 +188,17 @@ public class SelectionScript : MonoBehaviour
 
     private int MoveCarousel(int direction, int selectedElement, List<Sprite> elements, List<Canvas> elementsPlaces, List<GameObject> activeElements)
     {
+        if (!selectionChiefs)
+        {
+            if (direction == -1)
+            {
+                minionsRotationGoal += new Vector3(0, 30, 0);
+            }
+            else
+            {
+                minionsRotationGoal += new Vector3(0, -30, 0);
+            }
+        }
         foreach (GameObject go in activeElements)
         {
             Destroy(go.gameObject);
