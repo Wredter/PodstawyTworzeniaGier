@@ -64,9 +64,18 @@ MonoBehaviour:
   random: 0.01
   isZombie: 0
   slow: 1
+  axesPerViking: 0
+  axeRespawnRate: 0
+  volume: 0
+  skillSounds:
+  - {fileID: 8300000, guid: a9f6deebe400ffe47a663ebed178f5a4, type: 3}
+  - {fileID: 8300000, guid: 297a794f1dfd0994c8ab0061d5d93105, type: 3}
+  - {fileID: 8300000, guid: b9bd5b9d152fb48409afc1e7f6013188, type: 3}
+  - {fileID: 8300000, guid: bbf1ff13a320c2548a9292db141a6d43, type: 3}
   minions: []
   minionsWithChief: []
   spartanCooldown: 5
   spartanTime: 2
   dashCooldown: 1
   divideCooldown: 1
+  snowBallR: 0.2
