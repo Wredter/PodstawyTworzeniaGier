@@ -260,7 +260,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     {
                         if (divideCooldownTimer <= 0)
                         {
-                            //skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
+                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
                             divide = 12;
                             if (isZombie) divide = 25;
                             center = chief.transform.position;
@@ -272,7 +272,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                         Debug.Log("SPARTAN EEEEE");
                         if (spartanTimer <= 0)
                         {
-                            //skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
+                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
                             spartanX = chief.transform.position.x + controller.LookHorizontal() * 15;
                             spartanY = chief.transform.position.y + controller.LookVertical() * 15;
                             isSpartanDash = true;
