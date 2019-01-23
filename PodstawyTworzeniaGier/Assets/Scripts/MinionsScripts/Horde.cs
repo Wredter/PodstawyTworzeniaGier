@@ -248,11 +248,12 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     {
                         if (divideCooldownTimer <= 0)
                         {
-                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
+                            
                             divide = 12;
                             if (isZombie) divide = 25;
                             center = chief.transform.position;
                             divideCooldownTimer = divideCooldown;
+                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
                         }
                     }
                     else if (minions[0].GetComponent<ZombieScript>())

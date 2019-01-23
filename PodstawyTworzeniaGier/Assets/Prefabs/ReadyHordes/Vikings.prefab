@@ -162,6 +162,7 @@ MonoBehaviour:
   slow: 1
   axesPerViking: 2
   axeRespawnRate: 30
+  volume: 1
   skillSounds:
   - {fileID: 8300000, guid: 9dff5908828ca9d42a64b717312aac4d, type: 3}
   - {fileID: 8300000, guid: 38721d2145d8b7846aef8f6f42723466, type: 3}
