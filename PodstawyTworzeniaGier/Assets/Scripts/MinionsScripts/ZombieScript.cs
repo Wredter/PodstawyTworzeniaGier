@@ -16,13 +16,19 @@ public class ZombieScript : MinionBase
     [Range(0, 2)]
     public float timeBetweenTicksInSec = 0.75f;
     Horde myHorde;
+    [Range(0f, 1f)]
+    public float volume;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
+    private double SoundCooldown;
     void Start()
     {
         Initialise();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         //isInfected = true;
+        skillSoundSource = GetComponent<AudioSource>();
 
-        foreach(GameObject horde in GameObject.FindGameObjectsWithTag("Horde"))
+        foreach (GameObject horde in GameObject.FindGameObjectsWithTag("Horde"))
         {
             if (horde.gameObject.GetComponent<Horde>().GetPlayerName().Equals(playerName))
             {
@@ -39,7 +45,7 @@ public class ZombieScript : MinionBase
     }
     void Update()
     {
-
+        SoundCooldown -= Time.deltaTime;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -64,5 +70,20 @@ public class ZombieScript : MinionBase
 
             }
         }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<MinionBase>())
+        {
+            if (!collision.gameObject.GetComponent<ZombieScript>() && !collision.gameObject.GetComponent<MinionBase>().GetPlayerName().Equals(playerName))
+            {
+                if (SoundCooldown < 0)
+                {
+                    skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
+                    SoundCooldown = 3;
+                }
+            }
+        }
+
     }
 }

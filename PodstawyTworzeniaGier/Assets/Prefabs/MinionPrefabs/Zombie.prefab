@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114972191976301078}
   - component: {fileID: 58216717656450236}
   - component: {fileID: 114398527687434260}
+  - component: {fileID: 82914818412835122}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -80,6 +81,101 @@ CircleCollider2D:
   m_Offset: {x: -0.009490967, y: -0.3416653}
   serializedVersion: 2
   m_Radius: 1.610697
+--- !u!82 &82914818412835122
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120828999536898}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.75
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114398527687434260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +213,11 @@ MonoBehaviour:
   poisonDmg: 10
   poisonNumberOfTicks: 4
   timeBetweenTicksInSec: 0.75
+  volume: 0.5
+  skillSounds:
+  - {fileID: 8300000, guid: 9910e575c3a4b9f43815c7da2f94db65, type: 3}
+  - {fileID: 8300000, guid: 3cfd1e8ecfef5ad43857b1fde9814d55, type: 3}
+  - {fileID: 8300000, guid: e54a343419ee8564ea940fe4b3b82c8c, type: 3}
 --- !u!114 &114972191976301078
 MonoBehaviour:
   m_ObjectHideFlags: 1
