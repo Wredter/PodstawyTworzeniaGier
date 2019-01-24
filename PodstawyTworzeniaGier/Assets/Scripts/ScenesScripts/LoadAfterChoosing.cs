@@ -17,6 +17,9 @@ public class LoadAfterChoosing : MonoBehaviour {
                 case GameTypes.DeathMatch:
                     SceneManager.LoadScene("DeathMatch");
                     break;
+                case GameTypes.KingOfTheHill:
+                    SceneManager.LoadScene("KingOfTheHill");
+                    break;
             }
         }
     }
