@@ -58,6 +58,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                 controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
                 break;
         }
+
         skillSoundSource = GetComponent<AudioSource>();
 
         controller.SetDeviceSignature(deviceSignature);
