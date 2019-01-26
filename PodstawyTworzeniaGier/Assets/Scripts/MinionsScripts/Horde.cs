@@ -52,6 +52,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         {
             case "Joystick1":
             case "Joystick2":
+            case "Joystick3":
+            case "Joystick4":
                 controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
                 break;
             case "":
@@ -123,20 +125,22 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(axeCount);
         minionsWithChief = minionsWithChief.FindAll(m => m != null);
         minions = minions.FindAll(m => m != null);
         if (minions.Count <= 0)
         {
-            if (playerName == "Player1")
+            switch(playerName)
             {
-                FindObjectOfType<SpawnControll>().RespawnPlayer1(gameObject);
-                //SceneManager.LoadScene("Player2Won");
-            }
-            else
-            {
-                FindObjectOfType<SpawnControll>().RespawnPlayer2(gameObject);
-                //SceneManager.LoadScene("Player1Won");
+                case "Player1":
+                    FindObjectOfType<SpawnControll>().RespawnPlayer1(gameObject);
+                    break;
+                case "Player2":
+                    FindObjectOfType<SpawnControll>().RespawnPlayer2(gameObject);
+                    break;
+                case "Player3":
+                    break;
+                case "Player4":
+                    break;
             }
         }
 
@@ -270,7 +274,6 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     }
                     else if (minions[0].GetComponent<Spartan>())
                     {
-                        Debug.Log("SPARTAN EEEEE");
                         if (spartanTimer <= 0)
                         {
                             skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);

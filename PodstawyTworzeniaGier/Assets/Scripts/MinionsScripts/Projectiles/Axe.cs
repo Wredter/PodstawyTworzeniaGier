@@ -58,6 +58,7 @@ public class Axe : Projectile
             if (step == 0)
             {
                 rb2d.velocity = new Vector2(0, 0);
+                hasHit = true;
             }
             step -= 1;
         }
@@ -74,7 +75,8 @@ public class Axe : Projectile
         {
             if (!collision.gameObject.GetComponent<MinionBase>().GetPlayerName().Equals(playerName))
             {
-                Stick(collision.gameObject);
+                //Stick(collision.gameObject);
+                //hasHit = true;
             }
         }
         else if(!collision.gameObject.GetComponent<Projectile>())
