@@ -8,7 +8,9 @@ public class Arrow : Projectile
     private int step;
     private Vector2 initialVelocity;
     [Range(0f, 1f)]
-    public float volume;
+    public float volumeMin;
+    [Range(0f, 1f)]
+    public float volumeMax;
     public List<AudioClip> skillSounds;
     private AudioSource skillSoundSource;
 
@@ -58,15 +60,16 @@ public class Arrow : Projectile
     {
         if(player == null)
         {
+            
             Destroy(gameObject);
-            skillSoundSource.PlayOneShot(skillSounds[0], volume);
             return;
         }
         if (!collision.gameObject.GetComponent<MinionBase>() && !collision.gameObject.GetComponent<ChiefBase>())
         {
             ((Archer)player).ReturnProjectile(gameObject);
+            skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
             Destroy(gameObject);
-            //skillSoundSource.PlayOneShot(skillSounds[1], volume);
+            
         }
     }
 }

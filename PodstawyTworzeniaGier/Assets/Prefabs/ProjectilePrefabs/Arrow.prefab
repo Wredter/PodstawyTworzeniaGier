@@ -189,7 +189,8 @@ MonoBehaviour:
   range: 100
   cooldown: 25
   damage: 40
-  volume: 0
+  volumeMin: 1
+  volumeMax: 1
   skillSounds:
   - {fileID: 8300000, guid: 8beb468b1067a3542bf30e56a90ae60d, type: 3}
 --- !u!212 &212736156125405086

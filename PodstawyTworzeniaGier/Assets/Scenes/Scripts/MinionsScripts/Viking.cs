@@ -12,10 +12,17 @@ public class Viking : MinionBase
     private int projectilesCount;
     private bool hasShot;
     private int counter;
+    [Range(0f, 1f)]
+    public float volumeMin;
+    [Range(0f, 1f)]
+    public float volumeMax;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
 
     // Use this for initialization
     void Start()
     {
+        skillSoundSource = GetComponent<AudioSource>();
         counter = 0;
         Initialise();
         axes = new Dictionary<GameObject, Axe>();
@@ -58,6 +65,7 @@ public class Viking : MinionBase
             axes.Add(temp, temp.GetComponent<Axe>());
             axes[temp].SetPlayerName(playerName);
             axes[temp].Initialise("axe" + projectilesCount, this, controller);
+            skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
             projectilesCount++;
             horde.RemoveAxe();
             hasShot = true;

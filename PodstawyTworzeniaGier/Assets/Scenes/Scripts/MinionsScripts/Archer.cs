@@ -7,7 +7,9 @@ public class Archer : MinionBase
     public GameObject projectile;
     public int shootCooldown;
     [Range(0f, 1f)]
-    public float volume;
+    public float volumeMin;
+    [Range(0f, 1f)]
+    public float volumeMax;
     public List<AudioClip> skillSounds;
     private AudioSource skillSoundSource;
 
@@ -53,7 +55,7 @@ public class Archer : MinionBase
                 arrows.Add(temp, temp.GetComponent<Arrow>());
                 arrows[temp].SetPlayerName(playerName);
                 arrows[temp].Initialise("arrow" + projectilesCount, this, power);
-                skillSoundSource.PlayOneShot(skillSounds[0], volume);
+                skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
                 projectilesCount++;
                 power = 0.5f;
                 cooldown = shootCooldown;
