@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -459,6 +459,11 @@ Prefab:
     - target: {fileID: 4827441422654992, guid: 439074873289e5b41852037464eb762c, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 108546791858778380, guid: 439074873289e5b41852037464eb762c,
+        type: 2}
+      propertyPath: m_SpotAngle
+      value: 16.579893
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 439074873289e5b41852037464eb762c, type: 2}

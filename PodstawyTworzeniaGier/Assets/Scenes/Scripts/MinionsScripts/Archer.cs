@@ -6,6 +6,12 @@ public class Archer : MinionBase
 {
     public GameObject projectile;
     public int shootCooldown;
+    [Range(0f, 1f)]
+    public float volumeMin;
+    [Range(0f, 1f)]
+    public float volumeMax;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
 
     #region private fields
     private Dictionary<GameObject, Arrow> arrows;
@@ -20,6 +26,7 @@ public class Archer : MinionBase
     {
         Initialise();
         arrows = new Dictionary<GameObject, Arrow>();
+        skillSoundSource = GetComponent<AudioSource>();
         projectilesCount = 0;
         power = 0.5f;
     }
@@ -48,10 +55,12 @@ public class Archer : MinionBase
                 arrows.Add(temp, temp.GetComponent<Arrow>());
                 arrows[temp].SetPlayerName(playerName);
                 arrows[temp].Initialise("arrow" + projectilesCount, this, power);
+                skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
                 projectilesCount++;
                 power = 0.5f;
                 cooldown = shootCooldown;
                 charging = false;
+
             }
         }
         if (power > maxPower)

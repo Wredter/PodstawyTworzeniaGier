@@ -11,15 +11,23 @@ public class CactusLogic : MonoBehaviour
     public float CactusLifetime; //seconds
 
     private float timer;
+    [Range(0f, 1f)]
+    public float volumeMin;
+    [Range(0f, 1f)]
+    public float volumeMax;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
 
     // Use this for initialization
     void Start()
     {
+        skillSoundSource = GetComponent<AudioSource>();
         ShakeSpeed = 10.0f;
         ShakesAmount = .08f;
         GrowthTime = 6f;
         CactusLifetime = 10f;
         timer = 0;
+        skillSoundSource.PlayOneShot(skillSounds[0],Random.Range(volumeMin,volumeMax));
     }
 
     // Update is called once per frame

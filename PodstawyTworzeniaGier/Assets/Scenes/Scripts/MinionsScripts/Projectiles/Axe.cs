@@ -9,6 +9,12 @@ public class Axe : Projectile
     private int step;
     private bool isSticked;
     private GameObject objectToStick;
+    [Range(0f, 1f)]
+    public float volumeMin;
+    [Range(0f, 1f)]
+    public float volumeMax;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
 
     // Use this for initialization
     void Start()
@@ -17,6 +23,7 @@ public class Axe : Projectile
         hasHit = false;
         isReturnable = true;
         isSticked = false;
+        skillSoundSource = GetComponent<AudioSource>();
     }
 
     public void Initialise(string axeID, Viking player, IController controller)
@@ -58,6 +65,7 @@ public class Axe : Projectile
             if (step == 0)
             {
                 rb2d.velocity = new Vector2(0, 0);
+                hasHit = true;
             }
             step -= 1;
         }
@@ -74,12 +82,15 @@ public class Axe : Projectile
         {
             if (!collision.gameObject.GetComponent<MinionBase>().GetPlayerName().Equals(playerName))
             {
-                Stick(collision.gameObject);
+                
+                //Stick(collision.gameObject);
+                //hasHit = true;
             }
         }
         else if(!collision.gameObject.GetComponent<Projectile>())
         {
             Stick(gameObject);
+            skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin,volumeMax));
             hasHit = true;
         }
     }

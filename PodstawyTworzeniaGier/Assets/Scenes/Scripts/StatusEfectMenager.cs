@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusEfectMenager : MonoBehaviour {
+public class StatusEfectMenager : MonoBehaviour
+{
     MinionBase minionBaseXbox;
     public List<int> poisonDutationTimers = new List<int>();
-	// Use this for initialization
-	void Start () {
-        minionBaseXbox = GetComponent<MinionBase>();
-	}
-    public void ApplyPoison(int poisonNumberOfTicks,int poisonDamage, float timeBetweenTicks)
+    // Use this for initialization
+    void Start()
     {
-        if(poisonDutationTimers.Count <= 0)
+        minionBaseXbox = GetComponent<MinionBase>();
+    }
+    public void ApplyPoison(int poisonNumberOfTicks, int poisonDamage, float timeBetweenTicks)
+    {
+        if (poisonDutationTimers.Count <= 0)
         {
             poisonDutationTimers.Add(poisonNumberOfTicks);
-            StartCoroutine(PoisonDoT(poisonDamage,timeBetweenTicks));
+            StartCoroutine(PoisonDoT(poisonDamage, timeBetweenTicks));
         }
         else
         {
@@ -23,9 +25,9 @@ public class StatusEfectMenager : MonoBehaviour {
     }
     IEnumerator PoisonDoT(int poisonDamage, float timebetweenTicks)
     {
-        while(poisonDutationTimers.Count > 0)
+        while (poisonDutationTimers.Count > 0)
         {
-            for(int i = 0; i < poisonDutationTimers.Count; i++)
+            for (int i = 0; i < poisonDutationTimers.Count; i++)
             {
                 poisonDutationTimers[i] -= 1;
             }

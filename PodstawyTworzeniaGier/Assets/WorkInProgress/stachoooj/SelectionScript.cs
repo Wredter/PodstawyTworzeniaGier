@@ -133,12 +133,12 @@ public class SelectionScript : MonoBehaviour
         }
         if (controller.Back())
         {
-            if (!isReady)
+            if (isReady)
             {
                 nextSceneLauncher.GetComponent<LoadAfterChoosing>().UnReady();
                 CreateFrame();
+                isReady = false;
             }
-            isReady = false;
         }
         if (!isReady)
         {

@@ -78,9 +78,10 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
                     }
                 }
                 else
+                {
                     DealDamage(collision.gameObject.GetComponent<Projectile>().damage);
-
-                Destroy(collision.gameObject);
+                    Destroy(collision.gameObject);
+                }
 
             }
         }

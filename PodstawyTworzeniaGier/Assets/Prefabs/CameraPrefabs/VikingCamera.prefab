@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4174982273621972}
   - component: {fileID: 20344614493554352}
-  - component: {fileID: 81857216546114702}
   - component: {fileID: 114771838220591478}
   - component: {fileID: 50826989330371446}
   m_Layer: 0
@@ -103,13 +102,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!81 &81857216546114702
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1318285455556064}
-  m_Enabled: 1
 --- !u!114 &114771838220591478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,3 +114,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
+  isPlayer2: 0
+  map: {fileID: 0}
