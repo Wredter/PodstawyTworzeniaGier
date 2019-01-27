@@ -28764,7 +28764,7 @@ Prefab:
         type: 2}
       propertyPath: mage
       value: 
-      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+      objectReference: {fileID: 1725692414575604, guid: cdbfd030a7c07f643b95c141bbb25b32,
         type: 2}
     - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
@@ -28782,7 +28782,31 @@ Prefab:
         type: 2}
       propertyPath: mage
       value: 
-      objectReference: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1,
+      objectReference: {fileID: 1725692414575604, guid: cdbfd030a7c07f643b95c141bbb25b32,
+        type: 2}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: vaper
+      value: 
+      objectReference: {fileID: 1581557470960154, guid: 228fd73ec72ff9c449a6aa0e26d7fd55,
+        type: 2}
+    - target: {fileID: 114088431880145440, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: pope
+      value: 
+      objectReference: {fileID: 1899293177012906, guid: 04819b522d431d941aa9ea63a5ffbe3e,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: vaper
+      value: 
+      objectReference: {fileID: 1581557470960154, guid: 228fd73ec72ff9c449a6aa0e26d7fd55,
+        type: 2}
+    - target: {fileID: 114960993411938064, guid: d9a7125993813b54ca50d1509723cb73,
+        type: 2}
+      propertyPath: pope
+      value: 
+      objectReference: {fileID: 1899293177012906, guid: 04819b522d431d941aa9ea63a5ffbe3e,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a7125993813b54ca50d1509723cb73, type: 2}

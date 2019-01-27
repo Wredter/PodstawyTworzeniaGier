@@ -173,21 +173,13 @@ public class SelectionScript : MonoBehaviour
 
     private void MoveCarousel(int direction)
     {
-        if (!selectionChiefs)
+        if (selectionChiefs)
         {
             selectedChief = (selectedChief + direction) % 4;
-            if (direction == -1)
+            if(selectedChief == -1)
             {
-                minionsRotationGoal += new Vector3(0, 30, 0);
+                selectedChief = 3;
             }
-            else
-            {
-                minionsRotationGoal += new Vector3(0, -30, 0);
-            }
-        }
-        else
-        {
-            selectedMinion = (selectedMinion + direction) % 4;
             if (direction == -1)
             {
                 chiefsRotationGoal += new Vector3(0, 30, 0);
@@ -195,6 +187,22 @@ public class SelectionScript : MonoBehaviour
             else
             {
                 chiefsRotationGoal += new Vector3(0, -30, 0);
+            }
+        }
+        else
+        {
+            selectedMinion = (selectedMinion + direction) % 4;
+            if (selectedMinion == -1)
+            {
+                selectedMinion = 3;
+            }
+            if (direction == -1)
+            {
+                minionsRotationGoal += new Vector3(0, 30, 0);
+            }
+            else
+            {
+                minionsRotationGoal += new Vector3(0, -30, 0);
             }
         }
     }
