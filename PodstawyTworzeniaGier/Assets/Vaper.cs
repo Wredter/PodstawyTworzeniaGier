@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class vaperScript : MonoBehaviour {
+public class Vaper : MonoBehaviour
+{
     IController controller;
     public void SetController(IController controller)
     {
@@ -10,17 +11,19 @@ public class vaperScript : MonoBehaviour {
     }
 
     public GameObject chmurka;
-	// Use this for initialization
-	void Start () {
-        VapTimer = VapTime;
+    // Use this for initialization
+    void Start()
+    {
+        VapTimer = 0;
     }
     public int vapIStart = 5;
     public float VapTime = 5;
     private float VapTimer;
     private float vapDelta;
     private int vapI;
-    
-	void Update () {
+
+    void Update()
+    {
         VapTimer += Time.deltaTime;
 
         if (vapI > 1)
@@ -28,11 +31,13 @@ public class vaperScript : MonoBehaviour {
             if (vapI > VapTime - VapTimer)
             {
                 vapI--;
-                Debug.Log("vaper spawn");
                 Instantiate(chmurka, transform.position, transform.rotation);
             }
         }
-        if (controller.Special2() || Input.GetKeyDown(KeyCode.P))
+
+
+        //controller.Special2() || 
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("vaper ");
             Vap();
@@ -41,7 +46,7 @@ public class vaperScript : MonoBehaviour {
 
     public void Vap()
     {
-        if (VapTimer > VapTime)
+        if (VapTimer > VapTime || true)
         {
             Debug.Log("vaper skkill");
             vapI = vapIStart;

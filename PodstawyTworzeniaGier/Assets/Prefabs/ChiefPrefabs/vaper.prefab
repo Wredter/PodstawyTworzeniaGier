@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114050819981034170}
   - component: {fileID: 114699627978245570}
   - component: {fileID: 58372594186272006}
-  - component: {fileID: 114824158766173818}
+  - component: {fileID: 114016100106286368}
   m_Layer: 0
   m_Name: vaper
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1581557470960154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8372262, y: -0.20805615, z: 20.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,6 +80,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.01
+--- !u!114 &114016100106286368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581557470960154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5077c075541354e8df0682c6ff6cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chmurka: {fileID: 1174130241056830, guid: 6c47bfe570d33d94494aa06843548b34, type: 2}
+  vapIStart: 5
+  VapTime: 5
 --- !u!114 &114050819981034170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,17 +135,3 @@ MonoBehaviour:
     type: 2}
   archersWon: {fileID: 0}
   vikingsWon: {fileID: 0}
---- !u!114 &114824158766173818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581557470960154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f08ea9637de524e99de65478cf7fac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chmurka: {fileID: 1174130241056830, guid: 6c47bfe570d33d94494aa06843548b34, type: 2}
-  vapIStart: 5
-  VapTime: 0
