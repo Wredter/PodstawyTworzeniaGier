@@ -559,6 +559,11 @@ Prefab:
       propertyPath: nextSceneLauncher
       value: 
       objectReference: {fileID: 1816811597}
+    - target: {fileID: 114082533940730194, guid: c436a63d4c66ee9429d96acccb08c33f,
+        type: 2}
+      propertyPath: deviceSignature
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c436a63d4c66ee9429d96acccb08c33f, type: 2}
   m_IsPrefabAsset: 0
@@ -952,6 +957,11 @@ Prefab:
       propertyPath: nextSceneLauncher
       value: 
       objectReference: {fileID: 1816811597}
+    - target: {fileID: 114469092157516912, guid: 3d7698118b964f246a23cabe92544496,
+        type: 2}
+      propertyPath: deviceSignature
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d7698118b964f246a23cabe92544496, type: 2}
   m_IsPrefabAsset: 0
