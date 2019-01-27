@@ -19,6 +19,7 @@ public class Arrow : Projectile
         step = range + 1;
         isReturnable = false;
         skillSoundSource = GetComponent<AudioSource>();
+
     }
 
     public void Initialise(string arrowID, Archer player, float power)
@@ -26,7 +27,7 @@ public class Arrow : Projectile
         name = arrowID;
         this.player = player;
         rb2d = GetComponent<Rigidbody2D>();
-
+        
         float projectileX = player.GetChief().GetComponent<Chief>().GetPrevious().x;
         float projectileY = player.GetChief().GetComponent<Chief>().GetPrevious().y;
         Vector2 projectileThrow = new Vector2(projectileX, projectileY);
@@ -60,14 +61,15 @@ public class Arrow : Projectile
     {
         if(player == null)
         {
-            
+            //Debug.Log("Wut");
             Destroy(gameObject);
             return;
         }
         if (!collision.gameObject.GetComponent<MinionBase>() && !collision.gameObject.GetComponent<ChiefBase>())
         {
+            //skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
             ((Archer)player).ReturnProjectile(gameObject);
-            skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
+            //gameObject.GetComponent<Renderer>().enabled = false;
             Destroy(gameObject);
             
         }

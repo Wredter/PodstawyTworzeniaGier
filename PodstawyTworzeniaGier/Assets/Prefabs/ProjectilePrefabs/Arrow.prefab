@@ -89,9 +89,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -189,8 +189,8 @@ MonoBehaviour:
   range: 100
   cooldown: 25
   damage: 40
-  volumeMin: 1
-  volumeMax: 1
+  volumeMin: 0
+  volumeMax: 0.1
   skillSounds:
   - {fileID: 8300000, guid: 8beb468b1067a3542bf30e56a90ae60d, type: 3}
 --- !u!212 &212736156125405086
