@@ -32,7 +32,6 @@ public class PlayerHUD : MonoBehaviour {
                     actualChief = mage;
                     break;
             }
-            Debug.Log(PlayerPrefs.GetString(name + "minion"));
             switch(PlayerPrefs.GetString(name + "minion"))
             {
                 case "archers":
@@ -61,8 +60,6 @@ public class PlayerHUD : MonoBehaviour {
                     if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                     break;
             }
-            Debug.Log(PlayerPrefs.GetString(name + "minion"));
-            Debug.Log(horde);
         }
         if(PlayerPrefs.HasKey(name + "device"))
         {

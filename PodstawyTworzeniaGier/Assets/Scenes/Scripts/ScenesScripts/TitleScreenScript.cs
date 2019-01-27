@@ -140,7 +140,6 @@ public class TitleScreenScript : MonoBehaviour
     {
         if (activeButtons.Count != activeButtonsCount)
         {
-            Debug.Log(currentButton);
             if (activeButtons.Count > 0)
             {
                 activeButtons[currentButton].GetComponent<Image>().color = Color.white;

@@ -85,7 +85,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             //gameObject.AddComponent<NetworkTransformChild>();
 
         }
-        Debug.Log("horde dziecki: " + transform.childCount);
+        //Debug.Log("horde dziecki: " + transform.childCount);
         //foreach (var NTC in GetComponents<NetworkTransformChild>())
         //{
         //    int counter = 0;
