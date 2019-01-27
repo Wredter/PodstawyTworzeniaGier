@@ -319,7 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 133246367}
   - component: {fileID: 133246371}
-  - component: {fileID: 133246370}
   - component: {fileID: 133246369}
   - component: {fileID: 133246368}
   m_Layer: 0
@@ -379,14 +378,6 @@ MonoBehaviour:
   parent: {fileID: 1909041531}
   isPlayer2: 1
   map: {fileID: 139680573}
---- !u!81 &133246370
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 81375060713736804, guid: e86f3b263cd2f4f4cb1d20f6e3f23056,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 133246366}
-  m_Enabled: 1
 --- !u!20 &133246371
 Camera:
   m_ObjectHideFlags: 0
@@ -837,7 +828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 476771744}
   - component: {fileID: 476771743}
-  - component: {fileID: 476771742}
   m_Layer: 0
   m_Name: Minimap
   m_TagString: MainCamera
@@ -845,13 +835,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &476771742
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 476771741}
-  m_Enabled: 1
 --- !u!20 &476771743
 Camera:
   m_ObjectHideFlags: 0
@@ -1362,7 +1345,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1150361191}
   - component: {fileID: 1150361195}
-  - component: {fileID: 1150361194}
   - component: {fileID: 1150361193}
   - component: {fileID: 1150361192}
   m_Layer: 0
@@ -1422,14 +1404,6 @@ MonoBehaviour:
   parent: {fileID: 1909041533}
   isPlayer2: 0
   map: {fileID: 139680573}
---- !u!81 &1150361194
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 81724001513908204, guid: d634880d6e625294aa0acc9543e09c88,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150361190}
-  m_Enabled: 1
 --- !u!20 &1150361195
 Camera:
   m_ObjectHideFlags: 0
