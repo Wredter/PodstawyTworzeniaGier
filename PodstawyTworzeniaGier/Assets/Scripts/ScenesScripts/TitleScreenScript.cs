@@ -62,10 +62,14 @@ public class TitleScreenScript : MonoBehaviour
             {
                 if(currentButton == 0 && activeButtons.Count > 1)
                 {
-                    SceneManager.LoadScene("SelectionScreen");
+                    PlayerPrefs.SetString("Map","Meadow");
+                    PlayerPrefs.SetString("GameMode","DeathMatch");
+                    PlayerPrefs.SetInt("PlayersCount", 2);
+                    SceneManager.LoadScene("SelectionScreen2Players");
                 }
                 else if (currentButton == 1 && activeButtons.Count == 3)
                 {
+                    PlayerPrefs.SetInt("PlayersCount", 4);
                     SceneManager.LoadScene("");
                 }
                 else
