@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 58975379310023412}
   - component: {fileID: 114750756763561500}
   m_Layer: 0
-  m_Name: santa 2
+  m_Name: mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
