@@ -64,7 +64,7 @@ public class TitleScreenScript : MonoBehaviour
                 {
                     SceneManager.LoadScene("SelectionScreen");
                 }
-                else if (currentButton == 1 && activeButtons.Count == 2)
+                else if (currentButton == 1 && activeButtons.Count == 3)
                 {
                     SceneManager.LoadScene("");
                 }
