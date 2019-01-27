@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class santaScript : MonoBehaviour {
 
-
+    public GameObject peleryna;
     public float cooldown = 4;
     public float skillTime = 3;
     float timer = 0;
@@ -33,11 +33,11 @@ public class santaScript : MonoBehaviour {
         if (isSkill)
         {
             scl = 0.2f - (timer - skillTime) * (timer) / skillTime / skillTime *1.3f;
-            transform.localScale = new Vector3(scl, scl, 1);
+            peleryna.transform.localScale = new Vector3(scl, scl, 1);
         }
         else
         {
-            transform.localScale = new Vector3(0.2f, 0.2f, 1);
+            peleryna.transform.localScale = new Vector3(0.2f, 0.2f, 1);
         }
     }
     float scl;

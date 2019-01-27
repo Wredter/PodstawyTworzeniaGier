@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114050819981034170}
   - component: {fileID: 114699627978245570}
   - component: {fileID: 58372594186272006}
-  - component: {fileID: 114203741488299286}
+  - component: {fileID: 114824158766173818}
   m_Layer: 0
   m_Name: vaper
   m_TagString: Untagged
@@ -93,19 +93,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 1410623383194340, guid: cbc60a8156706a044992460f43b9f7b7, type: 2}
   pointerSmoothness: 0.8
---- !u!114 &114203741488299286
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581557470960154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c82e08ce73947e4e8d4b5e9cea43059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 4
-  skillTime: 3
 --- !u!114 &114275108458455574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,3 +121,17 @@ MonoBehaviour:
     type: 2}
   archersWon: {fileID: 0}
   vikingsWon: {fileID: 0}
+--- !u!114 &114824158766173818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581557470960154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f08ea9637de524e99de65478cf7fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chmurka: {fileID: 1174130241056830, guid: 6c47bfe570d33d94494aa06843548b34, type: 2}
+  vapIStart: 5
+  VapTime: 0

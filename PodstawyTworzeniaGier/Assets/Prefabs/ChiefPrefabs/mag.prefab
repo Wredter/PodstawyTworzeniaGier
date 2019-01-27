@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114201087687505434}
   - component: {fileID: 114273482483102966}
   - component: {fileID: 58975379310023412}
-  - component: {fileID: 114750756763561500}
+  - component: {fileID: 114408321772581542}
   m_Layer: 0
   m_Name: mag
   m_TagString: Untagged
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1643970644825528, guid: 55aa4b15bd9e896488eb72b936035e8c, type: 2}
---- !u!114 &114750756763561500
+--- !u!114 &114408321772581542
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,8 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1725692414575604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c82e08ce73947e4e8d4b5e9cea43059, type: 3}
+  m_Script: {fileID: 11500000, guid: e6cd8af40cbd6064ea03f615853b9af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 4
-  skillTime: 3
