@@ -11,8 +11,9 @@ public class PlayerHUD : MonoBehaviour {
     public GameObject archerHUD;
     public GameObject vikingHUD;
     public GameObject mexican;
-    public GameObject snowball;
+    public GameObject pope;
     public GameObject mage;
+    public GameObject vaper;
     private GameObject activeHUD;
     private string deviceName;
 	
@@ -25,11 +26,14 @@ public class PlayerHUD : MonoBehaviour {
                 case "mexican":
                     actualChief = mexican;
                     break;
-                case "snowball":
-                    actualChief = snowball;
+                case "vaper":
+                    actualChief = vaper;
                     break;
                 case "mage":
                     actualChief = mage;
+                    break;
+                case "pope":
+                    actualChief = pope;
                     break;
             }
             switch(PlayerPrefs.GetString(name + "minion"))
