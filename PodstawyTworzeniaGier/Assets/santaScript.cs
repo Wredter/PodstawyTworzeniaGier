@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class santaScript : MonoBehaviour {
-
+    IController controller;
     public GameObject peleryna;
     public float cooldown = 4;
     public float skillTime = 9;
@@ -24,7 +24,7 @@ public class santaScript : MonoBehaviour {
             transform.parent.GetComponentInParent<Horde>().snowBallOnOff(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (controller.Special2() || Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("snowball");
             skill();
@@ -54,5 +54,9 @@ public class santaScript : MonoBehaviour {
             transform.parent.GetComponentInParent<Horde>().snowBallOnOff(true);
             
         }
+    }
+    public void SetController(IController controller)
+    {
+        this.controller = controller;
     }
 }
