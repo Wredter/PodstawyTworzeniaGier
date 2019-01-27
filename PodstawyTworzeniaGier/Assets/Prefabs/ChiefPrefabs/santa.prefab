@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   peleryna: {fileID: 1221745594706342}
   cooldown: 4
-  skillTime: 3
+  skillTime: 5
 --- !u!114 &114997370456295082
 MonoBehaviour:
   m_ObjectHideFlags: 1
