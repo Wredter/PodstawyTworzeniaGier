@@ -32,7 +32,7 @@ public class vaperScript : MonoBehaviour {
             }
         }
 
-        if (controller.Special2())
+        if (controller.Special2() || Input.GetKeyDown("space"))
         {
             Vap();
         }
