@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class SpawnControll : MonoBehaviour {
     public enum GameTypes { DeathMatch, KingOfTheHill}
     public GameTypes gameType;
-    [Range(1,9)]
     public int maxScore;
     public GameObject player1;        
     public GameObject player2;
@@ -15,15 +14,23 @@ public class SpawnControll : MonoBehaviour {
         PlayerPrefs.SetInt("Player2score", 0);
     }
 
+    void Update()
+    {
+        if (PlayerPrefs.GetInt("Player2score") == maxScore)
+        {
+            SceneManager.LoadScene("Player2Won");
+        }
+        if (PlayerPrefs.GetInt("Player1score") == maxScore)
+        {
+            SceneManager.LoadScene("Player1Won");
+        }
+    }
+
     public void RespawnPlayer1(GameObject toRespawn)
     {
         if(gameType == GameTypes.DeathMatch)
         {
-            PlayerPrefs.SetInt("Player2score", PlayerPrefs.GetInt("Player2score") + 1);
-            if(PlayerPrefs.GetInt("Player2score") == maxScore)
-            {
-                SceneManager.LoadScene("Player2Won");
-            }
+            PlayerPrefs.SetInt("Player2score", PlayerPrefs.GetInt("Player2score") + 1);            
         }
         if (player1.GetComponent<PlayerHUD>().GetHorde().GetComponent<Horde>().GetMinionsCount() == 0)
         {
@@ -34,11 +41,7 @@ public class SpawnControll : MonoBehaviour {
     {
         if (gameType == GameTypes.DeathMatch)
         {
-            PlayerPrefs.SetInt("Player1score", PlayerPrefs.GetInt("Player1score") + 1);
-            if (PlayerPrefs.GetInt("Player1score") == maxScore)
-            {
-                SceneManager.LoadScene("Player1Won");
-            }
+            PlayerPrefs.SetInt("Player1score", PlayerPrefs.GetInt("Player1score") + 1);            
         }
         if (player2.GetComponent<PlayerHUD>().GetHorde().GetComponent<Horde>().GetMinionsCount() == 0)
         {
