@@ -91,7 +91,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 1364393793842168, guid: 8aa8ad91521693a45a1e36f91cf190fc, type: 2}
-  radius: 8
+  radius: 7
+  dmg: 26
+  speed: 1.5
+  fireball_cd: 5
+  fireball_duration: 4
 --- !u!114 &114849138158005318
 MonoBehaviour:
   m_ObjectHideFlags: 1
