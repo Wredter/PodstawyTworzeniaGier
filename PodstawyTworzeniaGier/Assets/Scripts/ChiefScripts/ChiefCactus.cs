@@ -41,9 +41,10 @@ public class ChiefCactus : MonoBehaviour
         if(controller.Special2() && canSpawnCactus)
         {
             Debug.Log("KAKTUSSSSSSSS SPAWN!");
-            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
+            
             Vector3 chiefPosition = gameObject.GetComponent<Transform>().position;
             StartCoroutine(CactusSpawnCoroutine(CactusSpawnDelay, chiefPosition));
+            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
         }
     }
 
