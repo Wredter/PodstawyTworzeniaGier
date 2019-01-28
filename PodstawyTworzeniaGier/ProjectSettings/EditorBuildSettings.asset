@@ -5,24 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 79b05b5a9ee6a144cba6bf904ad046aa
   - enabled: 1
-    path: Assets/Scenes/NotInGameSc enes/CharacterSelection.unity
-    guid: 83b171eae3c7262488384ed1754d2a84
+    path: Assets/Scenes/MapSelection.unity
+    guid: f08e85e5736e44347bec670a058d00fc
   - enabled: 1
-    path: Assets/Scenes/NotInGameSc enes/stachuj.unity
-    guid: 8a341f34ece128444841c13f646217f8
+    path: Assets/Scenes/SelectionScreen2Players.unity
+    guid: 5fcf70d28a3520b4cafa5fe94b652861
   - enabled: 1
-    path: Assets/Scenes/Player2Won.unity
-    guid: 4aa6a0363f46c164487e921814c5e335
+    path: Assets/Scenes/SelectionScreen4Players.unity
+    guid: 552c758176463a84e9426002a8ab6793
+  - enabled: 1
+    path: Assets/Scenes/2Player/DeathMatchDesert2Players.unity
+    guid: 18896b44d19260b42a33e3f60e7723cb
+  - enabled: 1
+    path: Assets/Scenes/2Player/DeathMatchMeadow2Players.unity
+    guid: a776be820a39be54687922cc0da9e59e
   - enabled: 1
     path: Assets/Scenes/2Player/KingOfTheHillDesert2Players.unity
     guid: 0c049e20884ca0d46ba3183d6e802b17
@@ -30,21 +30,27 @@ EditorBuildSettings:
     path: Assets/Scenes/2Player/KingOfTheHillMeadow2Players.unity
     guid: f41b89e810d905446a8dcd2ecc439c0d
   - enabled: 1
+    path: Assets/Scenes/4Player/DeathMatchDesert4Players.unity
+    guid: 9b6759ef7a667ad4f95e87f51f8267b9
+  - enabled: 1
+    path: Assets/Scenes/4Player/DeathMatchMeadow4Players.unity
+    guid: 2f13b8d60160d884d82e4bbf8f4c0f38
+  - enabled: 1
+    path: Assets/Scenes/4Player/KingOfTheHillDesert4Players.unity
+    guid: a46b49fc24e5dd94ebdc4c7e83849607
+  - enabled: 1
+    path: Assets/Scenes/4Player/KingOfTheHillMeadow4Players.unity
+    guid: 0624c6a2f47b7fd4a93da1a7012e3bfd
+  - enabled: 1
     path: Assets/Scenes/Player1Won.unity
     guid: e5846a7d0b48e6542b0b92153c14d9ce
   - enabled: 1
-    path: Assets/Scenes/SelectionScreen2Players.unity
-    guid: 5fcf70d28a3520b4cafa5fe94b652861
+    path: Assets/Scenes/Player2Won.unity
+    guid: 4aa6a0363f46c164487e921814c5e335
   - enabled: 1
-    path: Assets/Scenes/2Player/DeathMatchMeadow2Players.unity
-    guid: a776be820a39be54687922cc0da9e59e
+    path: Assets/Scenes/Player3Won.unity
+    guid: 3e5a543594a2fac4aa988c98c39bc12c
   - enabled: 1
-    path: Assets/Scenes/MapSelection.unity
-    guid: f08e85e5736e44347bec670a058d00fc
-  - enabled: 1
-    path: Assets/Scenes/SelectionScreen4Players.unity
-    guid: 552c758176463a84e9426002a8ab6793
-  - enabled: 1
-    path: Assets/Scenes/2Player/DeathMatchDesert2Players.unity
-    guid: 18896b44d19260b42a33e3f60e7723cb
+    path: Assets/Scenes/Player4Won.unity
+    guid: 060ce3155ce98ad419f16225bfbbbccf
   m_configObjects: {}
