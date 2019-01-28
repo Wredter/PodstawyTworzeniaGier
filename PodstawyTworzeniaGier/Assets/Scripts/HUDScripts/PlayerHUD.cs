@@ -68,13 +68,19 @@ public class PlayerHUD : MonoBehaviour {
         deviceName = PlayerPrefs.GetString(name + "Controller");
         horde.transform.SetParent(gameObject.transform);
         horde.GetComponent<Horde>().SetPlayerName(name);
-        switch(name)
+        switch (name)
         {
             case "Player1":
-                horde.gameObject.transform.position = new Vector2(-28, -30);
+                horde.gameObject.transform.position = new Vector2(-28, 40);
                 break;
             case "Player2":
                 horde.gameObject.transform.position = new Vector2(45, 40);
+                break;
+            case "Player3":
+                horde.gameObject.transform.position = new Vector2(-28, -30);
+                break;
+            case "Player4":
+                horde.gameObject.transform.position = new Vector2(45, -30);
                 break;
         }
         horde.GetComponent<Horde>().SetDeviceSignature(deviceName);
@@ -146,10 +152,16 @@ public class PlayerHUD : MonoBehaviour {
         switch (name)
         {
             case "Player1":
-                horde.gameObject.transform.position = new Vector2(-28, -30);
+                horde.gameObject.transform.position = new Vector2(-28, 40);
                 break;
             case "Player2":
                 horde.gameObject.transform.position = new Vector2(45, 40);
+                break;
+            case "Player3":
+                horde.gameObject.transform.position = new Vector2(-28, -30);
+                break;
+            case "Player4":
+                horde.gameObject.transform.position = new Vector2(45, -30);
                 break;
         }
         horde.GetComponent<Horde>().SetDeviceSignature(deviceName);

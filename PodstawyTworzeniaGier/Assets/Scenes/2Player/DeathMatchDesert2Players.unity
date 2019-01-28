@@ -5850,7 +5850,7 @@ Prefab:
     - target: {fileID: 224710592466395738, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224369004918423950, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
@@ -5860,7 +5860,7 @@ Prefab:
     - target: {fileID: 224776273559790910, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a7125993813b54ca50d1509723cb73, type: 2}
@@ -8091,7 +8091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1118759825}
-  isPlayer2: 0
   map: {fileID: 695702538}
 --- !u!20 &722861071
 Camera:
@@ -8449,10 +8448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad667d1d60d3bd45a24edb0a034411b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameType: 0
-  maxScore: 3
+  maxScore: 0
   player1: {fileID: 1118759825}
   player2: {fileID: 1853032834}
+  player3: {fileID: 0}
+  player4: {fileID: 0}
 --- !u!224 &1002065175 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224726435480153254, guid: d9a7125993813b54ca50d1509723cb73,
@@ -34125,7 +34125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1853032834}
-  isPlayer2: 1
   map: {fileID: 695702538}
 --- !u!20 &1312593882
 Camera:

@@ -1833,7 +1833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1705446890}
-  isPlayer2: 1
   map: {fileID: 192333440}
 --- !u!20 &470127732
 Camera:
@@ -2002,7 +2001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1705446892}
-  isPlayer2: 0
   map: {fileID: 192333440}
 --- !u!20 &546036235
 Camera:
@@ -3901,12 +3899,12 @@ Prefab:
     - target: {fileID: 224776273559790910, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224710592466395738, guid: d9a7125993813b54ca50d1509723cb73,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a7125993813b54ca50d1509723cb73, type: 2}
@@ -3952,10 +3950,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad667d1d60d3bd45a24edb0a034411b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameType: 0
-  maxScore: 10
+  maxScore: 20
   player1: {fileID: 1705446892}
   player2: {fileID: 1705446890}
+  player3: {fileID: 0}
+  player4: {fileID: 0}
 --- !u!1 &1741341967
 GameObject:
   m_ObjectHideFlags: 0
