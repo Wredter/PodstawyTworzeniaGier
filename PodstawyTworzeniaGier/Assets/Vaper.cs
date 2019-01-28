@@ -38,7 +38,7 @@ public class Vaper : MonoBehaviour
 
 
         //controller.Special2() || 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (controller.Special2())
         {
             Debug.Log("vaper ");
             Vap();
