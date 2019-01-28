@@ -14,10 +14,11 @@ public class Vaper : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        VapTimer = 0;
+        VapTimer = VapTime;
     }
-    public int vapIStart = 5;
+    public int vapIStart = 25;
     public float VapTime = 5;
+    public float VapFreq = 5;
     private float VapTimer;
     private float vapDelta;
     private int vapI;
@@ -28,16 +29,16 @@ public class Vaper : MonoBehaviour
 
         if (vapI > 1)
         {
-            if (vapI > VapTime - VapTimer)
+            if (vapI > vapIStart - VapTimer*VapFreq)
             {
                 vapI--;
-                Instantiate(chmurka, transform.position, transform.rotation);
+                Instantiate(chmurka, new Vector3(transform.position.x + Random.Range(-1, 1), transform.position.y + Random.Range(-1, 1), transform.position.z), transform.rotation);
             }
         }
 
 
         //controller.Special2() || 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (controller.Special2())
         {
             Debug.Log("vaper ");
             Vap();
@@ -46,7 +47,7 @@ public class Vaper : MonoBehaviour
 
     public void Vap()
     {
-        if (VapTimer > VapTime || true)
+        if (VapTimer > VapTime)
         {
             Debug.Log("vaper skkill");
             vapI = vapIStart;

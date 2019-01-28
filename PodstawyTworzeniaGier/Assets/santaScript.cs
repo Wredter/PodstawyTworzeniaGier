@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class santaScript : MonoBehaviour {
+public class SantaScript : MonoBehaviour {
     IController controller;
     public GameObject peleryna;
-    public float cooldown = 4;
-    public float skillTime = 9;
+    public float cooldown = 8;
+    public float skillTime = 4;
     float timer = 0;
     float cooldownTimer = 0;
     bool isSkill = false;
 	void Start () {
-        peleryna.transform.localScale = new Vector3(1, 1, 1);
+        peleryna.transform.localScale = new Vector3(0.5f, 0.5f, 1);
     }
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         timer += Time.deltaTime;
         cooldownTimer += Time.deltaTime;
         if (timer > skillTime && isSkill)
@@ -33,12 +32,12 @@ public class santaScript : MonoBehaviour {
 
         if (isSkill)
         {
-            scl = 1f - (timer - skillTime) * (timer) / skillTime / skillTime *4f;
+            scl = 0.5f - (timer - skillTime) * (timer) / skillTime / skillTime *8f;
             peleryna.transform.localScale = new Vector3(scl, scl, 1);
         }
         else
         {
-            peleryna.transform.localScale = new Vector3(1, 1, 1);
+            peleryna.transform.localScale = new Vector3(0.5f, 0.5f, 1);
         }
     }
     float scl;
