@@ -162,8 +162,10 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     FindObjectOfType<SpawnControll>().RespawnPlayer2(gameObject);
                     break;
                 case "Player3":
+                    FindObjectOfType<SpawnControll>().RespawnPlayer3(gameObject);
                     break;
                 case "Player4":
+                    FindObjectOfType<SpawnControll>().RespawnPlayer4(gameObject);
                     break;
             }
         }

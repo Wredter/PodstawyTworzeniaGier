@@ -128,7 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf7da6866ba67746befddc995defbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 2
+  maxSpeed: 1
+  volume: 1
+  skillSounds:
+  - {fileID: 8300000, guid: 413b150a3d880ab418f743486af75022, type: 3}
+  - {fileID: 8300000, guid: c6387e982e7c52942b5e283c47044d27, type: 3}
   cactus: {fileID: 4985984915745468, guid: d408d56410450bb4b9dddd3d4ca72eac, type: 2}
   CactusCooldown: 3
   CactusSpawnDelay: 0.2

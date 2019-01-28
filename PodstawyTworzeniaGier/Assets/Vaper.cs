@@ -5,6 +5,10 @@ using UnityEngine;
 public class Vaper : MonoBehaviour
 {
     IController controller;
+    [Range(0f, 1f)]
+    public float volume;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
     public void SetController(IController controller)
     {
         this.controller = controller;
@@ -15,6 +19,7 @@ public class Vaper : MonoBehaviour
     void Start()
     {
         VapTimer = VapTime;
+        skillSoundSource = GetComponent<AudioSource>();
     }
     public int vapIStart = 25;
     public float VapTime = 5;
@@ -41,6 +46,7 @@ public class Vaper : MonoBehaviour
         if (controller.Special2())
         {
             Debug.Log("vaper ");
+            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
             Vap();
         }
     }
