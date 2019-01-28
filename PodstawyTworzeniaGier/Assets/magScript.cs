@@ -28,10 +28,11 @@ public class magScript : MonoBehaviour {
             Vector3 chiefPosition = gameObject.GetComponent<Transform>().position;
             f1 = Instantiate(fireball,new Vector3(rb.transform.position.x, rb.transform.position.y,0),Quaternion.Euler(0,0,0));
             f2 = Instantiate(fireball, new Vector3(rb.transform.position.x, rb.transform.position.y, 0), Quaternion.Euler(0, 0, 180));
-            f1.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius,gameObject,true);
-            f2.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius, gameObject,false);
-            Debug.Log("Wut");
             fireball_cd = 1;
+            f1.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius, gameObject, true);
+            f2.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius, gameObject, false);
+            //Debug.Log("Wut");
+            
         }
     }
 }

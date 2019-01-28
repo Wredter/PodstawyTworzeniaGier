@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4120661599917332}
   - component: {fileID: 50379892611735170}
-  - component: {fileID: 58975379310023412}
   - component: {fileID: 114408321772581542}
   - component: {fileID: 212515253011112870}
   - component: {fileID: 114849138158005318}
+  - component: {fileID: 58422858819959678}
   m_Layer: 0
   m_Name: mag
   m_TagString: Untagged
@@ -64,7 +64,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &58975379310023412
+--- !u!58 &58422858819959678
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,9 +76,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02243042, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.47836304
+  m_Radius: 0.5
 --- !u!114 &114408321772581542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 1364393793842168, guid: 8aa8ad91521693a45a1e36f91cf190fc, type: 2}
-  radius: 5
+  radius: 8
 --- !u!114 &114849138158005318
 MonoBehaviour:
   m_ObjectHideFlags: 1
