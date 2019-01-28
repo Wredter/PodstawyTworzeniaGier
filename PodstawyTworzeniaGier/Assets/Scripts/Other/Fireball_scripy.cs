@@ -13,6 +13,8 @@ public class Fireball_scripy : MonoBehaviour {
     private float z;
     private float obrut;
     private bool right;
+    private int dmg;
+    private float speed;
     private GameObject caster;
     // Use this for initialization
     void Start() {
@@ -21,12 +23,14 @@ public class Fireball_scripy : MonoBehaviour {
         z = 0;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
-    public void cast(Vector2 offset,float radius,GameObject caster,bool right)
+    public void cast(Vector2 offset,float radius,GameObject caster,bool right,int damage,float speed)
     {
         posOffset = offset;
         this.radius = radius;
         this.caster = caster;
         this.right = right;
+        this.speed = speed;
+        dmg = damage;
         if (right)
         {
             transform.Rotate(new Vector3(0,0,90));
@@ -40,7 +44,7 @@ public class Fireball_scripy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timecounter += Time.deltaTime;
+        timecounter += Time.deltaTime*speed;
 
         float x = Mathf.Cos(timecounter);
         float y = Mathf.Sin(timecounter);
@@ -67,6 +71,15 @@ public class Fireball_scripy : MonoBehaviour {
 	}
     public void OnTriggerEnter2D(Collider2D col)
     {
-
+        if (col.GetComponent<MinionBase>())
+        {
+            if(col.GetComponent<MinionBase>().GetPlayerName() != caster.GetComponent<magScript>().GetChief().GetPlayerName())
+                col.GetComponent<MinionBase>().DealDamage(dmg);
+        }
+        if (col.GetComponent<Projectile>())
+        {
+            if (col.GetComponent<Projectile>().GetPlayerName() != caster.GetComponent<magScript>().GetChief().GetPlayerName())
+                Destroy(col.gameObject);
+        }
     }
 }
