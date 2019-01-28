@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544957344477142}
   - component: {fileID: 212024400950337436}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: vaper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ Transform:
   m_GameObject: {fileID: 1769672431670180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4261642826320894}
   m_RootOrder: 0
