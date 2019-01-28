@@ -9,15 +9,20 @@ public class TitleScreenScript : MonoBehaviour
     public Button fourPlayers;
     public Button exit;
 
+    public string player1Controller;
+    public string player2Controller;
+    public string player3Controller;
+    public string player4Controller;
+
     private int controllersCount;
-    private List<ControllerXbox> controllers;
+    private List<IController> controllers;
     private List<bool> hasMoved;
     private List<Button> activeButtons;
     private int currentButton;
 
     void Start()
     {
-        controllers = new List<ControllerXbox>();
+        controllers = new List<IController>();
         hasMoved = new List<bool>();
         activeButtons = new List<Button>();
         currentButton = 0;
@@ -27,7 +32,7 @@ public class TitleScreenScript : MonoBehaviour
     }
 
     void FixedUpdate()
-    {        
+    {
         for (int i = 0; i < controllers.Count; i++)
         {
             #region Change active button
@@ -44,7 +49,7 @@ public class TitleScreenScript : MonoBehaviour
             }
             else if (!hasMoved[i] && controllers[i].MoveVertical() < -0.8)
             {
-                if(currentButton != activeButtons.Count-1)
+                if (currentButton != activeButtons.Count - 1)
                 {
                     int pom = currentButton + 1;
                     activeButtons[pom].GetComponent<Image>().color = Color.yellow;
@@ -59,9 +64,13 @@ public class TitleScreenScript : MonoBehaviour
             }
             #endregion
             #region Select button
-            if(controllers[i].Select())
+            if (controllers[i].Select())
             {
-                if(currentButton == 0 && activeButtons.Count > 1)
+                PlayerPrefs.SetString("Player1Controller", player1Controller);
+                PlayerPrefs.SetString("Player2Controller", player2Controller);
+                PlayerPrefs.SetString("Player3Controller", player3Controller);
+                PlayerPrefs.SetString("Player4Controller", player4Controller);
+                if (currentButton == 0 && activeButtons.Count > 1)
                 {
                     PlayerPrefs.SetInt("PlayersCount", 2);
                     SceneManager.LoadScene("MapSelection");
@@ -92,6 +101,10 @@ public class TitleScreenScript : MonoBehaviour
                 controllersCount++;
             }
         }
+        if (player1Controller == "") controllersCount++;
+        if (player2Controller == "") controllersCount++;
+        if (player3Controller == "") controllersCount++;
+        if (player4Controller == "") controllersCount++;
 
         switch (controllersCount)
         {
@@ -128,12 +141,26 @@ public class TitleScreenScript : MonoBehaviour
         if (controllers.Count != controllersToCreate)
         {
             hasMoved = new List<bool>();
-            controllers = new List<ControllerXbox>();
+            controllers = new List<IController>();
             for (int i = 0; i < controllersToCreate; i++)
             {
+                IController controller = null;
+                string deviceSignature = "";
+                if (i == 0) deviceSignature = player1Controller;
+                if (i == 1) deviceSignature = player2Controller;
+                if (i == 2) deviceSignature = player3Controller;
+                if (i == 3) deviceSignature = player4Controller;
+                if(deviceSignature == "")
+                {
+                    controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;                   
+                }
+                else
+                {
+                    controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
+                }
+                controller.SetDeviceSignature(deviceSignature);
+                controllers.Add(controller);
                 hasMoved.Add(true);
-                controllers.Add(new ControllerXbox());
-                controllers[i].SetDeviceSignature("Joystick" + (i + 1));
             }
         }
     }

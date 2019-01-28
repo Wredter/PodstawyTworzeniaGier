@@ -43,8 +43,23 @@ public class MapSelectionScript : MonoBehaviour
         controllers = new List<IController>();
         for (int i = 0; i < PlayerPrefs.GetInt("PlayersCount"); i++)
         {
-            controllers.Add(new ControllerXbox());
-            controllers[i].SetDeviceSignature("Joystick" + (i + 1));
+            string deviceSignature = PlayerPrefs.GetString("Player" + (i + 1) + "Controller");
+            Debug.Log(deviceSignature);
+            IController controller = null;
+            switch (deviceSignature)
+            {
+                case "Joystick1":
+                case "Joystick2":
+                case "Joystick3":
+                case "Joystick4":
+                    controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
+                    break;
+                case "":
+                    controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
+                    break;
+            }            
+            controller.SetDeviceSignature(deviceSignature);
+            controllers.Add(controller);
             hasMoved.Add(false);
         }
         gamemode1.GetComponent<Image>().color = Color.yellow;

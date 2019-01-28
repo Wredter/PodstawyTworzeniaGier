@@ -48,6 +48,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     {
         
         axes = new LinkedList<GameObject>();
+        deviceSignature = PlayerPrefs.GetString(playerName + "Controller");
         switch (deviceSignature)
         {
             case "Joystick1":

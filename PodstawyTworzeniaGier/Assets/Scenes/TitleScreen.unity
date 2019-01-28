@@ -215,7 +215,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5fcb6198e9c464241b76456b887ef3cb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.106
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -711,6 +711,10 @@ MonoBehaviour:
   twoPlayers: {fileID: 1505797658}
   fourPlayers: {fileID: 1515491879}
   exit: {fileID: 1477140177}
+  player1Controller: Joystick1
+  player2Controller: 
+  player3Controller: Joystick2
+  player4Controller: Joystick3
 --- !u!1 &1477140175
 GameObject:
   m_ObjectHideFlags: 0

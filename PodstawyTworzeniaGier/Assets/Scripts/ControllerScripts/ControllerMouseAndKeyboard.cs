@@ -13,22 +13,34 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
 
     public float LookHorizontal()
     {
-        return Input.GetAxis(deviceSignature + "Horizontal2");
+        if (Input.GetKey(KeyCode.LeftArrow)) return -1;
+        if (Input.GetKey(KeyCode.RightArrow)) return 1;
+        return 0;
+        //return Input.GetAxis(deviceSignature + "Horizontal2");
     }
 
     public float LookVertical()
     {
-        return Input.GetAxis(deviceSignature + "Vertical2");
+        if (Input.GetKey(KeyCode.DownArrow)) return -1;
+        if (Input.GetKey(KeyCode.UpArrow)) return 1;
+        return 0;
+        //return Input.GetAxis(deviceSignature + "Vertical2");
     }
 
     public float MoveHorizontal()
     {
-        return Input.GetAxis(deviceSignature + "Horizontal");
+        if (Input.GetKey(KeyCode.A)) return -1;
+        if (Input.GetKey(KeyCode.D)) return 1;
+        return 0;
+        //return Input.GetAxis(deviceSignature + "Horizontal");
     }
 
     public float MoveVertical()
     {
-        return Input.GetAxis(deviceSignature + "Vertical");
+        if (Input.GetKey(KeyCode.S)) return -1;
+        if (Input.GetKey(KeyCode.W)) return 1;
+        return 0;
+        //return Input.GetAxis(deviceSignature + "Vertical");
     }
 
     public bool Select()
