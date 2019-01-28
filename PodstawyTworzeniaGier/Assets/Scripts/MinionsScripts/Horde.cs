@@ -82,7 +82,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             obj = Instantiate(hordeMinion, transform.position + new Vector3(spawnRadius * Mathf.Cos(radius) + Random.value * random, spawnRadius * Mathf.Sin(radius) + Random.value * random, 0), Quaternion.identity, gameObject.transform);
             minions.Add(obj);
             minionsWithChief.Add(obj);
-
+            Physics2D.IgnoreCollision(obj.GetComponent<CircleCollider2D>(), chief.GetComponent<CircleCollider2D>());
             //gameObject.AddComponent<NetworkTransformChild>();
 
         }
@@ -113,9 +113,9 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         {
             chief.GetComponent<vaperScript>().SetController(controller);
         }
-        if (chief.GetComponent<santaScript>())
+        if (chief.GetComponent<SantaScript>())
         {
-            chief.GetComponent<santaScript>().SetController(controller);
+            chief.GetComponent<SantaScript>().SetController(controller);
         }
         if (chief.GetComponent<ChiefBase>())
         {
@@ -309,7 +309,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     }
                 }
             }
-            if (chief.GetComponent<santaScript>())
+            if (chief.GetComponent<SantaScript>())
             {
                 if (isSnowBall)
                 {
@@ -649,8 +649,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         foreach (GameObject minion in minions)
         {
             rx = 0; ry = 0;
-            dx = chief.transform.position.x + Random.Range(-1, 1) - minion.transform.position.x;
-            dy = chief.transform.position.y + Random.Range(-1, 1) - minion.transform.position.y;
+            dx = chief.transform.position.x + Random.Range(0.4f, 1)* (((int)Random.Range(1, 9)) / 5 * 2 - 1) - minion.transform.position.x;
+            dy = chief.transform.position.y + Random.Range(0.4f, 1)* (((int)Random.Range(1, 9)) / 5 * 2 - 1) - minion.transform.position.y;
             minion.GetComponent<Rigidbody2D>().AddForce(new Vector3(chief.transform.position.x + rx, chief.transform.position.y + ry, minion.transform.position.z));
 
         }

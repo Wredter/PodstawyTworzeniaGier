@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1581557470960154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8372262, y: -0.20805615, z: 20.4}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,8 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chmurka: {fileID: 1174130241056830, guid: 6c47bfe570d33d94494aa06843548b34, type: 2}
-  vapIStart: 5
-  VapTime: 5
+  vapIStart: 50
+  VapTime: 7
+  VapFreq: 10
 --- !u!114 &114050819981034170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +132,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
-    type: 2}
-  archersWon: {fileID: 0}
-  vikingsWon: {fileID: 0}

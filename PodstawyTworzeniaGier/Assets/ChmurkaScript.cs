@@ -19,7 +19,7 @@ public class ChmurkaScript : MonoBehaviour {
         time2 -= Time.deltaTime;
         time += time2 * Time.deltaTime;
         scl = time;
-        transform.localScale = new Vector3(scl/4f, scl/4f, 1);
+        transform.localScale = new Vector3(scl, scl, 1);
         if (scl < 0)
         {
             Destroy(gameObject);
