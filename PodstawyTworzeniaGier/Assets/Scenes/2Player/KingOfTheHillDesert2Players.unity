@@ -2529,7 +2529,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 132919
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: 6e2418668645efe45973b7a77d5c335d, type: 2}
   m_TargetDisplay: 0
@@ -34160,7 +34160,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1392814103}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5551, y: 5.0387692, z: 1}
+  m_LocalPosition: {x: 9.63, y: 5.0387692, z: 1}
   m_LocalScale: {x: 0.7974297, y: 0.698444, z: 1}
   m_Children: []
   m_Father: {fileID: 69623553}
@@ -40415,7 +40415,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1702173440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.817, y: 4.284, z: 1}
+  m_LocalPosition: {x: 9.55, y: 4.284, z: 1}
   m_LocalScale: {x: 0.565677, y: 0.47098187, z: 1}
   m_Children: []
   m_Father: {fileID: 69623553}
@@ -40645,7 +40645,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -40941,7 +40941,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1897209267}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.70543, y: 5.20131, z: 1}
+  m_LocalPosition: {x: 7.70543, y: 6.31, z: 1}
   m_LocalScale: {x: 0.65594965, y: 0.4574376, z: 1}
   m_Children: []
   m_Father: {fileID: 69623553}

@@ -27,7 +27,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     private LinkedList<GameObject> axes;
     private int axeRespawnCounter = 0;
     //Audio
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     public float volume;
     public List<AudioClip> skillSounds;
     private AudioSource skillSoundSource;
@@ -97,7 +97,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
 
         minionsWithChief.ForEach(m => m.name = hordeName);
-        if (chief.GetComponent<Chief>()) {
+        if (chief.GetComponent<Chief>())
+        {
             chief.GetComponent<Chief>().SetController(controller);
         }
         if (chief.GetComponent<ChiefBase>())
@@ -119,7 +120,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         }
         if (chief.GetComponent<ChiefBase>())
         {
-        chief.GetComponent<ChiefBase>().SetPlayerName(playerName);
+            chief.GetComponent<ChiefBase>().SetPlayerName(playerName);
         }
         if (chief.GetComponent<Chief>())
         {
@@ -136,7 +137,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
         pociong = new GameObject[4, 100];
 
-        if(minions[0].GetComponent<Viking>())
+        if (minions[0].GetComponent<Viking>())
         {
             foreach (GameObject g in minions)
             {
@@ -153,7 +154,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         minions = minions.FindAll(m => m != null);
         if (minions.Count <= 0)
         {
-            switch(playerName)
+            switch (playerName)
             {
                 case "Player1":
                     FindObjectOfType<SpawnControll>().RespawnPlayer1(gameObject);
@@ -270,7 +271,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     {
                         if (dashCooldownTimer <= 0)
                         {
-                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0,skillSounds.Count)],volume);
+                            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
                             dashForce = 2000;
                             dashCooldownTimer = dashCooldown;
                         }
@@ -279,7 +280,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     {
                         if (divideCooldownTimer <= 0)
                         {
-                            
+
                             divide = 12;
                             if (isZombie) divide = 25;
                             center = chief.transform.position;
@@ -367,7 +368,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             if (divide > 0) divideHorde();
             else { divideX = 0; divideY = 0; }
 
-            if(minions.Count > 0) {
+            if (minions.Count > 0)
+            {
                 if (minions[0].GetComponent<Viking>())
                 {
                     foreach (GameObject g in axes)
@@ -411,13 +413,18 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     public void FixedUpdate()
     {
         axeRespawnCounter++;
-        if (minions[0].GetComponent<Viking>())
+        if (minions.Count > 0)
         {
-            //respawn axes
-            if (axeRespawnCounter % axeRespawnRate == 0)
-            {
-                AddAxe();
-            }
+            minions = minions.FindAll(m => m != null);
+            if (minions.Count > 0)
+                if (minions[0].GetComponent<Viking>())
+                {
+                    //respawn axes
+                    if (axeRespawnCounter % axeRespawnRate == 0)
+                    {
+                        AddAxe();
+                    }
+                }
         }
     }
 
@@ -651,8 +658,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         foreach (GameObject minion in minions)
         {
             rx = 0; ry = 0;
-            dx = chief.transform.position.x + Random.Range(0.4f, 1)* (((int)Random.Range(1, 9)) / 5 * 2 - 1) - minion.transform.position.x;
-            dy = chief.transform.position.y + Random.Range(0.4f, 1)* (((int)Random.Range(1, 9)) / 5 * 2 - 1) - minion.transform.position.y;
+            dx = chief.transform.position.x + Random.Range(0.4f, 1) * (((int)Random.Range(1, 9)) / 5 * 2 - 1) - minion.transform.position.x;
+            dy = chief.transform.position.y + Random.Range(0.4f, 1) * (((int)Random.Range(1, 9)) / 5 * 2 - 1) - minion.transform.position.y;
             minion.GetComponent<Rigidbody2D>().AddForce(new Vector3(chief.transform.position.x + rx, chief.transform.position.y + ry, minion.transform.position.z));
 
         }
@@ -727,7 +734,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     #region axe management
     public void AddAxe()
     {
-        if(axeCount <  axesPerViking * minions.Count)
+        if (axeCount < axesPerViking * minions.Count)
         {
             axeCount++;
         }
@@ -744,7 +751,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
     public void RemoveAxe()
     {
-        if(axeCount > 0)
+        if (axeCount > 0)
         {
             axeCount--;
         }

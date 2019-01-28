@@ -70,8 +70,10 @@ public class Arrow : Projectile
             //skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
             ((Archer)player).ReturnProjectile(gameObject);
             //gameObject.GetComponent<Renderer>().enabled = false;
-            Destroy(gameObject);
-            
+            if(collision.tag != "PointsAddArea")
+            {
+                Destroy(gameObject);
+            }            
         }
     }
 }

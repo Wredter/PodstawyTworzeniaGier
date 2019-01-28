@@ -84,7 +84,6 @@ public class TitleScreenScript : MonoBehaviour
                 else
                 {
                     Application.Quit();
-                    UnityEditor.EditorApplication.isPlaying = false;
                 }
             }
             #endregion

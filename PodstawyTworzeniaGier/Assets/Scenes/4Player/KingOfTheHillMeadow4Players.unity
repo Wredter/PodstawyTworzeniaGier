@@ -30773,7 +30773,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -31180,7 +31180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d839ae2264a00d446bed26c3e259687f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: Player1
+  player: Player4
 --- !u!114 &777538053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33544,7 +33544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d839ae2264a00d446bed26c3e259687f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: Player1
+  player: Player3
 --- !u!114 &1215067834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34214,7 +34214,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 132919
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: 6e2418668645efe45973b7a77d5c335d, type: 2}
   m_TargetDisplay: 0
