@@ -66,6 +66,7 @@ public class PlayerHUD : MonoBehaviour {
             }
         }
         deviceName = PlayerPrefs.GetString(name + "Controller");
+        horde.transform.SetParent(gameObject.transform);
         horde.GetComponent<Horde>().SetPlayerName(name);
         switch(name)
         {

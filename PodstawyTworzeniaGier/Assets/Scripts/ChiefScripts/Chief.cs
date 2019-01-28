@@ -15,6 +15,7 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
     private Vector2 previous;
     private Vector2 next;
     protected Rigidbody2D rb2d;
+    private float points = 0;
 
     // Use this for initialization
     void Start () {
@@ -66,6 +67,12 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
         if (collision.gameObject.tag == "Mud")
         {
             GetComponentInParent<Horde>().slow = 0.5f;
+        }
+        if (collision.gameObject.tag == "PointsAddArea")
+        {
+            points += 0.01f;
+            Debug.Log(points);
+            PlayerPrefs.SetInt(playerName + "score", (int)points);
         }
     }
 

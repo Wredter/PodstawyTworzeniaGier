@@ -11,19 +11,31 @@ public class Fireball_scripy : MonoBehaviour {
     private float radius;
     private Rigidbody2D rb2d;
     private float z;
+    private float obrut;
+    private bool right;
     private GameObject caster;
     // Use this for initialization
     void Start() {
         oldX = 0;
         oldY = 0;
         z = 0;
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
-    public void cast(Vector2 offset,float radius,GameObject caster)
+    public void cast(Vector2 offset,float radius,GameObject caster,bool right)
     {
         posOffset = offset;
         this.radius = radius;
         this.caster = caster;
+        this.right = right;
+        if (right)
+        {
+            transform.Rotate(new Vector3(0,0,90));
+        }
+        else
+        {
+            transform.Rotate(new Vector3(0, 0, 90));
+        }
+
     }
 	
 	// Update is called once per frame
@@ -35,12 +47,20 @@ public class Fireball_scripy : MonoBehaviour {
         Vector2 current = new Vector2(x,y);
         Vector2 old = new Vector2(oldX, oldY);
 
+
         posOffset.x = caster.transform.position.x;
         posOffset.y = caster.transform.position.y;
         z = Vector2.Angle(old, current);
-
-        transform.position = new Vector3((x*radius)+posOffset.x,(y*radius)+posOffset.y,0);
-        transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z);
+        if (right)
+        {
+            transform.position = new Vector3((-x * radius) + posOffset.x, (-y * radius) + posOffset.y, 0);
+            transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z);
+        }
+        else
+        {
+            transform.position = new Vector3((x * radius) + posOffset.x, (y * radius) + posOffset.y, 0);
+            transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z);
+        }
         oldX = x;
         oldY = y;
 		

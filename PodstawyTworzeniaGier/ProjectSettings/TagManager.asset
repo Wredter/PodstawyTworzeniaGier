@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Horde
   - Mud
+  - PointsAddArea
   layers:
   - Default
   - TransparentFX

@@ -65,7 +65,7 @@ public class Arrow : Projectile
             Destroy(gameObject);
             return;
         }
-        if (!collision.gameObject.GetComponent<MinionBase>() && !collision.gameObject.GetComponent<ChiefBase>())
+        if (!collision.gameObject.GetComponent<MinionBase>() && !collision.gameObject.GetComponent<ChiefBase>() && collision.tag != "Mud")
         {
             //skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
             ((Archer)player).ReturnProjectile(gameObject);
