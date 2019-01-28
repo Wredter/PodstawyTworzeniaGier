@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class magScript : MonoBehaviour {
     public GameObject fireball;
+    private GameObject f1;
+    private GameObject f2;
     private Chief chief;
     private Rigidbody2D rb;
     [Range(0f,10f)]
@@ -23,10 +25,12 @@ public class magScript : MonoBehaviour {
         fireball_cd -= Time.deltaTime;
         if (chief.GetController().Special2() && fireball_cd <= 0)
         {
-            Debug.Log("FireBall");
             Vector3 chiefPosition = gameObject.GetComponent<Transform>().position;
-            fireball = Instantiate(fireball,transform);
-            fireball.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y),radius,gameObject);
+            f1 = Instantiate(fireball,new Vector3(rb.transform.position.x, rb.transform.position.y,0),Quaternion.Euler(0,0,0));
+            f2 = Instantiate(fireball, new Vector3(rb.transform.position.x, rb.transform.position.y, 0), Quaternion.Euler(0, 0, 180));
+            f1.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius,gameObject,true);
+            f2.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius, gameObject,false);
+            Debug.Log("Wut");
             fireball_cd = 1;
         }
     }
