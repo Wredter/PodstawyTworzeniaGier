@@ -12,6 +12,7 @@ public class ChiefBase : MonoBehaviour, IPlayerIntegration {
     protected string playerName;
     protected Rigidbody2D rb2d;
     protected float actualHealth;
+    private IController controller;
 	
 	void Start () {
         actualHealth = health;
@@ -68,5 +69,10 @@ public class ChiefBase : MonoBehaviour, IPlayerIntegration {
     public void SetPlayerName(string playerName)
     {
         this.playerName = playerName;
+    }
+
+    public void SetController(IController controller)
+    {
+        this.controller = controller;
     }
 }

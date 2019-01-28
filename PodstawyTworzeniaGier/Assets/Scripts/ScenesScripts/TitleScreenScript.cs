@@ -23,41 +23,42 @@ public class TitleScreenScript : MonoBehaviour
         currentButton = 0;
         FillActiveButtonsList(1);
         CheckControllers();
-        InvokeRepeating("CheckControllers", 0, 1);
+        InvokeRepeating("CheckControllers", 0, .1f);
     }
 
     void FixedUpdate()
-    {
+    {        
         for (int i = 0; i < controllers.Count; i++)
         {
+            #region Change active button
             if (!hasMoved[i] && controllers[i].MoveVertical() > 0.8)
             {
-                int pom = 0;
-                if (currentButton == 0)
+                if (currentButton != 0)
                 {
-                    pom = activeButtons.Count - 1;
+                    int pom = currentButton - 1;
+                    activeButtons[pom].GetComponent<Image>().color = Color.yellow;
+                    activeButtons[currentButton].GetComponent<Image>().color = Color.white;
+                    currentButton = pom;
+                    hasMoved[i] = true;
                 }
-                else
-                {
-                    pom = (currentButton - 1) % activeButtons.Count;
-                }
-                activeButtons[pom].GetComponent<Image>().color = Color.yellow;
-                activeButtons[currentButton].GetComponent<Image>().color = Color.white;
-                currentButton = pom;
-                hasMoved[i] = true;
             }
             else if (!hasMoved[i] && controllers[i].MoveVertical() < -0.8)
             {
-                int pom = (currentButton + 1) % activeButtons.Count;
-                activeButtons[pom].GetComponent<Image>().color = Color.yellow;
-                activeButtons[currentButton].GetComponent<Image>().color = Color.white;
-                currentButton = pom;
-                hasMoved[i] = true;
+                if(currentButton != activeButtons.Count-1)
+                {
+                    int pom = currentButton + 1;
+                    activeButtons[pom].GetComponent<Image>().color = Color.yellow;
+                    activeButtons[currentButton].GetComponent<Image>().color = Color.white;
+                    currentButton = pom;
+                    hasMoved[i] = true;
+                }
             }
             else if (hasMoved[i] && controllers[i].MoveVertical() <= 0.8 && controllers[i].MoveVertical() >= -0.8)
             {
                 hasMoved[i] = false;
             }
+            #endregion
+            #region Select button
             if(controllers[i].Select())
             {
                 if(currentButton == 0 && activeButtons.Count > 1)
@@ -78,6 +79,7 @@ public class TitleScreenScript : MonoBehaviour
                     UnityEditor.EditorApplication.isPlaying = false;
                 }
             }
+            #endregion
         }
     }
 
