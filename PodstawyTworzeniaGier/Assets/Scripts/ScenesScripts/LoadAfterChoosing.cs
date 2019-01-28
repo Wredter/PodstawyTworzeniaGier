@@ -3,9 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadAfterChoosing : MonoBehaviour
 {
-    public enum GameTypes { DeathMatch, KingOfTheHill }
-    public GameTypes gameType;
-    public int playerCount;
+    private int playerCount;
     private int readyPlayers;
 
     public void Start()

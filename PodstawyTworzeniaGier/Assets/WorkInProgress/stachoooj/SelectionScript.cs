@@ -33,14 +33,18 @@ public class SelectionScript : MonoBehaviour
 
     void Start()
     {
+        deviceSignature = PlayerPrefs.GetString(player + "Controller");        
         switch (deviceSignature)
         {
             case "Joystick1":
             case "Joystick2":
+            case "Joystick3":
+            case "Joystick4":
                 controller = gameObject.AddComponent(typeof(ControllerXbox)) as ControllerXbox;
                 break;
             case "":
-                controller = new ControllerMouseAndKeyboard();
+                Debug.Log(deviceSignature);
+                controller = gameObject.AddComponent(typeof(ControllerMouseAndKeyboard)) as ControllerMouseAndKeyboard;
                 break;
         }
         controller.SetDeviceSignature(deviceSignature);
@@ -49,7 +53,7 @@ public class SelectionScript : MonoBehaviour
         minionsCarousel.transform.eulerAngles = minionsRotation;
         chiefsCarousel.transform.eulerAngles = chiefsRotation;
         chiefsSpotlight.SetActive(true);
-        minionsSpotlight.SetActive(false);
+        minionsSpotlight.SetActive(true);
     }
 
     void FixedUpdate()
@@ -116,16 +120,8 @@ public class SelectionScript : MonoBehaviour
         {
             if (isReady)
             {
-                if (selectionChiefs)
-                {
-                    chiefsSpotlight.SetActive(true);
-                    minionsSpotlight.SetActive(false);
-                }
-                else
-                {
-                    chiefsSpotlight.SetActive(false);
-                    minionsSpotlight.SetActive(true);
-                }
+                chiefsSpotlight.SetActive(true);
+                minionsSpotlight.SetActive(true);
                 nextSceneLauncher.GetComponent<LoadAfterChoosing>().UnReady();
                 isReady = false;
             }
@@ -153,16 +149,6 @@ public class SelectionScript : MonoBehaviour
             {
                 notMovedVertical = false;
                 selectionChiefs = !selectionChiefs;
-                if (selectionChiefs)
-                {
-                    chiefsSpotlight.SetActive(true);
-                    minionsSpotlight.SetActive(false);
-                }
-                else
-                {
-                    chiefsSpotlight.SetActive(false);
-                    minionsSpotlight.SetActive(true);
-                }
             }
             else if ((controller.MoveVertical() <= verticalActivationPoint && controller.MoveVertical() >= -verticalActivationPoint))
             {
@@ -176,7 +162,7 @@ public class SelectionScript : MonoBehaviour
         if (selectionChiefs)
         {
             selectedChief = (selectedChief + direction) % 4;
-            if(selectedChief == -1)
+            if (selectedChief == -1)
             {
                 selectedChief = 3;
             }

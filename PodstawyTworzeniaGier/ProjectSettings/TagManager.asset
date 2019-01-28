@@ -19,10 +19,10 @@ TagManager:
   - HUD_2
   - HUD_3
   - ScreenSplit
-  - 
-  - 
-  - 
-  - 
+  - SelectionPlayer1
+  - SelectionPlayer2
+  - SelectionPlayer3
+  - SelectionPlayer4
   - 
   - 
   - 
