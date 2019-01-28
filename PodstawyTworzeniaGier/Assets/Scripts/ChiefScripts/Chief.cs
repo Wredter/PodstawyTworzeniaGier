@@ -55,13 +55,6 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Projectile>())
-        {
-            if (collision.GetComponent<IPlayerIntegration>().GetPlayerName() != playerName)
-            {
-                //DealDamage(collision.GetComponent<Projectile>().damage);
-            }
-        }
         if (collision.gameObject.tag == "Mud")
         {
             GetComponentInParent<Horde>().slow = 0.5f;
