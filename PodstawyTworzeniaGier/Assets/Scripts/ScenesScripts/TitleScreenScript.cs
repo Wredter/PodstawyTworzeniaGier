@@ -164,7 +164,7 @@ public class TitleScreenScript : MonoBehaviour
                     activeButtons.Add(exit);
                     break;
             }
-            activeButtons[activeButtons.Count - 1].GetComponent<Image>().color = Color.yellow;
+            activeButtons[0].GetComponent<Image>().color = Color.yellow;
         }
     }
     #endregion
