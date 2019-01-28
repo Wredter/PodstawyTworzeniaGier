@@ -20,11 +20,16 @@ public class magScript : MonoBehaviour {
     public float fireball_duration;
     private float timer1;
     private float timer2;
+    [Range(0f, 1f)]
+    public float volume;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         chief = GetComponent<Chief>();
         rb = GetComponent<Rigidbody2D>();
+        skillSoundSource = GetComponent<AudioSource>();
         timer1 = 0;
         timer2 = 0;
 	}
@@ -43,8 +48,9 @@ public class magScript : MonoBehaviour {
             f2 = Instantiate(fireball, new Vector3(rb.transform.position.x, rb.transform.position.y, 0), Quaternion.Euler(0, 0, 180));
             f1.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius, gameObject, true, dmg, speed);
             f2.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y), radius, gameObject, false, dmg, speed);
+            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
             //Debug.Log("Wut");
-            
+
         }
         if (timer1 <=0)
         {

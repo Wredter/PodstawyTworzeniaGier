@@ -31,6 +31,7 @@ public class Fireball_scripy : MonoBehaviour {
         this.right = right;
         this.speed = speed;
         dmg = damage;
+        transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
         if (right)
         {
             transform.Rotate(new Vector3(0,0,90));
