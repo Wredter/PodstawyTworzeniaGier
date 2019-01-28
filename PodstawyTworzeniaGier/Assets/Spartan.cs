@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Spartan : MinionBase
 {
@@ -22,9 +20,9 @@ public class Spartan : MinionBase
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<MinionBase>())
+        if (collision.gameObject.GetComponent<MinionBase>())
         {
-            if(collision.gameObject.GetComponent<MinionBase>().GetPlayerName() != GetPlayerName() && !hasAttacked)
+            if (collision.gameObject.GetComponent<MinionBase>().GetPlayerName() != GetPlayerName() && !hasAttacked)
             {
                 collision.gameObject.GetComponent<MinionBase>().DealDamage(damage);
                 hasAttacked = true;
