@@ -46,8 +46,9 @@ public class Vaper : MonoBehaviour
         if (controller.Special2())
         {
             Debug.Log("vaper ");
-            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
+            
             Vap();
+            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
         }
     }
 
