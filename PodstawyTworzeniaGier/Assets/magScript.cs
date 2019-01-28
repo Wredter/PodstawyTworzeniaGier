@@ -23,7 +23,7 @@ public class magScript : MonoBehaviour {
             Debug.Log("FireBall");
             Vector3 chiefPosition = gameObject.GetComponent<Transform>().position;
             fireball = Instantiate(fireball,transform);
-            fireball.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y,radius));
+            fireball.GetComponent<Fireball_scripy>().cast(new Vector2(rb.transform.position.x, rb.transform.position.y),radius);
         }
     }
 }
