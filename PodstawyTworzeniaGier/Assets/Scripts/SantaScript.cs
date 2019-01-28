@@ -10,8 +10,13 @@ public class SantaScript : MonoBehaviour {
     float timer = 0;
     float cooldownTimer = 0;
     bool isSkill = false;
-	void Start () {
+    [Range(0f, 1f)]
+    public float volume;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
+    void Start () {
         peleryna.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+        skillSoundSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update () {
@@ -26,6 +31,7 @@ public class SantaScript : MonoBehaviour {
         if (controller.Special2())
         {
             Debug.Log("snowball");
+            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
             skill();
             
         }
@@ -47,6 +53,7 @@ public class SantaScript : MonoBehaviour {
         if (cooldownTimer > cooldown || true)
         {
             Debug.Log("snowball on");
+            
             cooldownTimer = 0;
             isSkill = true;
             timer = 0;

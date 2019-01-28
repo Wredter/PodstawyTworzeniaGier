@@ -91,6 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5077c075541354e8df0682c6ff6cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: 1
+  skillSounds:
+  - {fileID: 8300000, guid: 3ed87a7207744284ca6db993e183d5b5, type: 3}
+  - {fileID: 8300000, guid: e9ab232891e68c946a9a88f95cac70a4, type: 3}
+  - {fileID: 8300000, guid: 4e71c0bd69e3e77499f900576b32a7e7, type: 3}
+  - {fileID: 8300000, guid: 3efba5165939a214985a21804808b4af, type: 3}
+  - {fileID: 8300000, guid: db90b38dce243494e827af40a5b96f1f, type: 3}
   chmurka: {fileID: 1174130241056830, guid: 6c47bfe570d33d94494aa06843548b34, type: 2}
   vapIStart: 50
   VapTime: 7

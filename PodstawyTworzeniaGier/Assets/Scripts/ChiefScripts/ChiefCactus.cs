@@ -9,6 +9,10 @@ public class ChiefCactus : MonoBehaviour
     float moveX;
     float moveY;
     public float maxSpeed;
+    [Range(0f, 1f)]
+    public float volume;
+    public List<AudioClip> skillSounds;
+    private AudioSource skillSoundSource;
 
     //Pola potrzebne do kaktusa
     public Transform cactus;
@@ -26,6 +30,7 @@ public class ChiefCactus : MonoBehaviour
         CactusCooldown = 5f;
         CactusSpawnDelay = 2f;
         canSpawnCactus = true;
+        skillSoundSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -39,6 +44,7 @@ public class ChiefCactus : MonoBehaviour
         if(controller.Special2() && canSpawnCactus)
         {
             Debug.Log("KAKTUSSSSSSSS SPAWN!");
+            skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);
             Vector3 chiefPosition = gameObject.GetComponent<Transform>().position;
             StartCoroutine(CactusSpawnCoroutine(2f, chiefPosition));
         }

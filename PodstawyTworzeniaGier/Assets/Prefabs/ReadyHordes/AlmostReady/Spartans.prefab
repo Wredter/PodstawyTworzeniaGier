@@ -162,9 +162,10 @@ MonoBehaviour:
   slow: 1
   axesPerViking: 0
   axeRespawnRate: 0
-  volume: 0
+  volume: 1
   skillSounds:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 6ee877bad9ff99e42aea96d57b4dcbdd, type: 3}
+  - {fileID: 8300000, guid: 1d9901e4133b0bf428e322f644bc5442, type: 3}
   minions: []
   minionsWithChief: []
   spartanCooldown: 5
