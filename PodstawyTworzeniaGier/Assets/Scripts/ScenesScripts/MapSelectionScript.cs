@@ -8,8 +8,12 @@ public class MapSelectionScript : MonoBehaviour
 {
     public Button gamemode1;
     public Button gamemode2;
+    public Image gamemodeImage;
+    public Text gamemodeText;
     public Button map1;
     public Button map2;
+    public Image mapImage;
+    public Text mapText;
 
     private List<Button> gamemodes;
     private Button currentGamemode;
@@ -17,14 +21,12 @@ public class MapSelectionScript : MonoBehaviour
     private Button currentMap;
     private List<IController> controllers;
     private List<bool> hasMoved;
-    private List<bool> hasSeledcted;
 
     private bool choosesGamemode;
 
     void Start()
     {
         hasMoved = new List<bool>();
-        hasSeledcted = new List<bool>();
         choosesGamemode = true;
         gamemodes = new List<Button>
         {
@@ -44,8 +46,11 @@ public class MapSelectionScript : MonoBehaviour
             controllers.Add(new ControllerXbox());
             controllers[i].SetDeviceSignature("Joystick" + (i + 1));
             hasMoved.Add(false);
-            hasSeledcted.Add(false);
         }
+        gamemode1.GetComponent<Image>().color = Color.yellow;
+        map1.GetComponent<Image>().color = Color.yellow;
+        mapText.enabled = false;
+        mapImage.enabled = false;
     }
 
     void Update()
@@ -64,7 +69,7 @@ public class MapSelectionScript : MonoBehaviour
                         currentGamemode = gamemode2;
                         currentGamemode.GetComponent<Image>().color = Color.yellow;
                         hasMoved[i] = true;
-                    }                    
+                    }
                 }
                 else if (!hasMoved[i] && controllers[i].MoveHorizontal() < -0.8)
                 {
@@ -108,45 +113,47 @@ public class MapSelectionScript : MonoBehaviour
                 hasMoved[i] = false;
             }
             #endregion
+            #region Switch choosing
+            if (!hasMoved[i] && controllers[i].MoveVertical() > 0.8)
+            {
+                gamemodeText.enabled = true;
+                gamemodeImage.enabled = true;
+                mapText.enabled = false;
+                mapImage.enabled = false;
+                choosesGamemode = true;
+                hasMoved[i] = true;
+            }
+            else if (!hasMoved[i] && controllers[i].MoveVertical() < -0.8)
+            {
+                gamemodeText.enabled = false;
+                gamemodeImage.enabled = false;
+                mapText.enabled = true;
+                mapImage.enabled = true;
+                choosesGamemode = false;
+                hasMoved[i] = true;
+            }
+            if (hasMoved[i] && controllers[i].MoveVertical() <= 0.8 && controllers[i].MoveVertical() >= -0.8)
+            {
+                hasMoved[i] = false;
+            }
+            #endregion
             #region Select button
             if (controllers[i].Select())
             {
-                if (choosesGamemode && hasSeledcted[i])
+                if (PlayerPrefs.GetInt("PlayersCount") == 2)
                 {
-                    choosesGamemode = false;
-                    hasSeledcted[i] = true;
+                    SceneManager.LoadScene("SelectionScreen2Players");
                 }
                 else
                 {
-                    if(PlayerPrefs.GetInt("PlayersCount") == 2)
-                    {
-                        SceneManager.LoadScene("SelectionScreen2Players");
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene("SelectionScreen4Players");
-                    }
-                }      
+                    SceneManager.LoadScene("SelectionScreen4Players");
+                }
             }
             #endregion
             #region Back button
-            if (controllers[i].Select())
+            if (controllers[i].Back())
             {
-                if (choosesGamemode && hasSeledcted[i])
-                {
-                    choosesGamemode = false;
-                    hasSeledcted[i] = true;
-                }
-                else if(!hasSeledcted[i])
-                {
-                    SceneManager.LoadScene("TitleScreen");
-                }
-            }
-            #endregion
-            #region Unlock buttons
-            if(!controllers[i].Select() && !controllers[i].Back() && hasSeledcted[i])
-            {
-                hasSeledcted[i] = false;
+                SceneManager.LoadScene("TitleScreen");
             }
             #endregion
         }
