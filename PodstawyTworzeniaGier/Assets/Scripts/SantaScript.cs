@@ -23,7 +23,7 @@ public class SantaScript : MonoBehaviour {
             transform.parent.GetComponentInParent<Horde>().snowBallOnOff(false);
         }
 
-        if (controller.Special2() || Input.GetKeyDown(KeyCode.P))
+        if (controller.Special2())
         {
             Debug.Log("snowball");
             skill();
