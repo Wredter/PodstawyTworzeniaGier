@@ -19,7 +19,7 @@ public class Fireball_scripy : MonoBehaviour {
         oldX = 0;
         oldY = 0;
         z = 0;
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
     public void cast(Vector2 offset,float radius,GameObject caster,bool right)
     {
@@ -29,11 +29,11 @@ public class Fireball_scripy : MonoBehaviour {
         this.right = right;
         if (right)
         {
-            rb2d.transform.Rotate(new Vector3(0,0,90));
+            transform.Rotate(new Vector3(0,0,90));
         }
         else
         {
-            rb2d.transform.Rotate(new Vector3(0, 0, -90));
+            transform.Rotate(new Vector3(0, 0, 90));
         }
 
     }
@@ -53,12 +53,12 @@ public class Fireball_scripy : MonoBehaviour {
         z = Vector2.Angle(old, current);
         if (right)
         {
-            transform.position = new Vector3((x * radius) + posOffset.x, (y * radius) + posOffset.y, 0);
+            transform.position = new Vector3((-x * radius) + posOffset.x, (-y * radius) + posOffset.y, 0);
             transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z);
         }
         else
         {
-            transform.position = new Vector3((-x * radius) + posOffset.x, (-y * radius) + posOffset.y, 0);
+            transform.position = new Vector3((x * radius) + posOffset.x, (y * radius) + posOffset.y, 0);
             transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z);
         }
         oldX = x;
