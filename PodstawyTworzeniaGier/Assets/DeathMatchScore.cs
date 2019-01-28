@@ -8,21 +8,22 @@ public class DeathMatchScore : MonoBehaviour
 
     void Update()
     {
-        if(PlayerPrefs.GetString("GameMode") == "DeathMatch")
+        if (PlayerPrefs.GetString("GameMode") == "DeathMatch")
         {
-            if (PlayerPrefs.GetInt(player + "score") != score)
+            score = PlayerPrefs.GetInt(player + "score");
+            if (score <= 0)
             {
-                score = PlayerPrefs.GetInt(player + "score");
+                GetComponent<Text>().text = "0";
+            }
+            else
+            {
                 GetComponent<Text>().text = score.ToString();
             }
         }
         else
         {
-            if (PlayerPrefs.GetInt(player + "score") != score)
-            {
-                score = PlayerPrefs.GetInt(player + "score");
-                GetComponent<Text>().text = score.ToString();
-            }
+            score = PlayerPrefs.GetInt(player + "score");
+            GetComponent<Text>().text = score.ToString();
         }
     }
 }

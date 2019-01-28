@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximalShieldTime: 3
+  shieldScaler: 0
   totalCooldown: 2
   preparationTime: 1
 --- !u!1 &1955768781

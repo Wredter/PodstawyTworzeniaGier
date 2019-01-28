@@ -70,6 +70,7 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
         }
         if (collision.gameObject.tag == "PointsAddArea")
         {
+            Debug.Log(playerName);
             points += 0.01f;
             Debug.Log(points);
             PlayerPrefs.SetInt(playerName + "score", (int)points);

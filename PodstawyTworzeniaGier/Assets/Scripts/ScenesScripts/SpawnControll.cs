@@ -45,19 +45,19 @@ public class SpawnControll : MonoBehaviour
         {
             if (is4)
             {
-                if (PlayerPrefs.GetInt("Player1score") > 0 && PlayerPrefs.GetInt("Player2score") == 0 && PlayerPrefs.GetInt("Player3score") == 0 && PlayerPrefs.GetInt("Player4score") == 0)
+                if (PlayerPrefs.GetInt("Player1score") > 0 && PlayerPrefs.GetInt("Player2score") <= 0 && PlayerPrefs.GetInt("Player3score") <= 0 && PlayerPrefs.GetInt("Player4score") <= 0)
                 {
                     SceneManager.LoadScene("Player1Won");
                 }
-                if (PlayerPrefs.GetInt("Player1score") == 0 && PlayerPrefs.GetInt("Player2score") > 0 && PlayerPrefs.GetInt("Player3score") == 0 && PlayerPrefs.GetInt("Player4score") == 0)
+                if (PlayerPrefs.GetInt("Player1score") <= 0 && PlayerPrefs.GetInt("Player2score") > 0 && PlayerPrefs.GetInt("Player3score") <= 0 && PlayerPrefs.GetInt("Player4score") <= 0)
                 {
                     SceneManager.LoadScene("Player2Won");
                 }
-                if (PlayerPrefs.GetInt("Player1score") == 0 && PlayerPrefs.GetInt("Player2score") == 0 && PlayerPrefs.GetInt("Player3score") > 0 && PlayerPrefs.GetInt("Player4score") == 0)
+                if (PlayerPrefs.GetInt("Player1score") <= 0 && PlayerPrefs.GetInt("Player2score") <= 0 && PlayerPrefs.GetInt("Player3score") > 0 && PlayerPrefs.GetInt("Player4score") <= 0)
                 {
                     SceneManager.LoadScene("Player3Won");
                 }
-                if (PlayerPrefs.GetInt("Player1score") == 0 && PlayerPrefs.GetInt("Player2score") == 0 && PlayerPrefs.GetInt("Player3score") == 0 && PlayerPrefs.GetInt("Player4score") > 0)
+                if (PlayerPrefs.GetInt("Player1score") <= 0 && PlayerPrefs.GetInt("Player2score") <= 0 && PlayerPrefs.GetInt("Player3score") <= 0 && PlayerPrefs.GetInt("Player4score") > 0)
                 {
                     SceneManager.LoadScene("Player4Won");
                 }
@@ -104,9 +104,13 @@ public class SpawnControll : MonoBehaviour
         if (PlayerPrefs.GetString("GameMode") == "DeathMatch")
         {
             PlayerPrefs.SetInt("Player1score", PlayerPrefs.GetInt("Player1score") - 1);
-            if (PlayerPrefs.GetInt("Player1score") != 0)
+            if (PlayerPrefs.GetInt("Player1score") >= 0)
             {
                 player1.GetComponent<PlayerHUD>().ReloadHorde();
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Player1score", 0);
             }
         }
         else
@@ -119,9 +123,13 @@ public class SpawnControll : MonoBehaviour
         if (PlayerPrefs.GetString("GameMode") == "DeathMatch")
         {
             PlayerPrefs.SetInt("Player2score", PlayerPrefs.GetInt("Player2score") - 1);
-            if (PlayerPrefs.GetInt("Player2score") != 0)
+            if (PlayerPrefs.GetInt("Player2score") >= 0)
             {
                 player2.GetComponent<PlayerHUD>().ReloadHorde();
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Player2Score", 0);
             }
         }
         else
@@ -134,9 +142,13 @@ public class SpawnControll : MonoBehaviour
         if (PlayerPrefs.GetString("GameMode") == "DeathMatch")
         {
             PlayerPrefs.SetInt("Player3score", PlayerPrefs.GetInt("Player3score") - 1);
-            if (PlayerPrefs.GetInt("Player3score") != 0)
+            if (PlayerPrefs.GetInt("Player3score") >= 0)
             {
                 player3.GetComponent<PlayerHUD>().ReloadHorde();
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Player3score", 0);
             }
         }
         else
@@ -149,9 +161,13 @@ public class SpawnControll : MonoBehaviour
         if (PlayerPrefs.GetString("GameMode") == "DeathMatch")
         {
             PlayerPrefs.SetInt("Player4score", PlayerPrefs.GetInt("Player4score") - 1);
-            if (PlayerPrefs.GetInt("Player4score") != 0)
+            if (PlayerPrefs.GetInt("Player4score") >= 0)
             {
                 player4.GetComponent<PlayerHUD>().ReloadHorde();
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Player4score", 0);
             }
         }
         else
