@@ -711,7 +711,7 @@ MonoBehaviour:
   twoPlayers: {fileID: 1505797658}
   fourPlayers: {fileID: 1515491879}
   exit: {fileID: 1477140177}
-  player1Controller: Joystick1
+  player1Controller: 
   player2Controller: 
   player3Controller: Joystick2
   player4Controller: Joystick3

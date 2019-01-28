@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4525263022069160}
   - component: {fileID: 212343565844710878}
+  - component: {fileID: 58240348205587296}
+  - component: {fileID: 114358055676047850}
   m_Layer: 0
   m_Name: pop2
   m_TagString: Untagged
@@ -95,6 +97,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &58240348205587296
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221745594706342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!58 &58822569736880354
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -109,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.2
 --- !u!114 &114072821955960470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,7 +151,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f313f733a489bbe4aaba3ac6b3dd328f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1608363226464418, guid: 215712d50b2a81e448e6f0405c4185dc, type: 2}
+  sprite: {fileID: 1904146570970110, guid: 946e45dbf83696c47a34262f523e5b8f, type: 2}
+--- !u!114 &114358055676047850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221745594706342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2d6aa60adab234d834b744790a8b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114491655977654586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,10 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  healthBarView: {fileID: 1592241341040100, guid: 5b66fece355d4614f85dc455391aadb1,
-    type: 2}
-  archersWon: {fileID: 0}
-  vikingsWon: {fileID: 0}
 --- !u!212 &212343565844710878
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -197,8 +221,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -700654997
+  m_SortingLayer: 2
   m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 4df2e899ab11ae44cb880641c7bacf5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

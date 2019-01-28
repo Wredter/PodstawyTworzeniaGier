@@ -113,9 +113,9 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         {
             chief.GetComponent<vaperScript>().SetController(controller);
         }
-        if (chief.GetComponent<santaScript>())
+        if (chief.GetComponent<SantaScript>())
         {
-            chief.GetComponent<santaScript>().SetController(controller);
+            chief.GetComponent<SantaScript>().SetController(controller);
         }
         if (chief.GetComponent<ChiefBase>())
         {
