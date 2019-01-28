@@ -309,21 +309,23 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                     }
                 }
             }
-
-            if (isSnowBall)
+            if (chief.GetComponent<santaScript>())
             {
-                snowBall();
-            }
-            else
-            {
-                foreach (GameObject obj in minionsWithChief)
+                if (isSnowBall)
                 {
-                    obj.GetComponent<CircleCollider2D>().radius += Time.deltaTime / 10;
-                    obj.GetComponent<CircleCollider2D>().radius *= 1.05f;
-                    if (obj.GetComponent<CircleCollider2D>().radius > 1.4)
+                    snowBall();
+                }
+                else
+                {
+                    foreach (GameObject obj in minionsWithChief)
                     {
-                        obj.GetComponent<CircleCollider2D>().enabled = true;
-                        obj.GetComponent<CircleCollider2D>().radius = 1.4f;
+                        obj.GetComponent<CircleCollider2D>().radius += Time.deltaTime / 10;
+                        obj.GetComponent<CircleCollider2D>().radius *= 1.05f;
+                        if (obj.GetComponent<CircleCollider2D>().radius > 1.4)
+                        {
+                            obj.GetComponent<CircleCollider2D>().enabled = true;
+                            obj.GetComponent<CircleCollider2D>().radius = 1.4f;
+                        }
                     }
                 }
             }
