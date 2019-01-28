@@ -44,9 +44,9 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
     //spartan dash
     GameObject[,] pociong;
-    void Start()        
+    void Start()
     {
-        
+
         axes = new LinkedList<GameObject>();
         switch (deviceSignature)
         {
@@ -96,8 +96,14 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
 
         minionsWithChief.ForEach(m => m.name = hordeName);
-        chief.GetComponent<Chief>().SetController(controller);
-        chief.GetComponent<ChiefBase>().SetController(controller);
+        if (chief.GetComponent<Chief>()) {
+            chief.GetComponent<Chief>().SetController(controller);
+        }
+        if (chief.GetComponent<ChiefBase>())
+        {
+            chief.GetComponent<ChiefBase>().SetController(controller);
+        }
+
         if (chief.GetComponent<ChiefCactus>())
         {
             chief.GetComponent<ChiefCactus>().SetController(controller);
@@ -110,7 +116,15 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         {
             chief.GetComponent<santaScript>().SetController(controller);
         }
+        if (chief.GetComponent<ChiefBase>())
+        {
         chief.GetComponent<ChiefBase>().SetPlayerName(playerName);
+        }
+        if (chief.GetComponent<Chief>())
+        {
+            chief.GetComponent<Chief>().SetPlayerName(playerName);
+        }
+
         minions.ForEach(m => m.GetComponent<MinionBase>().SetController(controller));
         minions.ForEach(m => m.GetComponent<MinionBase>().SetChief(chief));
         minions.ForEach(m => m.GetComponent<MinionBase>().SetPlayerName(playerName));

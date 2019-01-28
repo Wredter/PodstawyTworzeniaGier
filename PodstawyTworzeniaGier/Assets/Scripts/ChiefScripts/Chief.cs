@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chief : MonoBehaviour {
+public class Chief : MonoBehaviour , IPlayerIntegration{
     public GameObject pointer;
+    protected string playerName;
     [Range(0.1f,0.99f)]
     public float pointerSmoothness;
     private IController controller;
@@ -11,11 +12,17 @@ public class Chief : MonoBehaviour {
     private float scale;
     private Vector2 previous;
     private Vector2 next;
+    protected Rigidbody2D rb2d;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         cone = Instantiate(pointer);
-	}
+        if (cone)
+        {
+            Debug.Break();
+        }
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 
     private void FixedUpdate()
     {
@@ -43,7 +50,38 @@ public class Chief : MonoBehaviour {
             cone.transform.localScale = new Vector3(0, 0);
         }
     }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Projectile>())
+        {
+            if (collision.GetComponent<IPlayerIntegration>().GetPlayerName() != playerName)
+            {
+                //DealDamage(collision.GetComponent<Projectile>().damage);
+            }
+        }
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 0.5f;
+        }
+    }
 
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 0.5f;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Mud")
+        {
+            GetComponentInParent<Horde>().slow = 1f;
+        }
+
+    }
+    #region Geters and seters
     public void SetController(IController controller)
     {
         this.controller = controller;
@@ -58,4 +96,14 @@ public class Chief : MonoBehaviour {
     {
         return previous;
     }
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
+
+    public void SetPlayerName(string playerName)
+    {
+        this.playerName = playerName;
+    }
+    #endregion
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magScript : ChiefBase {
+public class magScript : Chief {
 
 	// Use this for initialization
 	void Start () {
