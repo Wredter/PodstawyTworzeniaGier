@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ChiefBase : MonoBehaviour, IPlayerIntegration {
     public float health;
-    public GameObject healthBarView;
-    public GameObject archersWon;
-    public GameObject vikingsWon;
+    private GameObject healthBarView;
+    private GameObject archersWon;
+    private GameObject vikingsWon;
 
     protected string playerName;
     protected Rigidbody2D rb2d;
