@@ -44,17 +44,17 @@ public class CactusLogic : MonoBehaviour
 
         if (timer < GrowthTime)
         {
-            skillSoundSource.loop = true;
-            skillSoundSource.pitch = 1f;
-            skillSoundSource.PlayOneShot(skillSounds[1],volumeGrowth);
+            //skillSoundSource.loop = true;
+            //skillSoundSource.pitch = 1f;
+            //skillSoundSource.PlayOneShot(skillSounds[1],volumeGrowth);
             gameObject.GetComponent<Transform>().localScale = new Vector2(growthFraction, growthFraction);
             var oldPosition = gameObject.transform.position;
             gameObject.transform.position = new Vector2(oldPosition.x + (Mathf.Sin(Time.time * ShakeSpeed) * ShakesAmount ), oldPosition.y);
             ShakesAmount -= 0.0002f;
         }
-        else
-        {
-            skillSoundSource.loop = false;
-        }
+        //else
+        //{
+        //    skillSoundSource.loop = false;
+        //}
     }
 }
