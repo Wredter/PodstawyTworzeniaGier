@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Chief : MonoBehaviour , IPlayerIntegration{
     public GameObject pointer;
+    //public float slow = 1f;
+    //public float maxSpeed = 10;
     protected string playerName;
     [Range(0.1f,0.99f)]
     public float pointerSmoothness;
-    private IController controller;
+    protected IController controller;
     private GameObject cone;
     private float scale;
     private Vector2 previous;
@@ -17,10 +19,6 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
     // Use this for initialization
     void Start () {
         cone = Instantiate(pointer);
-        if (cone)
-        {
-            Debug.Break();
-        }
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -32,6 +30,11 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
         float angle = Mathf.Deg2Rad * Vector2.SignedAngle(Vector2.up, new Vector2(projectileX, projectileY));
         previous = new Vector2(projectileX, projectileY);
         cone.GetComponent<Rigidbody2D>().rotation = angle * Mathf.Rad2Deg;
+
+        //float moveX = controller.MoveHorizontal();
+        //float moveY = controller.MoveVertical();
+
+        //rb2d.velocity = new Vector2(moveX * maxSpeed * slow, moveY * maxSpeed * slow);
     }
 
     private void LateUpdate()
