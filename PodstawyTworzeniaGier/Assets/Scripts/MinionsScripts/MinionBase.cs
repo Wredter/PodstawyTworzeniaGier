@@ -85,7 +85,6 @@ public class MinionBase : MonoBehaviour, IPlayerIntegration
 
             }
         }
-
         if (collision.gameObject.tag == "Mud")
         {
             GetComponentInParent<Horde>().slow = 0.5f;

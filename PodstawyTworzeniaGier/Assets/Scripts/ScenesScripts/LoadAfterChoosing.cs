@@ -44,7 +44,6 @@ public class LoadAfterChoosing : MonoBehaviour
                             }
                             break;
                     }
-                    SceneManager.LoadScene("DeathMatchMeadow2Players");
                     break;
                 case 4:
                     switch (PlayerPrefs.GetString("GameMode"))
@@ -72,7 +71,6 @@ public class LoadAfterChoosing : MonoBehaviour
                             }
                             break;
                     }
-                    SceneManager.LoadScene("KingOfTheHill");
                     break;
             }
         }

@@ -77,6 +77,7 @@ public class TitleScreenScript : MonoBehaviour
                 }
                 else if (currentButton == 1 && activeButtons.Count == 3)
                 {
+                    Debug.Log("ok");
                     PlayerPrefs.SetInt("PlayersCount", 4);
                     SceneManager.LoadScene("MapSelection");
                 }

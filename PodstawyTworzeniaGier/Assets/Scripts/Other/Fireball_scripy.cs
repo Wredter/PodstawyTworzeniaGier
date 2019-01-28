@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball_scripy : Projectile {
+public class Fireball_scripy : MonoBehaviour {
     private float timecounter = 0;
     private float oldX;
     private float oldY;
+    private Vector2 posOffset;
     public float offset;
+    private float radius;
+    private Rigidbody2D rb2d;
     private float z;
-	// Use this for initialization
-	void Start () {
+    private GameObject caster;
+    // Use this for initialization
+    void Start() {
         oldX = 0;
         oldY = 0;
-        offset = 0;
         z = 0;
-	}
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+    public void cast(Vector2 offset,float radius,GameObject caster)
+    {
+        posOffset = offset;
+        this.radius = radius;
+        this.caster = caster;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,14 +35,18 @@ public class Fireball_scripy : Projectile {
         Vector2 current = new Vector2(x,y);
         Vector2 old = new Vector2(oldX, oldY);
 
-         z = Vector2.Angle(old, current);
+        posOffset.x = caster.transform.position.x;
+        posOffset.y = caster.transform.position.y;
+        z = Vector2.Angle(old, current);
 
-        Debug.Log(z);
-
-        transform.position = new Vector3(x*5,y*5,0);
-        transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z+offset);
+        transform.position = new Vector3((x*radius)+posOffset.x,(y*radius)+posOffset.y,0);
+        transform.RotateAround(new Vector3(0, 0, 0), Vector3.forward, z);
         oldX = x;
         oldY = y;
 		
 	}
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+
+    }
 }

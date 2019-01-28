@@ -65,10 +65,7 @@ public class PlayerHUD : MonoBehaviour {
                     break;
             }
         }
-        if(PlayerPrefs.HasKey(name + "device"))
-        {
-            deviceName = PlayerPrefs.GetString(name + "device");
-        }
+        deviceName = PlayerPrefs.GetString(name + "Controller");
         horde.GetComponent<Horde>().SetPlayerName(name);
         switch(name)
         {
@@ -119,10 +116,7 @@ public class PlayerHUD : MonoBehaviour {
                 if (!hasNoHud) activeHUD = Instantiate(vikingHUD) as GameObject;
                 break;
         }
-        if (PlayerPrefs.HasKey(name + "device"))
-        {
-            deviceName = PlayerPrefs.GetString(name + "device");
-        }
+        deviceName = PlayerPrefs.GetString(name + "Controller");
         horde.GetComponent<Horde>().SetPlayerName(name);
         switch (name)
         {
