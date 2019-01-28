@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewSmoothness: 0.79
   hordeName: archers
-  hordeChief: {fileID: 1260408443149178, guid: 3128168609349164c8848a6253cbb5d1, type: 2}
+  hordeChief: {fileID: 1899293177012906, guid: 04819b522d431d941aa9ea63a5ffbe3e, type: 2}
   hordeMinion: {fileID: 1592162892366128, guid: 731db40eaf80c3d489baf03cad19f9ea,
     type: 2}
   minionsNumber: 30

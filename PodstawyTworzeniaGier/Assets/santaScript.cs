@@ -13,7 +13,6 @@ public class SantaScript : MonoBehaviour {
 	void Start () {
         peleryna.transform.localScale = new Vector3(0.5f, 0.5f, 1);
     }
-
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
