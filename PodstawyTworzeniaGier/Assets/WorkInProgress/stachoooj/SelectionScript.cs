@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectionScript : MonoBehaviour
@@ -27,12 +28,14 @@ public class SelectionScript : MonoBehaviour
     private Vector3 chiefsRotation = new Vector3(-90, 15, 0);
     private Vector3 minionsRotationGoal = new Vector3(-90, 15, 0);
     private Vector3 chiefsRotationGoal = new Vector3(-90, 15, 0);
+    private bool backBlock;
 
     private bool notMovedHorizontal;
     private bool notMovedVertical;
 
     void Start()
     {
+        backBlock = false;
         deviceSignature = PlayerPrefs.GetString(player + "Controller");        
         switch (deviceSignature)
         {
@@ -116,7 +119,7 @@ public class SelectionScript : MonoBehaviour
             chiefsSpotlight.SetActive(false);
             minionsSpotlight.SetActive(false);
         }
-        if (controller.Back())
+        if (controller.Back() && !backBlock)
         {
             if (isReady)
             {
@@ -124,7 +127,16 @@ public class SelectionScript : MonoBehaviour
                 minionsSpotlight.SetActive(true);
                 nextSceneLauncher.GetComponent<LoadAfterChoosing>().UnReady();
                 isReady = false;
+                backBlock = true;
             }
+            else
+            {
+                SceneManager.LoadScene("MapSelection");
+            }
+        }
+        if(!controller.Back() && backBlock == true)
+        {
+            backBlock = false;
         }
         if (!isReady)
         {

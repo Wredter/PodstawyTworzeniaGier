@@ -155,8 +155,24 @@ public class MapSelectionScript : MonoBehaviour
             #region Select button
             if (controllers[i].Select())
             {
-                if (PlayerPrefs.GetInt("PlayersCount") == 2)
+                if(currentGamemode == gamemode1)
                 {
+                    PlayerPrefs.SetString("GameMode", "DeathMatch");
+                }
+                else
+                {
+                    PlayerPrefs.SetString("GameMode", "KingOfTheHill");
+                }
+                if(currentMap == map1)
+                {
+                    PlayerPrefs.SetString("Map", "Meadow");
+                }
+                else
+                {
+                    PlayerPrefs.SetString("Map", "Desert");
+                }
+                if (PlayerPrefs.GetInt("PlayersCount") == 2)
+                {                    
                     SceneManager.LoadScene("SelectionScreen2Players");
                 }
                 else
