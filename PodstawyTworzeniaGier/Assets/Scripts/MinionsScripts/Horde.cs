@@ -153,6 +153,10 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     {
         minionsWithChief = minionsWithChief.FindAll(m => m != null);
         minions = minions.FindAll(m => m != null);
+        while(minions.Count > 40) {
+            Destroy(minions[minions.Count - 1]);
+            minions.Remove(minions[minions.Count - 1]);
+        }
         if (minions.Count <= 0)
         {
             switch (playerName)
