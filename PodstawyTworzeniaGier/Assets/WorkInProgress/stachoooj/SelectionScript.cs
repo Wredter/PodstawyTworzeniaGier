@@ -21,8 +21,8 @@ public class SelectionScript : MonoBehaviour
     private IController controller;
     private bool selected = false;
     private bool selectionChiefs = true;
-    private int selectedChief;
-    private int selectedMinion;
+    public int selectedChief;
+    public int selectedMinion;
     private bool isReady = false;
     private Vector3 minionsRotation = new Vector3(-90, 15, 0);
     private Vector3 chiefsRotation = new Vector3(-90, 15, 0);
