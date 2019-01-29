@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Horde : MonoBehaviour, IPlayerIntegration
 {
     [Range(0.01f, 0.99f)]
+    public float ZOMBIEFIX = 1.4f;
     public float viewSmoothness;
     public string hordeName;
     public GameObject hordeChief;
@@ -220,7 +221,15 @@ public class Horde : MonoBehaviour, IPlayerIntegration
                                 dy = obj2.transform.position.y - obj.transform.position.y;
                                 r2 = dx * dx + dy * dy;
                                 r = Mathf.Sqrt(r2 + 10);
-                                force.Set(-dx / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f), -dy / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f));
+                                if (minions.Count < 35)
+                                {
+                                    force.Set(-dx / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f), -dy / r * minionsK / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f));
+                                }
+                                else
+                                {
+                                    force.Set(-dx / r * minionsK * ZOMBIEFIX / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f), -dy / r * minionsK * ZOMBIEFIX / r2 * (obj.GetComponent<CircleCollider2D>().radius / 1.4f));
+                                }
+                                
                                 if (!float.IsNaN(force.x) && !float.IsNaN(force.y))
                                     obj.GetComponent<Rigidbody2D>().AddForce(force);
                             }
