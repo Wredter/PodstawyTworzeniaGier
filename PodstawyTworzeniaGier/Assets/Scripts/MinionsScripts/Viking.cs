@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Viking : MinionBase
 {
+    public GameObject VikingHordeHandler;
+
     public GameObject projectile;
     public int cooldown;
 
@@ -103,5 +105,10 @@ public class Viking : MinionBase
     {
         horde = g.GetComponent<Horde>();
         Debug.Log(horde);
+    }
+
+    public void SetVikingHordeHandler(GameObject handler)
+    {
+        VikingHordeHandler = handler;
     }
 }
