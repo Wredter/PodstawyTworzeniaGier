@@ -53,6 +53,11 @@ public class ControllerMouseAndKeyboard : MonoBehaviour, IController
         this.deviceSignature = deviceSignature;
     }
 
+    public bool Block()
+    {
+        return Input.GetKey(KeyCode.LeftControl);
+    }
+
     public bool Shoot()
     {
         return Input.GetKey(KeyCode.Space);

@@ -16,6 +16,11 @@ public class ControllerXbox : MonoBehaviour, IController {
         return Input.GetAxis(deviceSignature + "LeftHorizontal");
     }
 
+    public bool Block()
+    {
+        return (Input.GetAxis(deviceSignature + "T") < 0);
+    }
+
     public bool Shoot()
     {
         return (Input.GetAxis(deviceSignature + "T") > 0);

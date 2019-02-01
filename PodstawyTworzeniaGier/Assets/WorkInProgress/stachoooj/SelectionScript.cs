@@ -33,10 +33,15 @@ public class SelectionScript : MonoBehaviour
     private bool notMovedHorizontal;
     private bool notMovedVertical;
 
+    private bool hasLB;
+    private bool hasRB;
+    private bool hasLT;
+    private bool hasRT;
+
     void Start()
     {
         backBlock = false;
-        deviceSignature = PlayerPrefs.GetString(player + "Controller");        
+        deviceSignature = PlayerPrefs.GetString(player + "Controller");
         switch (deviceSignature)
         {
             case "Joystick1":
@@ -57,6 +62,10 @@ public class SelectionScript : MonoBehaviour
         chiefsCarousel.transform.eulerAngles = chiefsRotation;
         chiefsSpotlight.SetActive(true);
         minionsSpotlight.SetActive(true);
+        hasLB = false;
+        hasRB = false;
+        hasLT = false;
+        hasRT = false;
     }
 
     void FixedUpdate()
@@ -138,42 +147,52 @@ public class SelectionScript : MonoBehaviour
                 SceneManager.LoadScene("MapSelection");
             }
         }
-        if(!controller.Back() && backBlock == true)
+        if (!controller.Back() && backBlock == true)
         {
             backBlock = false;
         }
         if (!isReady)
         {
-            //Checks if player moved carousel to left or right
-            if (controller.MoveHorizontal() > horixontalActivationPoint && notMovedHorizontal)
+            if (controller.Special1() && !hasLB)
             {
-                notMovedHorizontal = false;
-                MoveCarousel(-1);
+                MoveCarousel(1, true);
+                hasLB = true;
             }
-            else if (controller.MoveHorizontal() < -horixontalActivationPoint && notMovedHorizontal)
+            else if (!controller.Special1() && hasLB)
             {
-                notMovedHorizontal = false;
-                MoveCarousel(1);
+                hasLB = false;
             }
-            else if (controller.MoveHorizontal() <= horixontalActivationPoint && controller.MoveHorizontal() >= -horixontalActivationPoint)
+            if (controller.Special2() && !hasRB)
             {
-                notMovedHorizontal = true;
+                MoveCarousel(-1, true);
+                hasRB = true;
             }
-
-            //Checks if player selected other carousel
-            if ((controller.MoveVertical() > verticalActivationPoint || controller.MoveVertical() < -verticalActivationPoint) && notMovedVertical)
+            else if (!controller.Special2() && hasRB)
             {
-                notMovedVertical = false;
-                selectionChiefs = !selectionChiefs;
+                hasRB = false;
             }
-            else if ((controller.MoveVertical() <= verticalActivationPoint && controller.MoveVertical() >= -verticalActivationPoint))
+            if (controller.Block() && !hasLT)
             {
-                notMovedVertical = true;
+                MoveCarousel(1, false);
+                hasLT = true;
+            }
+            else if (!controller.Block() && hasLT)
+            {
+                hasLT = false;
+            }
+            if (controller.Shoot() && !hasRT)
+            {
+                MoveCarousel(-1, false);
+                hasRT = true;
+            }
+            else if (!controller.Shoot() && hasRT)
+            {
+                hasRT = false;
             }
         }
     }
 
-    private void MoveCarousel(int direction)
+    private void MoveCarousel(int direction, bool selectionChiefs)
     {
         if (selectionChiefs)
         {

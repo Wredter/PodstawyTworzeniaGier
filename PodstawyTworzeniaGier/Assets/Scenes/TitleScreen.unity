@@ -711,10 +711,10 @@ MonoBehaviour:
   twoPlayers: {fileID: 1505797658}
   fourPlayers: {fileID: 1515491879}
   exit: {fileID: 1477140177}
-  player1Controller: 
-  player2Controller: 
-  player3Controller: Joystick2
-  player4Controller: Joystick3
+  player1Controller: Joystick1
+  player2Controller: Joystick2
+  player3Controller: Joystick3
+  player4Controller: Joystick4
 --- !u!1 &1477140175
 GameObject:
   m_ObjectHideFlags: 0

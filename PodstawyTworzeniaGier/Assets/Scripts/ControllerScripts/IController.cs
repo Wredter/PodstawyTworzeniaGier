@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IController {
     void SetDeviceSignature(string deviseSignature);
+    bool Block();
     bool Shoot();
     bool Select();
     bool Back();
