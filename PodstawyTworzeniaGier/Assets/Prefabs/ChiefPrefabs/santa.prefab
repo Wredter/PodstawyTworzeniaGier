@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointer: {fileID: 1410623383194340, guid: cbc60a8156706a044992460f43b9f7b7, type: 2}
-  pointerSmoothness: 0.8
+  pointerSmoothness: 0.9
 --- !u!114 &114301109600408664
 MonoBehaviour:
   m_ObjectHideFlags: 1
