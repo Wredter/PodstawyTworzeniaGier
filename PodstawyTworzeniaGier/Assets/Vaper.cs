@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Vaper : MonoBehaviour
 {
-    IController controller;
     [Range(0f, 1f)]
     public float volume;
     public List<AudioClip> skillSounds;
     private AudioSource skillSoundSource;
-    public void SetController(IController controller)
-    {
-        this.controller = controller;
-    }
 
     public GameObject chmurka;
     // Use this for initialization
@@ -43,7 +38,7 @@ public class Vaper : MonoBehaviour
 
 
         //controller.Special2() || 
-        if (controller.Special2())
+        if (GetComponent<Chief>().GetController().Special2())
         {
             Debug.Log("vaper ");
             

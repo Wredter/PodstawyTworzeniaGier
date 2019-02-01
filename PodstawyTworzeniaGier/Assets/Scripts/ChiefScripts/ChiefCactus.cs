@@ -38,7 +38,7 @@ public class ChiefCactus : MonoBehaviour
         //HandleMovement();
         HandleCactusDrop(KeyCode.K);
         //Debug.Log("KAKTUSSSSSSSS UPDATE");
-        if(controller.Special2() && canSpawnCactus)
+        if (GetComponent<Chief>().GetController().Special2() && canSpawnCactus)
         {
             Debug.Log("KAKTUSSSSSSSS SPAWN!");
             

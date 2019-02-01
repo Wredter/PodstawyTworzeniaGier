@@ -28,7 +28,7 @@ public class SantaScript : MonoBehaviour {
             transform.parent.GetComponentInParent<Horde>().snowBallOnOff(false);
         }
 
-        if (controller.Special2())
+        if (GetComponent<Chief>().GetController().Special2())
         {
             Debug.Log("snowball");
             skillSoundSource.PlayOneShot(skillSounds[Random.Range(0, skillSounds.Count)], volume);

@@ -21,12 +21,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     protected IController controller;
     protected string playerName;
     public bool isZombie;
-    public float slow = 1f;
-    public int axesPerViking;
-    public int axeRespawnRate;
-    private int axeCount;
-    private LinkedList<GameObject> axes;
-    private int axeRespawnCounter = 0;
+    public float slow = 1f;    
+
     //Audio
     [Range(0f, 1f)]
     public float volume;
@@ -34,7 +30,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     private AudioSource skillSoundSource;
     //public AudioClip skillSound;
     //
-    public List<GameObject> minions;
+    public List<GameObject> minions = new List<GameObject>();
     public List<GameObject> minionsWithChief;
     GameObject chief;
 
@@ -43,12 +39,8 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     //divideHorde
     Vector2 divide1, divide2, center;
 
-    //spartan dash
-    GameObject[,] pociong;
     void Start()
     {
-
-        axes = new LinkedList<GameObject>();
         deviceSignature = PlayerPrefs.GetString(playerName + "Controller");
         switch (deviceSignature)
         {
@@ -68,14 +60,13 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         controller.SetDeviceSignature(deviceSignature);
         divide1 = new Vector2();
         divide2 = new Vector2();
-        minions = new List<GameObject>();
+        minions.Clear();
         minionsWithChief = new List<GameObject>();
 
         GameObject obj = Instantiate(hordeChief, transform.position, Quaternion.identity, gameObject.transform);
 
         chief = obj;
         minionsWithChief.Add(chief);
-        //gameObject.AddComponent<NetworkTransformChild>();
 
         for (int i = 0; i < minionsNumber; i++)
         {
@@ -84,18 +75,9 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             minions.Add(obj);
             minionsWithChief.Add(obj);
             Physics2D.IgnoreCollision(obj.GetComponent<CircleCollider2D>(), chief.GetComponent<CircleCollider2D>());
-            //gameObject.AddComponent<NetworkTransformChild>();
+
 
         }
-        //Debug.Log("horde dziecki: " + transform.childCount);
-        //foreach (var NTC in GetComponents<NetworkTransformChild>())
-        //{
-        //    int counter = 0;
-        //    NTC.target = minionsWithChief[counter].transform;
-        //    counter += 1;
-
-        //}
-        //gameObject.GetComponent<NetworkTransformChild>().target = chief.transform;
 
         minionsWithChief.ForEach(m => m.name = hordeName);
         if (chief.GetComponent<Chief>())
@@ -105,19 +87,6 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         if (chief.GetComponent<ChiefBase>())
         {
             chief.GetComponent<ChiefBase>().SetController(controller);
-        }
-
-        if (chief.GetComponent<ChiefCactus>())
-        {
-            chief.GetComponent<ChiefCactus>().SetController(controller);
-        }
-        if (chief.GetComponent<Vaper>())
-        {
-            chief.GetComponent<Vaper>().SetController(controller);
-        }
-        if (chief.GetComponent<SantaScript>())
-        {
-            chief.GetComponent<SantaScript>().SetController(controller);
         }
         if (chief.GetComponent<ChiefBase>())
         {
@@ -134,18 +103,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         if (minions[0].GetComponent<ZombieScript>())
         {
             isZombie = true;
-        }
-
-        pociong = new GameObject[4, 100];
-
-        if (minions[0].GetComponent<Viking>())
-        {
-            foreach (GameObject g in minions)
-            {
-                g.GetComponent<Viking>().SetHorde(gameObject);
-            }
-        }
-        axeCount = minions.Count * axesPerViking;
+        }        
     }
 
     // Update is called once per frame
@@ -381,65 +339,11 @@ public class Horde : MonoBehaviour, IPlayerIntegration
             if (divide > 0) divideHorde();
             else { divideX = 0; divideY = 0; }
 
-            if (minions.Count > 0)
-            {
-                if (minions[0].GetComponent<Viking>())
-                {
-                    foreach (GameObject g in axes)
-                    {
-                        if (g == null)
-                        {
-
-                        }
-                    }
-                    //Remove additional axes
-                    while (axes.Count + axeCount > minions.Count * axesPerViking)
-                    {
-                        List<GameObject> toRemove = new List<GameObject>();
-                        foreach (GameObject g in axes)
-                        {
-                            if (g == null)
-                            {
-                                toRemove.Add(g);
-                            }
-                        }
-                        foreach (GameObject g in toRemove)
-                        {
-                            axes.Remove(g);
-                        }
-                        if (axes.Count > 0)
-                        {
-                            GameObject g = axes.First.Value;
-                            axes.RemoveFirst();
-                            Destroy(g);
-                        }
-                        else
-                        {
-                            axeCount--;
-                        }
-                    }
-                }
-            }
+            
         }
     }
 
-    public void FixedUpdate()
-    {
-        axeRespawnCounter++;
-        if (minions.Count > 0)
-        {
-            minions = minions.FindAll(m => m != null);
-            if (minions.Count > 0)
-                if (minions[0].GetComponent<Viking>())
-                {
-                    //respawn axes
-                    if (axeRespawnCounter % axeRespawnRate == 0)
-                    {
-                        AddAxe();
-                    }
-                }
-        }
-    }
+
 
     bool isSpartanDash = false;
     public float spartanCooldown = 5;
@@ -744,40 +648,5 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     }
     #endregion
 
-    #region axe management
-    public void AddAxe()
-    {
-        if (axeCount < axesPerViking * minions.Count)
-        {
-            axeCount++;
-        }
-    }
 
-    public bool CanRemoveAxe()
-    {
-        if (axeCount > 0)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public void RemoveAxe()
-    {
-        if (axeCount > 0)
-        {
-            axeCount--;
-        }
-    }
-
-    public void AddToThrown(GameObject axe)
-    {
-        axes.AddLast(axe);
-    }
-
-    public int GetAxeCount()
-    {
-        return axeCount;
-    }
-    #endregion
 }
