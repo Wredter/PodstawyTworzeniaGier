@@ -77,6 +77,10 @@ public class SelectionScript : MonoBehaviour
     {
         if (controller.Select())
         {
+            PlayerPrefs.SetInt("Player1score", 0);
+            PlayerPrefs.SetInt("Player2score", 0);
+            PlayerPrefs.SetInt("Player3score", 0);
+            PlayerPrefs.SetInt("Player4score", 0);
             if (!isReady)
             {
                 nextSceneLauncher.GetComponent<LoadAfterChoosing>().Ready();

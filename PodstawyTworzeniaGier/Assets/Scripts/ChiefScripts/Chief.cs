@@ -19,6 +19,7 @@ public class Chief : MonoBehaviour , IPlayerIntegration{
 
     // Use this for initialization
     void Start () {
+        points = PlayerPrefs.GetInt(playerName + "score");
         cone = Instantiate(pointer);
         rb2d = GetComponent<Rigidbody2D>();
     }

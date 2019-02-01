@@ -24,17 +24,14 @@ public class SpawnControll : MonoBehaviour
         }
         if (PlayerPrefs.GetString("GameMode") == "DeathMatch")
         {
-            PlayerPrefs.SetInt("Player1score", 5);
-            PlayerPrefs.SetInt("Player2score", 5);
-            PlayerPrefs.SetInt("Player3score", 5);
-            PlayerPrefs.SetInt("Player4score", 5);
+            PlayerPrefs.SetInt("Player1score", 3);
+            PlayerPrefs.SetInt("Player2score", 3);
+            PlayerPrefs.SetInt("Player3score", 3);
+            PlayerPrefs.SetInt("Player4score", 3);
         }
         else
         {
-            PlayerPrefs.SetInt("Player1score", 0);
-            PlayerPrefs.SetInt("Player2score", 0);
-            PlayerPrefs.SetInt("Player3score", 0);
-            PlayerPrefs.SetInt("Player4score", 0);
+            
         }
     }
 
@@ -110,7 +107,7 @@ public class SpawnControll : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Player1score", 0);
+                //PlayerPrefs.SetInt("Player1score", 0);
             }
         }
         else
@@ -129,7 +126,7 @@ public class SpawnControll : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Player2Score", 0);
+                //PlayerPrefs.SetInt("Player2Score", 0);
             }
         }
         else
@@ -148,7 +145,7 @@ public class SpawnControll : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Player3score", 0);
+                //PlayerPrefs.SetInt("Player3score", 0);
             }
         }
         else
@@ -167,7 +164,7 @@ public class SpawnControll : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Player4score", 0);
+                //PlayerPrefs.SetInt("Player4score", 0);
             }
         }
         else

@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   peleryna: {fileID: 1221745594706342}
-  cooldown: 4
+  cooldown: 8
   skillTime: 5
   volume: 1
   skillSounds:
