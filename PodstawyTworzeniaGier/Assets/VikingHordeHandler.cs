@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class VikingHordeHandler : MonoBehaviour {
-
+    private Horde horde;
     private List<GameObject> minions;
     private LinkedList<GameObject> axes;
     public int axesPerViking;
@@ -12,14 +12,14 @@ public class VikingHordeHandler : MonoBehaviour {
     private int axeRespawnCounter = 0;
 
     void Start () {
+        horde = gameObject.GetComponent<Horde>();
+        minions = horde.minions;
         axes = new LinkedList<GameObject>();
         axeCount = minions.Count * axesPerViking;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-
         if (minions.Count > 0)
         {
             if (minions[0].GetComponent<Viking>())
@@ -116,8 +116,4 @@ public class VikingHordeHandler : MonoBehaviour {
     }
     #endregion
 
-    public void SetMinions(List<GameObject> minions)
-    {
-        this.minions = minions;
-    }
 }

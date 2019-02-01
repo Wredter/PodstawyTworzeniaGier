@@ -21,9 +21,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     protected IController controller;
     protected string playerName;
     public bool isZombie;
-    public float slow = 1f;
-
-    
+    public float slow = 1f;    
 
     //Audio
     [Range(0f, 1f)]
@@ -32,7 +30,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
     private AudioSource skillSoundSource;
     //public AudioClip skillSound;
     //
-    public List<GameObject> minions;
+    public List<GameObject> minions = new List<GameObject>();
     public List<GameObject> minionsWithChief;
     GameObject chief;
 
@@ -43,8 +41,6 @@ public class Horde : MonoBehaviour, IPlayerIntegration
 
     void Start()
     {
-
-        
         deviceSignature = PlayerPrefs.GetString(playerName + "Controller");
         switch (deviceSignature)
         {
@@ -64,7 +60,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         controller.SetDeviceSignature(deviceSignature);
         divide1 = new Vector2();
         divide2 = new Vector2();
-        minions = new List<GameObject>();
+        minions.Clear();
         minionsWithChief = new List<GameObject>();
 
         GameObject obj = Instantiate(hordeChief, transform.position, Quaternion.identity, gameObject.transform);
@@ -107,16 +103,7 @@ public class Horde : MonoBehaviour, IPlayerIntegration
         if (minions[0].GetComponent<ZombieScript>())
         {
             isZombie = true;
-        }
-
-        if (minions[0].GetComponent<Viking>())
-        {
-            foreach (GameObject g in minions)
-            {
-                g.GetComponent<Viking>().VikingHordeHandler.GetComponent<VikingHordeHandler>().SetMinions(minions);
-            }
-        }
-        
+        }        
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Viking : MinionBase
 {
-    public GameObject VikingHordeHandler;
+    private VikingHordeHandler VikingHordeHandler;
 
     public GameObject projectile;
     public int cooldown;
@@ -24,6 +24,7 @@ public class Viking : MinionBase
     // Use this for initialization
     void Start()
     {
+        VikingHordeHandler = transform.parent.gameObject.GetComponent<VikingHordeHandler>();
         skillSoundSource = GetComponent<AudioSource>();
         counter = 0;
         Initialise();
@@ -49,7 +50,7 @@ public class Viking : MinionBase
             if(g.GetComponent<Axe>().GetCounter() < 0)
             {
                 toRemove.Add(g);
-                VikingHordeHandler.GetComponent<VikingHordeHandler>().AddToThrown(g);            
+                VikingHordeHandler.AddToThrown(g);            
             }
         }
         foreach(GameObject g in toRemove)
@@ -61,17 +62,22 @@ public class Viking : MinionBase
 
     void Update()
     {
-        if (controller.Shoot() && VikingHordeHandler.GetComponent<VikingHordeHandler>().CanRemoveAxe() && !hasShot && counter <= 0)
+        if (controller.Shoot())
         {
-            GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
-            axes.Add(temp, temp.GetComponent<Axe>());
-            axes[temp].SetPlayerName(playerName);
-            axes[temp].Initialise("axe" + projectilesCount, this, controller);
-            skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
-            projectilesCount++;
-            VikingHordeHandler.GetComponent<VikingHordeHandler>().RemoveAxe();
-            hasShot = true;
-            counter = cooldown;
+            Debug.Log("topur pruba");
+            if (VikingHordeHandler.CanRemoveAxe() && !hasShot && counter <= 0)
+            {
+                Debug.Log("topur rzut");
+                GameObject temp = (Instantiate(projectile, transform.position, transform.rotation));
+                axes.Add(temp, temp.GetComponent<Axe>());
+                axes[temp].SetPlayerName(playerName);
+                axes[temp].Initialise("axe" + projectilesCount, this, controller);
+                skillSoundSource.PlayOneShot(skillSounds[0], Random.Range(volumeMin, volumeMax));
+                projectilesCount++;
+                VikingHordeHandler.RemoveAxe();
+                hasShot = true;
+                counter = cooldown;
+            }
         }
         if(!controller.Shoot() && hasShot)
         {
@@ -87,7 +93,7 @@ public class Viking : MinionBase
             if(collision.gameObject.GetComponent<Axe>().GetPlayerName().Equals(playerName) 
                 && collision.gameObject.GetComponent<Axe>().GetCounter() < 0)
             {
-                VikingHordeHandler.GetComponent<VikingHordeHandler>().AddAxe();
+                VikingHordeHandler.AddAxe();
                 //((Viking)(collision.gameObject.GetComponent<Projectile>().GetPlayer())).ReturnProjectile(collision.gameObject);
                 Destroy(collision.gameObject);
                 return;
@@ -99,16 +105,5 @@ public class Viking : MinionBase
     public void ReturnProjectile(GameObject p)
     {
         axes.Remove(p);
-    }
-
-    public void SetHorde(GameObject g)
-    {
-        horde = g.GetComponent<Horde>();
-        Debug.Log(horde);
-    }
-
-    public void SetVikingHordeHandler(GameObject handler)
-    {
-        VikingHordeHandler = handler;
     }
 }
